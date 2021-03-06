@@ -7,7 +7,7 @@
     <title>Contacto</title>
 </head>
 <body>
-    <form>
+    <form action="mailto:sebastianrza@gmail.com" method="GET">
         <section>
         <article>
         <p>Nombre</p>
@@ -15,18 +15,15 @@
         <p>Email</p>
             <input type="text" name="cf_email">
         <p>Motivo de Consulta: </p>
-        <label><input type="radio" name="Motivo" value="Evaluación"> Evaluación</label><br>
-        <label><input type="radio" name="Motivo" value="Sugerencias"> Sugerencias</label><br>
-        <label><input type="radio" name="Motivo" value="Críticas"> Críticas</label>
+        <label><input type="radio" name="subject" value="Evaluación"> Evaluación</label><br>
+        <label><input type="radio" name="subject" value="Sugerencias"> Sugerencias</label><br>
+        <label><input type="radio" name="subject" value="Críticas"> Críticas</label>
         <p><label><input type="checkbox" id="cbox1" value="cbox1" required>Marque esta casilla para verificar que ha 
             leído nuestros términos y condiciones</label></p>
-        <p>mensaje</p>
-        <textarea name="cf_message" cols = "40" rows="10"> Escribe el mensaje</textarea>
+        <textarea name="body" cols = "40" rows="10" placeholder="Introduzca el texto"></textarea>
+        <button>Enviar</button>
         </article>
-    
-        </section>
-        
-        
+        </section>   
     </form>
 </body>
 </html>
