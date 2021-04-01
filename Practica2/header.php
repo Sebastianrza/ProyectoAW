@@ -9,7 +9,7 @@ if(!isset($_SESSION["login"])){
     $username = $_SESSION["nombre"];
     echo" <img src='./img/logo_transparent.png' width='175'/>";
     echo" <input type='search' placeholder='Search...'>";
-    echo'Bienvenido, '. $username . '.';
-    echo'<button onclick="location.href="index.php";">Logout</button>';
+    echo'Bienvenido, '. $username;
+    echo'<button onclick="location.href=\'logout.php\';"> Logout</button>';
 }
 ?>
