@@ -7,7 +7,7 @@
  
   if (!empty($_POST['email']) && !empty($_POST['psw'] && !empty($_POST['nombre']) 
   && !empty($_POST['apellido']) && !empty($_POST['username']) )) {
-    echo'entre';
+
     $registro = '1';
     $sql = "INSERT INTO `Usuario` (email, nombre, apellido, username, pass, registro) VALUES (:email,:nombre, :apellido, :username, :pass, $registro )";
     $stmt = $conn->prepare($sql);
@@ -17,7 +17,7 @@
     $stmt->bindParam(':username', $_POST['username']);
     $password = password_hash($_POST['psw'], PASSWORD_BCRYPT);
     $stmt->bindParam(':pass', $password);
-    echo'antes ejecutar';
+    
     if ($stmt->execute()) {
       $message = 'Se ha creado el usuario correctamente.';
       header("location: index.php");

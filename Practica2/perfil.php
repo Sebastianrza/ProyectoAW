@@ -13,16 +13,7 @@
 </head>
 <body>
     <img src="./img/logo.png" alt="Logo WaveCast" width = "300">
-    <div class="Barra-Busqueda">
-            <div class="flexsearch--wrapper">
-                <form class="flexsearch--form" action="#" method="post">
-                    <div class="flexsearch--input-wrapper">
-                        <input class="flexsearch--input" type="search" placeholder="Buscar Podcast">
-                        <input class="flexsearch--submit" type="submit" value="&#10140;"/>
-                    </div>
-                </form>
-            </div>
-    </div>
+    <input type='search' placeholder='Search...'>
     <div class="Perfil">
         <button class= "b-perfil" type = "button"> 
             Perfil
