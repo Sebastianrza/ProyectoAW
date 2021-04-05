@@ -3,8 +3,7 @@
   require 'database.php';
   session_start();
   $message = '';
-  echo'antes';
- 
+
   if (!empty($_POST['email']) && !empty($_POST['psw'] && !empty($_POST['nombre']) 
   && !empty($_POST['apellido']) && !empty($_POST['username']) )) {
 
