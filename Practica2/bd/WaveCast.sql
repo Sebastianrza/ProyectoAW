@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 31-03-2021 a las 16:16:46
+-- Tiempo de generación: 05-04-2021 a las 17:39:09
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -32,11 +32,18 @@ CREATE TABLE `Usuario` (
   `nombre` text NOT NULL,
   `apellido` text NOT NULL,
   `username` varchar(20) NOT NULL,
-  `pass` varchar(32) NOT NULL,
-  `Fecha_nac` date NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `registro` tinyint(1) NOT NULL,
   `registro_prem` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `Usuario`
+--
+
+INSERT INTO `Usuario` (`email`, `nombre`, `apellido`, `username`, `pass`, `registro`, `registro_prem`) VALUES
+('sebastianrza@gmail.com', 'Sebastian', 'Zambrano', 'sebastianrza', '$2y$10$ShoQcJZCAb1msRzX1mE0SuC1Ql.5jnFv/JLU.MJliHQn/CzY2i506', 1, NULL),
+('sezambra@ucm.es', 'Sebastian', 'szadsfd', 'sfdsdfds', '$2y$10$OQdas/66OOKFmJUG8MjL1OIQSEbkaxkJdKI.RWTmPhlIVjbXCIe5K', 1, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -46,7 +53,7 @@ CREATE TABLE `Usuario` (
 -- Indices de la tabla `Usuario`
 --
 ALTER TABLE `Usuario`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
