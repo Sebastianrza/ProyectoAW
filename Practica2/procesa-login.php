@@ -6,7 +6,7 @@ require 'database.php';
 $email = htmlentities(addslashes($_POST['email']));
 $pass = htmlentities(addslashes($_POST['psw']));
 if (!empty($_POST['email']) && !empty($_POST['psw'])) {
-  $sql = 'SELECT * FROM Usuario WHERE email = :email';
+  $sql = 'SELECT * FROM usuario WHERE email = :email';
   $records = $conn->prepare($sql);
   $records->bindValue(':email', $_POST['email']);
   $records->execute();

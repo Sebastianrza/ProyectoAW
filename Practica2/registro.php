@@ -7,7 +7,7 @@
   if (!empty($_POST['email']) && !empty($_POST['psw'] && !empty($_POST['nombre']) 
   && !empty($_POST['apellido']) && !empty($_POST['username']) )) {
 
-    $sql = "INSERT INTO `Usuario` (email, nombre, apellido, username, pass ) VALUES (:email,:nombre, :apellido, :username, :pass)";
+    $sql = "INSERT INTO `usuario` (email, nombre, apellido, username, pass ) VALUES (:email,:nombre, :apellido, :username, :pass)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':nombre', $_POST['nombre']);
