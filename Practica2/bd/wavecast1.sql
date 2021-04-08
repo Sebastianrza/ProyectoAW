@@ -89,7 +89,7 @@ CREATE TABLE `tag` (
 CREATE TABLE `tagged` (
   `idpodcast` int(11) NOT NULL,
   `idTag` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
