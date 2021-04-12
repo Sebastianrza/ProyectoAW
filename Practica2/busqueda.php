@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php 
 require 'database.php';
 session_start();
@@ -12,8 +14,16 @@ echo "<h2> Usuarios con nombre: ". $criterio . "</h2>";
 echo "<h4> Numero de resultados: ". $stmt->rowCount() . "</h4>";
 
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
 while ($row = $stmt->fetch()){
-    echo "Nombre de usuario: ".$row["username"]. "<br>";
+/* ?>
+//     <body> <img src="./img/favicon.png" alt="Logo WaveCast" width = "30"> </body>
+ <?php*/
+ 
+    $nomUser = $row["username"];
+    // echo "Nombre de usuario: ".$nomUser. "<br>";
+   
+    echo "<h3>" , '<a href="perfil.php?">' . $nomUser .'</a>'. "<br>" . "</h3>";
 }
 
 
@@ -26,8 +36,10 @@ $stmt->execute();
 echo "<h2> Podcast con nombre: ". $criterio . "</h2>";
 echo "<h4> Numero de resultados: ". $stmt->rowCount() . "</h4>";
 while ($row = $stmt->fetch()){
-    echo "<h4>Podcast: </h4>{$row["nombrePodcast"]} <br>";
-    echo "Creador: {$row["userPodcast"]} <br>";
+    // echo "<h4>Podcast: </h4>{$row["nombrePodcast"]} <br>";
+    echo "<h3>" , '<a href="reproductor.php?">' . $row["nombrePodcast"] .'</a>'. "<br>" . "</h3>";
+    // echo "Creador: {$row["userPodcast"]} <br>";
+    echo "<h4>" , '<a href="perfil.php?">' . $row["userPodcast"] .'</a>'. "<br>" . "</h4>";
     echo "Fecha de subida: {$row["Fecha"]} <br>";
     echo "Visualizaciones: {$row["visualizaciones"]} <br>";
 }
@@ -41,8 +53,10 @@ $stmt->execute();
 echo "<h2> Podcast etiquetados con: ". $criterio . "</h2>";
 echo "<h4> Numero de resultados: ". $stmt->rowCount() . "</h4>";
 while ($row = $stmt->fetch()){
-    echo "<h4>Podcast: </h4>{$row["nombrePodcast"]} <br>";
-    echo "Creador: {$row["userPodcast"]} <br>";
+     // echo "<h4>Podcast: </h4>{$row["nombrePodcast"]} <br>";
+     echo "<h3>" , '<a href="reproductor.php?">' . $row["nombrePodcast"] .'</a>'. "<br>" . "</h3>";
+     // echo "Creador: {$row["userPodcast"]} <br>";
+     echo "<h4>" , '<a href="perfil.php?">' . $row["userPodcast"] .'</a>'. "<br>" . "</h4>";
     echo "Fecha de subida: {$row["Fecha"]} <br>";
     echo "Visualizaciones: {$row["visualizaciones"]} <br>";
 }
