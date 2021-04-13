@@ -22,5 +22,7 @@
     } else {
       $message = 'Disculpe la cuenta ya está creada.';
     }
+
+  $stmt->free();
   }
 ?>
