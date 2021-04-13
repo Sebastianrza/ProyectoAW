@@ -2,7 +2,7 @@
 if (isset($_SESSION['nombre'])) {
   header('Location: index.php');
 }
-require 'database.php';
+require_once __DIR__.'/includes/BD/database.php';
 $email = htmlentities(addslashes($_POST['email']));
 $pass = htmlentities(addslashes($_POST['psw']));
 if (!empty($_POST['email']) && !empty($_POST['psw'])) {
