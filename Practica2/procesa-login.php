@@ -17,9 +17,11 @@ if (!empty($_POST['email']) && !empty($_POST['psw'])) {
         session_start();
         $_SESSION['nombre'] = $_POST['email'];
         $_SESSION['login'] = true;
+        $records->close(); $conn ->close();
         header("Location: index.php");
-        exit();
+        
       }else{
+        $stmt ->close(); $conn ->close();
         header('location: index.php');
       }
   }

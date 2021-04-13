@@ -18,11 +18,13 @@
     
     if ($stmt->execute()) {
       $message = 'Se ha creado el usuario correctamente.';
+      $stmt ->close(); $conn ->close();
       header("location: index.php");
     } else {
+      $stmt ->close(); $conn ->close();
       $message = 'Disculpe la cuenta ya está creada.';
     }
 
-  $stmt->free();
+  
   }
 ?>
