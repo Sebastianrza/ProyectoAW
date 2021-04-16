@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-04-2021 a las 14:12:57
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Servidor: localhost
+-- Tiempo de generación: 16-04-2021 a las 14:12:29
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `wavecast`
+-- Base de datos: `WaveCast`
 --
+CREATE DATABASE IF NOT EXISTS `WaveCast` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `WaveCast`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `comentarios`
 --
 
+DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE `comentarios` (
   `idComentario` int(255) NOT NULL,
   `idPodcast` int(11) NOT NULL,
@@ -40,6 +43,7 @@ CREATE TABLE `comentarios` (
 -- Estructura de tabla para la tabla `megusta`
 --
 
+DROP TABLE IF EXISTS `megusta`;
 CREATE TABLE `megusta` (
   `podcastID` int(11) NOT NULL,
   `userID` varchar(20) CHARACTER SET utf8mb4 NOT NULL
@@ -51,6 +55,7 @@ CREATE TABLE `megusta` (
 -- Estructura de tabla para la tabla `podcast`
 --
 
+DROP TABLE IF EXISTS `podcast`;
 CREATE TABLE `podcast` (
   `userPodcast` varchar(255) NOT NULL,
   `nombrePodcast` varchar(255) NOT NULL,
@@ -78,6 +83,7 @@ INSERT INTO `podcast` (`userPodcast`, `nombrePodcast`, `idPodcast`, `Descripció
 -- Estructura de tabla para la tabla `podcastag`
 --
 
+DROP TABLE IF EXISTS `podcastag`;
 CREATE TABLE `podcastag` (
   `podcastID` int(11) NOT NULL,
   `tagID` varchar(20) CHARACTER SET utf8mb4 NOT NULL
@@ -107,6 +113,7 @@ INSERT INTO `podcastag` (`podcastID`, `tagID`) VALUES
 -- Estructura de tabla para la tabla `seguir`
 --
 
+DROP TABLE IF EXISTS `seguir`;
 CREATE TABLE `seguir` (
   `username` varchar(20) NOT NULL,
   `idpodcast` int(11) NOT NULL
@@ -118,6 +125,7 @@ CREATE TABLE `seguir` (
 -- Estructura de tabla para la tabla `tag`
 --
 
+DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
   `id` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -145,6 +153,7 @@ INSERT INTO `tag` (`id`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `email` varchar(30) NOT NULL,
   `nombre` text NOT NULL,
