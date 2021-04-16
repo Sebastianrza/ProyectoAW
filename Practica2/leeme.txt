@@ -1,0 +1,7 @@
+Funcionalidades:
+
+Login
+Registro
+Reproductor
+explorar
+Buscar
