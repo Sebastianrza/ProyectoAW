@@ -1,6 +1,6 @@
 <?php
 
-  require_once __DIR__.'/includes/BD/database.php';
+  require_once __DIR__.'/APP/BD/database.php';
   session_start();
   $message = '';
 
