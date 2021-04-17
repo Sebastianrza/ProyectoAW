@@ -2,7 +2,7 @@
 if (isset($_SESSION['nombre'])) {
   header('Location: index.php');
 }
-require 'database.php';
+require_once __DIR__.'/APP/BD/database.php';
 $email = htmlentities(addslashes($_POST['email']));
 $pass = htmlentities(addslashes($_POST['psw']));
 if (!empty($_POST['email']) && !empty($_POST['psw'])) {
@@ -17,9 +17,11 @@ if (!empty($_POST['email']) && !empty($_POST['psw'])) {
         session_start();
         $_SESSION['nombre'] = $_POST['email'];
         $_SESSION['login'] = true;
+        $records->close(); $conn ->close();
         header("Location: index.php");
-        exit();
+        
       }else{
+        $stmt ->close(); $conn ->close();
         header('location: index.php');
       }
   }
