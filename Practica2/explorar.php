@@ -1,5 +1,5 @@
 <?php 
-require 'database.php';
+require_once __DIR__.'/APP/BD/database.php';
 session_start();
 
 echo "<h2> ESTOS SON LOS AUDIOS DESTACADOS: </h2>";
