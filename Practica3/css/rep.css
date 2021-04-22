@@ -1,0 +1,30 @@
+/* ########################################### */
+/*                Menu izda.                   */
+/* ########################################### */
+
+aside{
+	float: left;
+	background-color: #000000;
+}
+
+body {
+	background-color: #424949;
+}	
+ 
+ h3{
+ color: white;
+ text-align: center;
+ }
+
+.parrafo{
+	text-align: center;
+}
+
+/*Botones*/
+
+.reproducir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

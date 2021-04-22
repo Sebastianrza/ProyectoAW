@@ -36,4 +36,24 @@ function mute(){
 	vid.muted = true;
 }
 
+//Rep-List
 
+var sources = [
+  {
+    src: "http://www.w3schools.com/html/horse.ogg",
+    type: "audio/ogg",
+  },
+  {
+    src: "http://www.w3schools.com/html/horse.mp3",
+    type: "audio/mp3",
+  }
+];
+
+var miAudio = document.getElementById("miAudio");
+
+for (var x = 0; x < sources.length; x++) {
+  var src = document.createElement("source");
+  src.src = sources[x].src;
+  src.type = sources[x].type;
+  miAudio.appendChild(src);
+}
