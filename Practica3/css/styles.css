@@ -94,3 +94,32 @@ li{
   .form-container1 .btn:hover, .open-button:hover {
     opacity: 1;
   }
+  #bodyperfil{
+    background-color: black;
+    font-style: normal;
+    color: white; 
+  }
+.b-perfil{
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    border: 5px solid white;
+  }
+  #div-header{
+    text-align: center;
+    justify-content: center;
+  }
+  #form-buscar, #form-explorar{
+    align-items: center;
+    display: inline;
+    font-weight: 600;
+  }
+  #par-bien{
+    text-align:right;
+  }
+  #btn-log{
+      float:right;
+      font-weight: 600;
+      border: 3px solid white;
+  }
+  

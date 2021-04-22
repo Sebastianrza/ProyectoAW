@@ -94,3 +94,9 @@ li{
   .form-container1 .btn:hover, .open-button:hover {
     opacity: 1;
   }
+.bodyperfil{
+  background-color: black;
+  font-style: normal;
+  color: aquamarine;
+  
+}

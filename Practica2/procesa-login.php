@@ -17,15 +17,14 @@ if (!empty($_POST['email']) && !empty($_POST['psw'])) {
         session_start();
         $_SESSION['nombre'] = $_POST['email'];
         $_SESSION['login'] = true;
-        $records->close(); $conn ->close();
         header("Location: index.php");
-        
+        exit();
       }else{
-        $stmt ->close(); $conn ->close();
+        
         header('location: index.php');
       }
   }
-  
+  $records->close(); $conn ->close();
   }else{
     echo '<h2>Disculpe, el usuario No está registrado</h2>';
     echo '<button onclick="index.php"> Regresar</button>';

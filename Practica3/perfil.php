@@ -13,10 +13,10 @@ session_start();
     <link id="estilo" type="text/css" href="./css/styles.css" rel="stylesheet">
     <title>Mi Perfil</title>
 </head>
-
-<body>
-    <img src="./img/logo.png" alt="Logo WaveCast" width="300">
-    <!-- <input type='search' placeholder='Search...'> -->
+<?php
+require ("./includes/header.php"); 
+?>
+<body id = "bodyperfil"> 
     <div class="Perfil">
         <button class="b-perfil" type="button">
             Perfil
@@ -24,8 +24,18 @@ session_start();
     </div>
     <nav>
         <ul>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="#Podcast">Podcast</a></li>
-            <?php
+            <li><a href="#Siguiendo">Siguiendo</a></li>
+            <li><a href="#Guardados">Guardados</a></li>
+            <li><a href="#Comentario">Comentarios</a></li>          
+        </ul>
+    </nav>
+
+    <section>
+        <div id="Podcast">
+        
+        <?php
           $criterio = $_GET["fname"];
           echo "<h2> Resultados con: ". $criterio . "</h2>";
           
@@ -49,15 +59,9 @@ session_start();
               echo "<h3>" , '<a href="perfil.php?">' . $row["visualizaciones"] .'</a>'. "<br>" . "</h3>";
           }
 
-            ?>
-            <li><a href="#Siguiendo">Siguiendo</a></li>
-            <li><a href="#Guardados">Guardados</a></li>
-            <li><a href="#Comentario">Comentarios</a></li>
-        </ul>
-    </nav>
-
-    <section>
-        <div id="Podcast"></div>
+        ?>
+        
+        </div>
     </section>
 </body>
 
