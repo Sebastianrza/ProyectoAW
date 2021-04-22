@@ -27,7 +27,7 @@
 					<li class = "nav-item">
 						<a href = "perfil.php">Perfil</a>
 					</li>
-					</font>
+					
 				</ul>
 			</nav>
 			<a href = "#" class = "bar-icon" id = "iconBar" onclick = "hideIconBar()"><i class="fa fa-bars"></i></a>

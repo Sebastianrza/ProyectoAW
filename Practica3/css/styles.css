@@ -4,6 +4,9 @@ li{
 .btn-login {
     cursor: pointer;
   }
+  #index{
+    background-color: black;
+  }
 /* The popup form - hidden by default */
 #myForm {
     display: none;
@@ -28,7 +31,7 @@ li{
   }
   /* Full-width input fields */
   .form-container input[type=text], .form-container input[type=password] {
-    width: 100%;
+    width: 270px;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -36,7 +39,7 @@ li{
   }
   .form-container1 input[type=text], .form-container1 input[type=user1], .form-container1 input[type=username], .form-container1 input[type=user2] , 
   .form-container1 input[type=password]{
-    width: 100%;
+    width: 270px;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -94,6 +97,7 @@ li{
   .form-container1 .btn:hover, .open-button:hover {
     opacity: 1;
   }
+  
   #bodyperfil{
     background-color: black;
     font-style: normal;
@@ -106,7 +110,7 @@ li{
     border: 5px solid white;
   }
   #div-header{
-    text-align: center;
+    text-align: left;
     justify-content: center;
   }
   #form-buscar, #form-explorar{
@@ -122,4 +126,6 @@ li{
       font-weight: 600;
       border: 3px solid white;
   }
-  
+  #a-perfil{
+      color: white;
+  }

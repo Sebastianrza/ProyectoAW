@@ -18,18 +18,13 @@ include ("includes/navbar.php");
 require ("./includes/header.php"); 
 ?>
 <body id = "bodyperfil"> 
-    <div class="Perfil">
-        <button class="b-perfil" type="button">
-            Perfil
-        </button>
-    </div>
     <nav>
         <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="#Podcast">Podcast</a></li>
-            <li><a href="#Siguiendo">Siguiendo</a></li>
-            <li><a href="#Guardados">Guardados</a></li>
-            <li><a href="#Comentario">Comentarios</a></li>          
+            <li><a id ="a-perfil"href="index.php">Inicio</a></li>
+            <li><a id ="a-perfil"href="#Podcast">Podcast</a></li>
+            <li><a id ="a-perfil"href="#Siguiendo">Siguiendo</a></li>
+            <li><a id ="a-perfil"href="#Guardados">Guardados</a></li>
+            <li><a id ="a-perfil"href="#Comentario">Comentarios</a></li>          
         </ul>
     </nav>
 
