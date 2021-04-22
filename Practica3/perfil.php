@@ -14,6 +14,7 @@ session_start();
     <title>Mi Perfil</title>
 </head>
 <?php
+include ("includes/navbar.php");
 require ("./includes/header.php"); 
 ?>
 <body id = "bodyperfil"> 
