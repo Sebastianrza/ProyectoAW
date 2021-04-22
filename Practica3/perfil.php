@@ -1,12 +1,7 @@
 <?php
-<<<<<<< HEAD
-require 'database.php';
+require_once __DIR__.'/APP/BD/database.php';
 session_start();
-=======
-    session_start();
->>>>>>> main
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

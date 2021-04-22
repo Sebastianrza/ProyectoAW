@@ -1,4 +1,5 @@
 <?php 
+
 if (isset($_SESSION['nombre'])) {
   header('Location: index.php');
 }
@@ -18,17 +19,17 @@ if (!empty($_POST['email']) && !empty($_POST['psw'])) {
         $_SESSION['nombre'] = $_POST['email'];
         $_SESSION['login'] = true;
         $records->close(); $conn ->close();
-        header("Location: index.php");
+        header('Location: index.php');
         
       }else{
         $stmt ->close(); $conn ->close();
-        header('location: index.php');
+        header('Location: index.php');
       }
   }
   
   }else{
     echo '<h2>Disculpe, el usuario No está registrado</h2>';
-    echo '<button onclick="index.php"> Regresar</button>';
+    echo '<button onclick="history.back()"> Regresar</button>';
   }
 }
 
