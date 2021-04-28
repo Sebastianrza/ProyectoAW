@@ -8,6 +8,7 @@
 <body>
 <div id="contenedor">
 <?php
+	require("includes/navbar.php");
 	require("includes/comun/cabecera.php");
 	require("includes/comun/sidebarIzq.php");
 ?>
