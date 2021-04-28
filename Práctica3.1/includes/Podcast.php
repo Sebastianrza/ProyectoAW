@@ -23,6 +23,7 @@ class Podcast{
     public static function subirPodcast($nombrePodcast, $userPodcast, $descripcion, $fecha){
         $app = Aplicacion::getSingleton();
         $conexion = $app->conexionBd();
+        $sql = sprintf('insert into Podcast ')
     }
 
     public static function eliminarPodcast($nombrePodcast){
