@@ -8,7 +8,7 @@ Class FormularioSubirFoto extends Form{
 
     protected function generaCamposFormulario($datos, $errores = array())
     {
-        
+        $nombreUsuario = $datos['nombreUsuario'] ?? '';
         // Se generan los mensajes de error si existen.
         $htmlErroresGlobales = self::generaListaErroresGlobales($errores);
         $rutaIndexphp = dirname(realpath('/includes/ImagenesUser'))
