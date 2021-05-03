@@ -18,7 +18,8 @@ class FormularioRegistro extends Form
         $errorNombre = self::createMensajeError($errores, 'nombre', 'span', array('class' => 'error'));
         $errorPassword = self::createMensajeError($errores, 'password', 'span', array('class' => 'error'));
         $errorPassword2 = self::createMensajeError($errores, 'password2', 'span', array('class' => 'error'));
-
+        $errorEmail = self::createMensajeError($errores, 'email', 'span', array('class'=>'error'));
+        $errorbio = self::createMensajeError($errores, 'bio', 'span', array('class'=>'error'));
         $html = <<<EOF
             <fieldset>
                 $htmlErroresGlobales
@@ -27,6 +28,12 @@ class FormularioRegistro extends Form
                 </div>
                 <div class="grupo-control">
                     <label>Nombre completo:</label> <input class="control" type="text" name="nombre" value="$nombre" />$errorNombre
+                </div>
+                <div class="grupo-control">
+                <label>Correo</label> <input class="control" type="text" name="Correo" />$errorEmail
+                </div>
+                <div class="grupo-control2">
+                <label>Biografía</label> <textarea class="control2" type="text" name="bio"></textarea>$errorbio
                 </div>
                 <div class="grupo-control">
                     <label>Password:</label> <input class="control" type="password" name="password" />$errorPassword
@@ -55,7 +62,14 @@ class FormularioRegistro extends Form
         if ( empty($nombre) || mb_strlen($nombre) < 5 ) {
             $result['nombre'] = "El nombre tiene que tener una longitud de al menos 5 caracteres.";
         }
-        
+        $email = $datos['Correo'] ?? null;
+        if ( empty($email) ) {
+            $result['Correo'] = "El email tiene que tener una longitud de al menos 16 caracteres.";
+        }
+        $bio = $datos['bio'] ?? null;
+        if ( empty($bio) || mb_strlen($bio) < 16 ) {
+            $result['bio'] = "la biografía tiene que tener una longitud de al menos 16 caracteres.";
+        }
         $password = $datos['password'] ?? null;
         if ( empty($password) || mb_strlen($password) < 5 ) {
             $result['password'] = "El password tiene que tener una longitud de al menos 5 caracteres.";
@@ -66,7 +80,7 @@ class FormularioRegistro extends Form
         }
         
         if (count($result) === 0) {
-            $user = Usuario::crea($nombreUsuario, $nombre, $password, 'user');
+            $user = Usuario::crea($nombreUsuario, $nombre, $email, $bio, $password, 'user');
             if ( ! $user ) {
                 $result[] = "El usuario ya existe";
             } else {
