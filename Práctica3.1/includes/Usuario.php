@@ -17,13 +17,13 @@ class Usuario
     {
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $query = sprintf("SELECT * FROM Usuarios U WHERE U.nombreUsuario = '%s'", $conn->real_escape_string($nombreUsuario));
+        $query = sprintf("SELECT * FROM usuario U WHERE U.username = '%s'", $conn->real_escape_string($nombreUsuario));
         $rs = $conn->query($query);
         $result = false;
         if ($rs) {
             if ( $rs->num_rows == 1) {
                 $fila = $rs->fetch_assoc();
-                $user = new Usuario($fila['nombreUsuario'], $fila['nombre'], $fila['password'], $fila['rol']);
+                $user = new Usuario($fila['username'], $fila['email'], $fila['nombre'],$fila['biografia'] ,$fila['pass'], $fila['rol']);
                 $user->id = $fila['id'];
                 $result = $user;
             }
@@ -35,16 +35,16 @@ class Usuario
         return $result;
     }
     
-    public static function crea($nombreUsuario, $nombre, $password, $rol)
+    public static function crea($nombreUsuario, $nombre, $email, $bio, $password, $rol)
     {
         $user = self::buscaUsuario($nombreUsuario);
         if ($user) {
             return false;
         }
-        $user = new Usuario($nombreUsuario, $nombre, self::hashPassword($password), $rol);
+        $user = new Usuario($nombreUsuario, $nombre, $email, $bio,  self::hashPassword($password), $rol);
         return self::guarda($user);
     }
-    
+   
     private static function hashPassword($password)
     {
         return password_hash($password, PASSWORD_DEFAULT);
@@ -62,10 +62,12 @@ class Usuario
     {
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $query=sprintf("INSERT INTO Usuarios(nombreUsuario, nombre, password, rol) VALUES('%s', '%s', '%s', '%s')"
-            , $conn->real_escape_string($usuario->nombreUsuario)
+        $query=sprintf("INSERT INTO usuario (email, nombre, username, pass, biografia, rol) VALUES('%s', '%s', '%s', '%s', '%s','%s')"
+            , $conn->real_escape_string($usuario->email) 
             , $conn->real_escape_string($usuario->nombre)
+            , $conn->real_escape_string($usuario->nombreUsuario)
             , $conn->real_escape_string($usuario->password)
+            ,$conn->real_escape_string($usuario->bio)
             , $conn->real_escape_string($usuario->rol));
         if ( $conn->query($query) ) {
             $usuario->id = $conn->insert_id;
@@ -80,9 +82,11 @@ class Usuario
     {
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $query=sprintf("UPDATE Usuarios U SET nombreUsuario = '%s', nombre='%s', password='%s', rol='%s' WHERE U.id=%i"
+        $query=sprintf("UPDATE usuario U SET username = '%s', email = '%s', biografia = '%s',nombre='%s', pass='%s', rol='%s' WHERE U.id=%i"
             , $conn->real_escape_string($usuario->nombreUsuario)
             , $conn->real_escape_string($usuario->nombre)
+            , $conn->real_espape_string($usuario->email)
+            , $conn->real_escape_string($usuario->bio)
             , $conn->real_escape_string($usuario->password)
             , $conn->real_escape_string($usuario->rol)
             , $usuario->id);
@@ -92,7 +96,7 @@ class Usuario
                 exit();
             }
         } else {
-            echo "Error al insertar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
+            echo "Error al actualizar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
             exit();
         }
         
@@ -105,18 +109,29 @@ class Usuario
 
     private $nombre;
 
+    private $email; 
+
     private $password;
+
+    private $bio;
 
     private $rol;
 
-    private function __construct($nombreUsuario, $nombre, $password, $rol)
+    private function __construct($nombreUsuario, $nombre, $email, $bio,$password, $rol)
     {
         $this->nombreUsuario= $nombreUsuario;
         $this->nombre = $nombre;
+        $this->email = $email;
+        $this->bio = $bio;
         $this->password = $password;
         $this->rol = $rol;
     }
-
+    public function email(){
+        return $this->email;
+    }
+    public function bio(){
+        return $this->bio;
+    }
     public function id()
     {
         return $this->id;
