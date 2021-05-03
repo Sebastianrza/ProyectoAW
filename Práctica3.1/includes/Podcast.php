@@ -7,16 +7,18 @@ class Podcast{
     private $descripcion;
     private $nombrePodcast;
     private $userPodcast;
+    private $genero;
     private $fecha;
 
     //private $tag; Tiene tag??
 
-    protected function __construct($idPodcast, $nombrePodcast,$userPodcast, $descripcion, $fecha)
+    protected function __construct($idPodcast, $nombrePodcast,$userPodcast, $descripcion, $genero,$fecha)
     {
         $this->idPodcast= $idPodcast;
         $this->descripcion = $descripcion;
         $this->userPodcast = $userPodcast;
         $this->nombrePodcast = $nombrePodcast;
+        $this->genero = $genero;
         $this->fecha = $fecha;
         //$this->tag = $tag;
     }
