@@ -86,6 +86,10 @@ fieldset .control {
 fieldset .grupo-control {
 	margin: 5px;
 }
+fieldset .control2{
+	height: 100px;
+	width: 400px;
+}
 
 
 fieldset {
