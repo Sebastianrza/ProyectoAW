@@ -4,9 +4,9 @@
  * Parámetros de conexión a la BD
  */
 define('BD_HOST', 'localhost');
-define('BD_NAME', 'ejercicio3');
-define('BD_USER', 'ejercicio3');
-define('BD_PASS', 'ejercicio3');
+define('BD_NAME', 'wavecast');
+define('BD_USER', 'root');
+define('BD_PASS', '');
 
 /**
  * Configuración del soporte de UTF-8, localización (idioma y país) y zona horaria
