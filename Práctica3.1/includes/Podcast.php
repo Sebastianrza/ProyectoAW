@@ -1,4 +1,5 @@
 <?php 
+namespace es\ucm\fdi\aw;
 
 class Podcast{
 
@@ -10,7 +11,7 @@ class Podcast{
 
     //private $tag; Tiene tag??
 
-    private function __construct($nombrePodcast,$userPodcast, $descripcion, $fecha)
+    protected function __construct($idPodcast, $nombrePodcast,$userPodcast, $descripcion, $fecha)
     {
         $this->idPodcast= $idPodcast;
         $this->descripcion = $descripcion;
@@ -23,7 +24,7 @@ class Podcast{
     public static function subirPodcast($nombrePodcast, $userPodcast, $descripcion, $fecha){
         $app = Aplicacion::getSingleton();
         $conexion = $app->conexionBd();
-        $sql = sprintf('insert into Podcast ')
+        $sql = sprintf('insert into Podcast ');
     }
 
     public static function eliminarPodcast($nombrePodcast){
