@@ -14,7 +14,6 @@ class FormularioSubirPodcast extends Form
 
         // Se generan los mensajes de error si existen.
         $htmlErroresGlobales = self::generaListaErroresGlobales($errores);
-        $errorNombreUsuario = self::createMensajeError($errores, 'nombreUsuario', 'span', array('class' => 'error'));
         $errorNombrePodcast = self::createMensajeError($errores, 'nombrePodcast', 'span', array('class' => 'error'));
         $errorDescripcion = self::createMensajeError($errores, 'Descripcion', 'span', array('class' => 'error'));
         
@@ -23,10 +22,21 @@ class FormularioSubirPodcast extends Form
             <fieldset>
                 $htmlErroresGlobales
                 <div class="grupo-control">
-                    <label>Nombre Podcast:</label> <input class="control" type="text" name="nombreUsuario" value="$nombreUsuario" />$errorNombreUsuario
+                    <label>Nombre Podcast:</label> <input class="control" type="text" name="nombreUsuario" /> $errorNombrePodcast
                 </div>
                 <div class="grupo-control">
-                    <label>Descripción del podcast</label> <input class="control" type="text" name="descripcion" value="$nombre" />$errorNombre
+                    <label>Descripción del podcast</label> <input class="control" type="text" name="Descripcion"/>  $errorDescripcion
+                </div>
+                <div class="grupo-control">
+                    <label>Genero del Podcast</label> 
+                    <select name ="genero">
+                        <option selected value="0"> Elige una opción </option> 
+                        <option value="1">Informativo</option> 
+                        <option value="2">Formación</option> 
+                        <option value="3">Entretenimiento</option>
+                        <option value="4">Persuación</option> 
+                        <option value="5">Otro</option> 
+                    </select>$errorNombre
                 </div>
                 <div class="grupo-control"><button type="submit" name="subirPodcast">Subir Podcast</button></div>
             </fieldset>
@@ -50,9 +60,14 @@ class FormularioSubirPodcast extends Form
         if ( empty($Descripcion) || mb_strlen($Descripcion) < 12 ) {
             $result['Descripcion'] = "La descripcion tiene que tener una longitud de al menos 12 caracteres.";
         }
+
+        $genero = $datos['genero'] ?? null;
+        if(empty($genero)){
+            $result['genero'] = "Debe de colocar el género del podcast";
+        }
         if (count($result) === 0) {
             $fecha = date("F j, Y, g:i a");  
-            $podcast = Podcast::subirPodcast($nombrePodcast,$nombreUsuario, $Descripcion, $fecha);
+            $podcast = Podcast::subirPodcast($nombrePodcast,$nombreUsuario, $Descripcion, $genero, $fecha);
             if ( ! $podcast ) {
                 $result[] = "El podcast ya existe";
             } else {
