@@ -23,7 +23,7 @@ class Podcast{
         //$this->tag = $tag;
     }
 
-    public static function subirPodcast($nombrePodcast, $userPodcast, $descripcion, $fecha){
+    public static function subirPodcast($nombrePodcast, $userPodcast, $descripcion,$genero, $fecha){
         $app = Aplicacion::getSingleton();
         $conexion = $app->conexionBd();
         $sql = sprintf('insert into Podcast ');
@@ -34,8 +34,6 @@ class Podcast{
         $conexion = $app->conexionBd();
         $sql = sprintf('DELETE FROM Podcast 
                         WHERE Podcast.nombrePodcast = "%s"', $conexion->real_escape_string($nombrePodcast));
-        
-        
     }
 
     public static function consultarPodcast($nombrePodcast, $userPodcast){

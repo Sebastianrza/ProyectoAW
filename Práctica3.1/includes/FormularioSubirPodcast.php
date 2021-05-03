@@ -25,7 +25,7 @@ class FormularioSubirPodcast extends Form
                     <label>Nombre Podcast:</label> <input class="control" type="text" name="nombreUsuario" /> $errorNombrePodcast
                 </div>
                 <div class="grupo-control">
-                    <label>Descripción del podcast</label> <input class="control" type="text" name="Descripcion"/>  $errorDescripcion
+                    <label>Descripción del podcast</label> <textarea class="control" type="text" name="Descripcion"></textarea>  $errorDescripcion
                 </div>
                 <div class="grupo-control">
                     <label>Genero del Podcast</label> 
@@ -36,7 +36,7 @@ class FormularioSubirPodcast extends Form
                         <option value="3">Entretenimiento</option>
                         <option value="4">Persuación</option> 
                         <option value="5">Otro</option> 
-                    </select>$errorNombre
+                    </select>$errorNombrePodcast
                 </div>
                 <div class="grupo-control"><button type="submit" name="subirPodcast">Subir Podcast</button></div>
             </fieldset>
