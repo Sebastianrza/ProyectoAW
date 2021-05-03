@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-require_once __DIR__.'/APP/BD/database.php';
+require_once __DIR__.'/includes/config.php';
 session_start();
 
 $criterio = $_GET["fname"];
