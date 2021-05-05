@@ -14,7 +14,7 @@ header {
 	padding: 10px;
 	height: 50px;
 	background-color: #0a0659;
-	background-image: url("img/header.jpg");
+	background-image: url("../img/header.jpg");
 	color: white;
 }
 
@@ -174,11 +174,18 @@ header{
 
 @font-face {
     font-family:aquire;
-    src:url(css/fonts/aquire.otf);
+    src:url('aquire.otf');
 }
 
 .WaveCast-logo{
 	display: inline-block;
 	font-size: 40px;
 	font-family: aquire;
+}
+.User-Data{
+	font-family: 'Itim';
+}
+.list-user1{
+	display: inline;
+	font-family: 'Itim';
 }

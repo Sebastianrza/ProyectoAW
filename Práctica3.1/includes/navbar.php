@@ -27,11 +27,11 @@
 					<li class = "nav-item">
 						<a href = "perfil.php">Perfil</a>
 					</li>
-					</font>
+					
 				</ul>
 			</nav>
 			<a href = "#" class = "bar-icon" id = "iconBar" onclick = "hideIconBar()"><i class="fa fa-bars"></i></a>
-			<div class = "WaveCast-logo"> WaveCast </div>
+			<h1 class = "WaveCast-logo"> WaveCast </h1>
 		</div>
 	</header>	
 	<script src = "includes/js/navbar.js"></script>

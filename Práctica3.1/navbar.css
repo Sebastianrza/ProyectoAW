@@ -57,7 +57,7 @@ header{
 
 @font-face {
     font-family:aquire;
-    src:url(aquire.otf);
+    src:url('./css/aquire.otf');
 }
 
 .WaveCast-logo{
