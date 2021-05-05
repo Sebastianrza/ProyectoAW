@@ -20,22 +20,22 @@ $contenidoPrincipal = <<<EOS
     <div class='podcast-user'>
     <ul class = "list-user">
         <li class = "list-user1">
-            <a href = "index.php">Podcast Subidos</a>
+            <a href = "">Podcast Subidos</a>
         </li>		
         <li class = "list-user1">
-            <a href = "reproductor.php">Podcast Favoritos</a>
+            <a href = "">Podcast Favoritos</a>
         </li>	
         <li class = "list-user1">
-            <a href = "foro.php">Seguidores</a>
+            <a href = "">Seguidores</a>
         </li>	
         <li class = "list-user1">
-        <a href = "foro.php">Siguiendo</a>
+        <a href = "">Siguiendo</a>
         </li>
     </ul>
     </div>
     <div class='User-Data'>
         <h4> Foto de Perfil </h4>
-            
+            <img id='prueba'src='./includes/ImagenesUser/user.png'>
         <h4> Nombre de usuario: </h4>
         <h4> $nombre </h4>
         <h4> Nombre del Usuario </h4>
