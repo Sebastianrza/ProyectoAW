@@ -2,23 +2,30 @@
 namespace es\ucm\fdi\aw;
 require_once __DIR__.'/includes/config.php';
 
+//$htmlFormLogin = $form->gestiona();
 $tituloPagina = 'Perfil del Usuario';
 if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
-    $nombre = $_SESSION['nombre'];
-    $usuario = Usuario::buscaUsuario($nombre);
+    $nombreU = $_SESSION['nombre'];
+    $usuario = Usuario::buscaUsuario($nombreU);
 }
 
 $nombreUsuario = $usuario->nombreUsuario();
-$email = $usuario->email();
+$nombre = $usuario->nombre();
 $bio = $usuario->bio();
 $rol =$usuario->rol();
-/*if(isset($_POST['Guardar Imagen'])&& !empty($_FILES['archivo subido']['tmp_name'])){
-    $directorio = '/includes/ImagenesUser';
-    $carpetaUser;
+$email = $usuario->email();
+/*
+if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.jpg')){
+    $img = '<img class="imagen-user"src="./includes/ImagenesUser/$nombreUsuario">';
+}else{
+    $img = '<img class="imagen-user"src="./includes/ImagenesUser/user.png">';
 }*/
 $contenidoPrincipal = <<<EOS
     <div class='podcast-user'>
     <ul class = "list-user">
+        <li class = "list-user1">
+            <a href = "">Información del perfil</a>
+        </li>	
         <li class = "list-user1">
             <a href = "">Podcast Subidos</a>
         </li>		
@@ -35,13 +42,13 @@ $contenidoPrincipal = <<<EOS
     </div>
     <div class='User-Data'>
         <h4> Foto de Perfil </h4>
-            <img id='prueba'src='./includes/ImagenesUser/user.png'>
+        <img class="imagen-user"src="./includes/ImagenesUser/user.png">
         <h4> Nombre de usuario: </h4>
-        <h4> $nombre </h4>
-        <h4> Nombre del Usuario </h4>
-        <h4> $email </h4> 
-        <h4> Rol Activo </h4>
-        <h4> $rol </h4>
+        <h4> $nombreUsuario </h4>
+        <h4> Nombre Completo: </h4>
+        <h4> $nombre </h4> 
+        <h4>Correo Electrónico: $email</h4>
+        <h4> Rol Activo: $rol </h4> 
     </div>
     <div class='User-bio'>
         <h2> Biografía</h2>
