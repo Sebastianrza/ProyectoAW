@@ -38,6 +38,9 @@ $contenidoPrincipal = <<<EOS
         <li class = "list-user1">
         <a href = "">Siguiendo</a>
         </li>
+        <li class = "list-user1">
+        <a href = "">Editar Perfil</a>
+        </li>
     </ul>
     </div>
     <div class='User-Data'>
