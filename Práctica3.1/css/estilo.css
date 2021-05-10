@@ -81,7 +81,7 @@ div.saludo {
 }
 
 fieldset .control {
-	width: 100%;
+	width: 80%;
 }
 
 fieldset .grupo-control {
@@ -201,4 +201,19 @@ header{
     border-radius: 5px;
     display: block;
     cursor: pointer;
+}
+.btn-prueba{
+	text-decoration:none;
+	font-weight: 400;
+	font-size: 15px;
+	color: white;
+	padding-top:10px;
+	padding-bottom:15px;
+	padding-left:40px;
+	padding-right:40px;
+	background-color:#0a0659;
+	border-color: #d8d8d8;
+	border-width: 3px;
+	border-style: solid;
+	border-radius:35px;
 }

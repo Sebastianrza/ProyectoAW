@@ -14,6 +14,7 @@ $nombre = $usuario->nombre();
 $bio = $usuario->bio();
 $rol =$usuario->rol();
 $email = $usuario->email();
+$podcast = 'subirPodcast.php';
 /*
 if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.jpg')){
     $img = '<img class="imagen-user"src="./includes/ImagenesUser/$nombreUsuario">';
@@ -46,6 +47,8 @@ $contenidoPrincipal = <<<EOS
     <div class='User-Data'>
         <h4> Foto de Perfil </h4>
         <img class="imagen-user"src="./includes/ImagenesUser/user.png">
+        <a class='btn-prueba' href=''>Cambiar Imagen</a>
+        <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
         <h4> Nombre de usuario: </h4>
         <h4> $nombreUsuario </h4>
         <h4> Nombre Completo: </h4>
@@ -57,7 +60,11 @@ $contenidoPrincipal = <<<EOS
         <h2> Biografía</h2>
         $bio
     </div>
+    <div class='subir-podc'>
     
+   
+    
+    </div>
 EOS;
 
 require __DIR__.'/includes/plantillas/plantilla.php';
