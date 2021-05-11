@@ -1,7 +1,11 @@
 <?php
+
+use es\ucm\fdi\aw\Aplicacion;
+
 class ExploraPlaylist{
 	private $result;
-	public function muestraExploraPlaylist(){
+
+	public function muestraExploraPlaylist($output){
 		$html = <<<EOF
 		<link rel="stylesheet" type="text/css" href="foro.css">
 		</head>
@@ -12,15 +16,8 @@ class ExploraPlaylist{
 			?>	
 			<h2> EXPLORAR PLAYLIST </h2>
 			<div class = "container">
-			<?php
-				while($this->result){
-			?>
-				<div class = "playlist">
-					<img src = "<?php "/img/".$result["imagen"]."/" ?>">
-				</div>
-			<?php
-				}
-			?>
+			<h2> "HOLA" </h2>
+			<h2> "$output" </h2>
 			</div>
 			<script src = "js/exploraplaylist.js"></script>
 		</body>
@@ -28,22 +25,23 @@ class ExploraPlaylist{
 		EOF;
 		return $html;
 	}
-	private function daoPlaylist(){
-		require_once __DIR__.'/APP/BD/database.php';
-		session_start();
-		$stmt = $conn->prepare("SELECT * FROM playlist WHERE Titulo NOT LIKE \"Anunciantes\"");
+	public function daoPlaylist(){
+		require_once __DIR__. '/includes/Aplicacion.php';
+		$app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+		$stmt = $conn->prepare("SELECT * FROM playlist");
 		$stmt->execute();
-		$primerRegistro= true;
-		$result = $stmt->fetch();
-		
+		$primerRegistro = true;
+		$output = 2;
+		return $this->muestraExploraPlaylist($output);
 	}
 }
 
-$forExploraPlaylisto = new ExploraPlaylist();
-$for = $ExploraPlaylist->muestraExploraPlaylist();
+$ExploraPlaylist = new ExploraPlaylist();
+$for = $ExploraPlaylist->daoPlaylist();
 
 $contenidoPrincipal = <<<EOS
-<h1>Reproductor</h1>
+<h1>EXPLORAR</h1>
 $for
 EOS;
 require __DIR__.'/includes/plantillas/plantilla.php';
