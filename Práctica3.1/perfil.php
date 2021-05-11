@@ -46,13 +46,9 @@ $contenidoPrincipal = <<<EOS
     </div>
     <div class='User-Data'>
         <h4> Foto de Perfil </h4>
-<<<<<<< Updated upstream
         <img class="imagen-user"src="./includes/ImagenesUser/user.png">
         <a class='btn-prueba' href=''>Cambiar Imagen</a>
         <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
-=======
-            <img class='prueba'src='./includes/ImagenesUser/user.png'>
->>>>>>> Stashed changes
         <h4> Nombre de usuario: </h4>
         <h4> $nombreUsuario </h4>
         <h4> Nombre Completo: </h4>

@@ -189,7 +189,6 @@ header{
 	display: inline;
 	font-family: 'Itim';
 }
-<<<<<<< Updated upstream
 .imagen-user{
 	height: 25%;
 	width: 25%;
@@ -217,8 +216,4 @@ header{
 	border-width: 3px;
 	border-style: solid;
 	border-radius:35px;
-=======
-.prueba{
-	width: 50%;
->>>>>>> Stashed changes
 }
