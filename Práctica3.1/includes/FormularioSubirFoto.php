@@ -2,21 +2,22 @@
 
 Class FormularioSubirFoto extends Form{
 
+    const EXTENSIONES = array('gif','jpg','jpe','jpeg','png');
     public function __construct() {
-        parent::__construct('formSubirFoto');
+        $opciones = array('enctype'=>'multipart/form-data');
+        parent::__construct('subirFoto');
     }
 
     protected function generaCamposFormulario($datos, $errores = array())
     {
-        $nombreUsuario = $datos['nombreUsuario'] ?? '';
         // Se generan los mensajes de error si existen.
         $htmlErroresGlobales = self::generaListaErroresGlobales($errores);
+        $errorArchivo = self::createMensajeError($errores,'archivo','span', array('class'=>'error'));
         $html = <<<EOF
             <fieldset>
                 $htmlErroresGlobales
-                <label class = 'btn-upload' for="file-upload">Seleccionar imagen de perfil</label>
-                <input name='file-upload'id='file-upload' class='file-upload' style ='display:none'type='file' accept="image/*"/>
-                <input type="submit" value="Guardar" name="guardar_imagen" class="form-control">
+                <p><label for="archivo">Archivo:</label><input type="file" name="archivo" id="archivo" />$errorArchivo</p>
+                <button type="submit">Subir</button>
             </fieldset>
         EOF;
         return $html;
@@ -25,34 +26,40 @@ Class FormularioSubirFoto extends Form{
     protected function procesaFormulario($datos)
     {
         $result = array();
-        $imagen = $datos['file-upload'] ?? null;
-        if(isset($imagen) && !empty($_FILES['file-upload']['tmp_name'])) {
-            $directorio ="./includes/ImagenesUser/";
-            $carpeta_objetivo = $directorio.basename($_FILES['file-upload']['name']);
-            $subida_correcta = 1;
-            
-            $comprobacion = getimagesize($_FILES['file-upload']['tmp_name']);
-            if($comprobacion !== false) {
-                $subida_correcta = 1;
-            } else {
-                $subida_correcta = 0;
-            }
-            if ($_FILES['file-upload']['size'] > 500000) {
-                echo "El archivo no puede ocupar más de 500kb";
-                $subida_correcta = 0;
-            }        
-            if ($subida_correcta == 0) {
-                echo "Tu archivo no puede subirse";
-            } else {
-                if (move_uploaded_file($_FILES['file-upload']['tmp_name'],
-                "./includes/ImagenesUser/".$usuario->NombreUsuario())) {
-                    echo "El archivo ".basename($_FILES['file-upload']['name'])." ha sido subido.";
-                } else {
-                    echo "Ha ocurrido un error.";
+        $imagen = count($_FILES) == 1 && $_FILES['archivo']['error'] = UPLOAD_ERR_OK;
+        if($imagen) {
+            $archivo = $_FILES['archivo'];
+            $nombre = $_FILES['archivo']['name'];
+            $imagen = this->check_file_uploaded_name($nombre) && $this->check_file_uploaded_length($nombre);
+            $imagen = $imagen && in_array(pathinfo($nombre, PATHINFO_EXTENSION), self::EXTENSIONES);
+            $finfo = new \finfo(FILEINFO_MIME_TYPE);
+            $mimeType = $finfo->file($_FILES['archivo']['tmp_name']);
+            $imagen = preg_match('/image\/*./' , $mimeType);
+
+            if($imagen){
+                $tmpName = $_FILES['archivo']['tmp_name'];
+                if(!move_uploaded_file($tmpName, DIR_ALMACEN."/{$nombre}")){
+                    $result[] = 'Error al mover el archivo';
+                }
+                if(!copy(DIR_ALMACEN."/{$nombre}",DIR_ALMACEN_PROTEGIDO . "/{$nombre}")){
+                    $result[] = 'Error al copiar el archivo';
                 }
             }
+            return "index.php#img=".rawurlencode("/{$nombre}");
+            }else{
+                $result[] = 'El archivo tiene un nombre o tipo no soportado';
+             }
+        } else {
+            $result[] = 'Error al subir el archivo.';
         }
+        return $result;
+            
+        }
+        private function check_file_uploaded_name ($filename) {
+            return (bool) ((mb_ereg_match('/^[0-9A-Z-_\.]+$/i',$filename) === 1) ? true : false );
+          }
+        private function check_file_uploaded_length ($filename) {
+            return (bool) ((mb_strlen($filename,'UTF-8') < 250) ? true : false);
+          }
     }
-
-}
 ?>
