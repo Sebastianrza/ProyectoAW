@@ -23,7 +23,7 @@ class Usuario//Que puede pasar?
         if ($rs) {
             if ( $rs->num_rows == 1) {
                 $fila = $rs->fetch_assoc();
-                $user = new Usuario($fila['username'], $fila['email'], $fila['nombre'],$fila['biografia'] ,$fila['pass'], $fila['rol']);
+                $user = new Usuario($fila['username'], $fila['nombre'], $fila['email'],$fila['biografia'] ,$fila['pass'], $fila['rol']);
                 //$user->id = $fila['id'];
                 $result = $user;
             }
@@ -125,6 +125,9 @@ class Usuario//Que puede pasar?
         $this->bio = $bio;
         $this->password = $password;
         $this->rol = $rol;
+    }
+    public function nombre(){
+        return $this->nombre;
     }
     public function email(){
         return $this->email;

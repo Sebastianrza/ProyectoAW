@@ -21,7 +21,7 @@ class FormularioSubirPodcast extends Form
         $html = <<<EOF
             <fieldset>
                 $htmlErroresGlobales
-                <div class="grupo-control">
+                <div class="grupo-control1">
                     <label>Nombre Podcast:</label> <input class="control" type="text" name="nombreUsuario" /> $errorNombrePodcast
                 </div>
                 <div class="grupo-control">
@@ -38,6 +38,12 @@ class FormularioSubirPodcast extends Form
                         <option value="5">Otro</option> 
                     </select>$errorNombrePodcast
                 </div>
+                <br>
+                <div class="grupo-control">
+                    <label>Subir Podcast</label>
+                    <input name="userfile" type="file" accept="audio/*">
+                </div>
+                <br>
                 <div class="grupo-control"><button type="submit" name="subirPodcast">Subir Podcast</button></div>
             </fieldset>
         EOF;
