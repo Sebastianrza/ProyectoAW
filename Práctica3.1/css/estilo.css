@@ -25,7 +25,7 @@ header a, header a:visited {
 } 
 
 header a:hover {
-	color: red;
+	color: purple;
 	font-weight: bold;
 	text-decoration: underline;
 } 
@@ -40,13 +40,13 @@ nav {
 }
 
 nav a, nav a:visited {
-	color: red;
+	color: black;
 	font-weight: bold;
 	text-decoration: none;
 } 
 
 nav a:hover {
-	color: red;
+	color: black;
 	text-decoration: underline;
 } 
 

@@ -23,7 +23,10 @@
 					</li>	
 					<li class = "nav-item">
 						<a href = "foro.php">Foro</a>
-					</li>	
+					</li>
+					<li class = "nav-item">
+						<a href = "exploraPlaylist.php">Explora Playlist</a>
+					</li>		
 					<li class = "nav-item">
 						<a href = "perfil.php">Perfil</a>
 					</li>

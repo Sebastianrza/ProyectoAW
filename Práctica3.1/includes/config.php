@@ -7,6 +7,12 @@ define('BD_HOST', 'localhost');
 define('BD_NAME', 'wavecast');
 define('BD_USER', 'root');
 define('BD_PASS', '');
+//Parámetros de Directorio
+define('RAIZ_APP', __DIR__);
+define('DIR_ALMACEN', dirname(RAIZ_APP).'/includes/ImagenesUser');
+define('DIR_ALMACEN_PROTEGIDO', RAIZ_APP.'/includes/ImagenesUser');
+define('RUTA_APP', '/ProyectoAW/Práctica3.1');
+define('RUTA_ALMACEN', RUTA_APP.'/includes/ImagenesUser');
 
 /**
  * Configuración del soporte de UTF-8, localización (idioma y país) y zona horaria

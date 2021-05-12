@@ -1,7 +1,7 @@
 <?php
 namespace es\ucm\fdi\aw;
 
-class Usuario
+class Usuario//Que puede pasar?
 {
 
     public static function login($nombreUsuario, $password)
