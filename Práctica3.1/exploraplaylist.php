@@ -1,11 +1,7 @@
 <?php
-<<<<<<< Updated upstream
 
 use es\ucm\fdi\aw\Aplicacion;
 
-=======
-namespace es\ucm\fdi\aw;
->>>>>>> Stashed changes
 class ExploraPlaylist{
 	private $result;
 
@@ -29,18 +25,11 @@ class ExploraPlaylist{
 		EOF;
 		return $html;
 	}
-<<<<<<< Updated upstream
 	public function daoPlaylist(){
 		require_once __DIR__. '/includes/Aplicacion.php';
 		$app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
 		$stmt = $conn->prepare("SELECT * FROM playlist");
-=======
-	private function daoPlaylist(){
-		
-		session_start();
-		$stmt = $conn->prepare("SELECT * FROM playlist WHERE Titulo NOT LIKE \"Anunciantes\"");
->>>>>>> Stashed changes
 		$stmt->execute();
 		$primerRegistro = true;
 		$output = 2;

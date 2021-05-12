@@ -69,8 +69,8 @@ class reproductor extends Podcast {
         $datos = mysqli_query($conexion, $sql);
 
         while($mostrar=mysqli_fetch_array($datos)){
-            echo "<a href=?idPodcast=$mostrar[idPodcast] ><img src=img/pruebas/$mostrar[idPodcast].jpg alt=Los Tejos /> </a> &nbsp &nbsp";
-            //echo "<a href=?idPodcast=$mostrar[idPodcast] > $mostrar[nombrePodcast] </a> &nbsp &nbsp";
+            echo "<a href=?idPodcast=$mostrar[idPodcast] ><img src=img/pruebas/$mostrar[idPodcast].jpg /> </a> &nbsp &nbsp";
+            echo "<a  href=?idPodcast=$mostrar[idPodcast] > <h3> $mostrar[nombrePodcast] </h3></a> &nbsp &nbsp";
         }
 
     }
