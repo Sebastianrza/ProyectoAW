@@ -38,6 +38,9 @@ class FormularioSubirPodcast extends Form
                         <option value="5">Otro</option> 
                     </select>$errorNombrePodcast
                 </div>
+                <div>
+                
+                </div>
                 <br>
                 <div class="grupo-control">
                     <label>Subir Podcast</label>

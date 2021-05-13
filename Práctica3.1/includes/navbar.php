@@ -16,7 +16,7 @@
 					<span class = "close-icon" onclick = "showIconBar()"><i class = "fa fa-close"></i></span>
 				<ul class = "navlist">
 					<li class = "nav-item">
-						<a href = "index.php">Index</a>
+						<a href = "exploraplaylist.php">Index</a>
 					</li>		
 					<li class = "nav-item">
 						<a href = "reproductor.php">Reproductor</a>
