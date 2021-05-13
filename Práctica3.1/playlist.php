@@ -30,7 +30,7 @@ class Playlist {
     public function buscaPodcast(){
 
     }
-    private function muestraPlaylist(){
+    public function muestraPlaylist(){
         $usuario = "root";
         $contrasena = "";
         $servidor = "localhost";
@@ -44,12 +44,12 @@ class Playlist {
             echo "<div class= \"contenedorTitulo\">";
             echo "$mostrar[Titulo]  &nbsp &nbsp";
             //esto es un enlace para llegar al perfil del usuario propietario de la playlist
-            echo "<a href= \"/perfil.php\" > Esta playlist pertenece a : $mostrar[idPropietario]  </a> &nbsp &nbsp";
+            echo "Esta playlist pertenece a :<a href= \"/perfil.php\" >  $mostrar[idPropietario]  </a> &nbsp &nbsp";
             echo "</div>";
-            echo "$mostrar[descripcion] &nbsp &nbsp";
+            echo "$mostrar[Descripcion] &nbsp &nbsp";
         }
         //Aqui obtengo la información de los podcast que pertenecen a la playlist
-        $sql= "SELECT * from listapodcast WHERE idlista = 1";
+        $sql= "SELECT * FROM podcast JOIN listapodcast ON podcast.idPodcast = listapodcast.idPodcast WHERE listapodcast.idLista = 1";
         $datos = mysqli_query($conexion, $sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST
         echo "<div class= \"contenedorPlaylist\">";
@@ -58,7 +58,7 @@ class Playlist {
             echo "<div class= \"infoPlaylist\">";                               /*!!aqui debería ser la imagen de la playlist que es única */
             echo "<a  href=/reproductor.php?idPodcast=$mostrar[idPodcast] > <img src=img/pruebas/$mostrar[idPodcast].jpg /> </a> &nbsp &nbsp";
             echo "<a  href=/reproductor.php?idPodcast=$mostrar[idPodcast] > <h3> $mostrar[nombrePodcast] </h3> </a> &nbsp &nbsp";
-            echo "<a  <h5> $mostrar[Descripcion] </h5> </a> &nbsp &nbsp";
+            echo "<a  <h5> $mostrar[Descripción] </h5> </a> &nbsp &nbsp";
             echo "</div>";
         }
         echo "</div>";
@@ -68,10 +68,9 @@ class Playlist {
 
 
 $playlist = new Playlist(null, null, null, null);
-$playlist = $Playlist->muestraPlaylist();
+$playlist = $playlist->muestraPlaylist();
 $contenidoPrincipal = <<<EOS
 <h1>Todas las playlist</h1>
-$lista.$rep
 EOS;
 
 require __DIR__.'/includes/plantillas/plantilla.php';
