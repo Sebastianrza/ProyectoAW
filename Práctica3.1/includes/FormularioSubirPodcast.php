@@ -9,20 +9,16 @@ class FormularioSubirPodcast extends Form
     
     protected function generaCamposFormulario($datos, $errores = array())
     {
-        $nombreUsuario = $datos['nombreUsuario'] ?? '';
-        $nombre = $datos['nombre'] ?? '';
-
         // Se generan los mensajes de error si existen.
         $htmlErroresGlobales = self::generaListaErroresGlobales($errores);
         $errorNombrePodcast = self::createMensajeError($errores, 'nombrePodcast', 'span', array('class' => 'error'));
         $errorDescripcion = self::createMensajeError($errores, 'Descripcion', 'span', array('class' => 'error'));
-        
-
+       
         $html = <<<EOF
             <fieldset>
                 $htmlErroresGlobales
                 <div class="grupo-control1">
-                    <label>Nombre Podcast:</label> <input class="control" type="text" name="nombreUsuario" /> $errorNombrePodcast
+                    <label>Nombre Podcast:</label> <input class="control" type="text" name="nombrePodcast" /> $errorNombrePodcast
                 </div>
                 <div class="grupo-control">
                     <label>Descripción del podcast</label> <textarea class="control" type="text" name="Descripcion"></textarea>  $errorDescripcion
@@ -30,12 +26,12 @@ class FormularioSubirPodcast extends Form
                 <div class="grupo-control">
                     <label>Genero del Podcast</label> 
                     <select name ="genero">
-                        <option selected value="0"> Elige una opción </option> 
-                        <option value="1">Informativo</option> 
-                        <option value="2">Formación</option> 
-                        <option value="3">Entretenimiento</option>
-                        <option value="4">Persuación</option> 
-                        <option value="5">Otro</option> 
+                        <option selected value="Elige una opcion"> Elige una opción </option> 
+                        <option value="Informativo">Informativo</option> 
+                        <option value="Formación">Formación</option> 
+                        <option value="Entretenimiento">Entretenimiento</option>
+                        <option value="Persuación">Persuación</option> 
+                        <option value="Otro">Otro</option> 
                     </select>$errorNombrePodcast
                 </div>
                 <br>
@@ -55,7 +51,11 @@ class FormularioSubirPodcast extends Form
     {
         $result = array();
         //Necesito el nombre de usuario de la sesion Verificar si está bién
-        $nombreUsuario = Usuario::nombreUsuario();
+        if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
+            $nombreU = $_SESSION['nombre'];
+            $usuario = Usuario::buscaUsuario($nombreU);
+
+        }
     
         $nombrePodcast = $datos['nombrePodcast'] ?? null;
         if ( empty($nombrePodcast) || mb_strlen($nombrePodcast) < 5 ) {
@@ -71,10 +71,11 @@ class FormularioSubirPodcast extends Form
         if(empty($genero)){
             $result['genero'] = "Debe de colocar el género del podcast";
         }
+        $fecha = date("Y-m-d");
+        $ruta = 'hola';
         if (count($result) === 0) {
-            $fecha = date("F j, Y, g:i a");  
-            $podcast = Podcast::subirPodcast($nombrePodcast,$nombreUsuario, $Descripcion, $genero, $fecha);
-            if ( ! $podcast ) {
+            $podcast = Podcast::creaPodcast($nombrePodcast,$nombreU,$Descripcion, $genero,$fecha, $ruta);
+            if (!$podcast ) {
                 $result[] = "El podcast ya existe";
             } else {
                //Subir Podcast
@@ -83,3 +84,4 @@ class FormularioSubirPodcast extends Form
         return $result;
     }
 }
+
