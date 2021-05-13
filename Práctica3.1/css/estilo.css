@@ -66,13 +66,15 @@ main {
 	width: 1100px;
 	background-color: white;
 }
-
-footer {
-	clear: both;
+.foot {
 	padding: 20px;
-	background-color: #303030;
-	color: white;
-	text-align: center;
+    margin-top: 4.375rem;
+    margin-right: auto;
+    margin-bottom: 0rem;
+    margin-left: auto;
+	clear: both;
+	background-color: #080546;
+	text-align: right;
 }
 
 div.saludo {
@@ -216,4 +218,12 @@ header{
 	border-width: 3px;
 	border-style: solid;
 	border-radius:35px;
+}
+.icon{
+	max-width: 100%;
+	font-style: italic;
+	vertical-align: middle;
+}
+.p-foot{
+	color: white;
 }
