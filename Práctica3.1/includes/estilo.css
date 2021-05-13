@@ -108,4 +108,16 @@ label {
 	margin-right: 0.5em;
 	display: block;
 }
-
+.foot{
+	align-items:flex-end;
+	margin: 4.375rem auto 0rem;
+    margin-top: 4.375rem;
+    margin-right: auto;
+    margin-bottom: 0rem;
+    margin-left: auto;
+}
+.icon{
+max-width: 100%;
+font-style: italic;
+vertical-align: middle;
+}
