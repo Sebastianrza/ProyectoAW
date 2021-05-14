@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2021 a las 17:11:42
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Tiempo de generación: 14-05-2021 a las 19:22:57
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `wavecast`
 --
+CREATE DATABASE IF NOT EXISTS `wavecast` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `wavecast`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `comentarios`
 --
 
+DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE `comentarios` (
   `idComentario` int(255) NOT NULL,
   `idPodcast` int(11) NOT NULL,
@@ -40,6 +43,7 @@ CREATE TABLE `comentarios` (
 -- Estructura de tabla para la tabla `listapodcast`
 --
 
+DROP TABLE IF EXISTS `listapodcast`;
 CREATE TABLE `listapodcast` (
   `idPodcast` int(11) NOT NULL,
   `idLista` int(11) NOT NULL,
@@ -52,6 +56,7 @@ CREATE TABLE `listapodcast` (
 -- Estructura de tabla para la tabla `megusta`
 --
 
+DROP TABLE IF EXISTS `megusta`;
 CREATE TABLE `megusta` (
   `podcastID` int(11) NOT NULL,
   `userID` varchar(20) CHARACTER SET utf8mb4 NOT NULL
@@ -63,6 +68,7 @@ CREATE TABLE `megusta` (
 -- Estructura de tabla para la tabla `playlist`
 --
 
+DROP TABLE IF EXISTS `playlist`;
 CREATE TABLE `playlist` (
   `idPlaylist` int(11) NOT NULL,
   `Titulo` varchar(50) NOT NULL,
@@ -77,21 +83,28 @@ CREATE TABLE `playlist` (
 -- Estructura de tabla para la tabla `podcast`
 --
 
+DROP TABLE IF EXISTS `podcast`;
 CREATE TABLE `podcast` (
   `userPodcast` varchar(255) NOT NULL,
   `nombrePodcast` varchar(255) NOT NULL,
   `idPodcast` int(11) NOT NULL,
   `Descripción` text NOT NULL,
   `género` text NOT NULL,
-  `Fecha` date NOT NULL
+  `Fecha` date NOT NULL,
+  `rutaPod` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `podcast`
 --
 
-INSERT INTO `podcast` (`userPodcast`, `nombrePodcast`, `idPodcast`, `Descripción`, `género`, `Fecha`) VALUES
-('user', 'Prueba', 1, 'Hola esto es una prueba ', '', '2021-04-10');
+INSERT INTO `podcast` (`userPodcast`, `nombrePodcast`, `idPodcast`, `Descripción`, `género`, `Fecha`, `rutaPod`) VALUES
+('user', 'Podcast 1', 1, 'Este es el podcast número 1', 'Acción', '2021-05-11', ''),
+('user', 'Podcast 2', 2, 'Este es el podcast número 2', 'Cultura', '2021-05-02', ''),
+('user', 'Podcast 3', 3, 'Este es el podcast número 3', 'Acción', '2021-05-07', ''),
+('user', 'Podcast 4', 4, 'Este es el podcast número 4', 'Cultura', '2021-06-06', ''),
+('user', 'Podcast 5', 5, 'Este es el podcast número 5', 'Acción', '2021-05-09', ''),
+('user', 'Podcast 6', 6, 'Este es el podcast número 6', 'Cultura', '2021-05-06', '');
 
 -- --------------------------------------------------------
 
@@ -99,18 +112,11 @@ INSERT INTO `podcast` (`userPodcast`, `nombrePodcast`, `idPodcast`, `Descripció
 -- Estructura de tabla para la tabla `podcastag`
 --
 
+DROP TABLE IF EXISTS `podcastag`;
 CREATE TABLE `podcastag` (
   `podcastID` int(11) NOT NULL,
   `tagID` varchar(20) CHARACTER SET utf8mb4 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `podcastag`
---
-
-INSERT INTO `podcastag` (`podcastID`, `tagID`) VALUES
-(1, 'a'),
-(1, 'p');
 
 -- --------------------------------------------------------
 
@@ -118,17 +124,11 @@ INSERT INTO `podcastag` (`podcastID`, `tagID`) VALUES
 -- Estructura de tabla para la tabla `seguir`
 --
 
+DROP TABLE IF EXISTS `seguir`;
 CREATE TABLE `seguir` (
   `username` varchar(20) NOT NULL,
   `idpodcast` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `seguir`
---
-
-INSERT INTO `seguir` (`username`, `idpodcast`) VALUES
-('Algonz', 1);
 
 -- --------------------------------------------------------
 
@@ -136,6 +136,7 @@ INSERT INTO `seguir` (`username`, `idpodcast`) VALUES
 -- Estructura de tabla para la tabla `tag`
 --
 
+DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
   `id` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -156,6 +157,7 @@ INSERT INTO `tag` (`id`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `email` varchar(30) NOT NULL,
   `nombre` text NOT NULL,
@@ -269,7 +271,7 @@ ALTER TABLE `playlist`
 -- AUTO_INCREMENT de la tabla `podcast`
 --
 ALTER TABLE `podcast`
-  MODIFY `idPodcast` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPodcast` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -326,8 +328,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-INSERT INTO `podcast` (`userPodcast`, `nombrePodcast`, `idPodcast`, `Descripción`, `género`, `Fecha`) 
-VALUES ('user', 'Podcast 1', '1', 'Este es el podcast número 1', 'Acción', '2021-05-11'), ('user', 'Podcast 2', '2', 'Este es el podcast número 2', 'Cultura', '2021-05-02'), 
-('user', 'Podcast 3', '3', 'Este es el podcast número 3', 'Acción', '2021-05-07'), ('user', 'Podcast 4', '4', 'Este es el podcast número 4', 'Cultura', '2021-06-06'), 
-('user', 'Podcast 5', '5', 'Este es el podcast número 5', 'Acción', '2021-05-09'), ('user', 'Podcast 6', '6', 'Este es el podcast número 6', 'Cultura', '2021-05-06');

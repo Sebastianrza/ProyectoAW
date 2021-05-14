@@ -220,3 +220,8 @@ label {
 .p-foot{
 	color: white;
 }
+/*Reproductor*/
+.caja {
+    margin-inline: 20px;
+    border-radius: 15px;
+}
