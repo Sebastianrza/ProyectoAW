@@ -78,7 +78,26 @@ class FormularioSubirPodcast extends Form
             if (!$podcast ) {
                 $result[] = "El podcast ya existe";
             } else {
-               //Subir Podcast
+                $nombre=$_FILES['userfile']['name'];
+                $guardado=$_FILES['userfile']['tmp_name'];
+                
+                //Verifica que carpeta donde se guarda existe
+                if(!file_exists('archivos')){
+                    mkdir('archivos', 0777, true);
+                        if(file_exists('archivos')){
+                            if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
+                                $result[]= "Podcast subido con éxito";
+                            } else{
+                                $result[]= "Error al subir el podcast";
+                            }
+                        }
+                } else{
+                        if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
+                                $result[]= "Podcast subido con éxito";
+                            } else{
+                                $result[]= "Error al subir el podcast";
+                            }
+                }
             }
         }
         return $result;
