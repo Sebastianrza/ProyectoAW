@@ -34,11 +34,10 @@ function mostrarSaludo() {
 		<a href = "#" class = "bar-icon" id = "iconBar" onclick = "hideIconBar()"><i class="fa fa-bars"></i></a>
 		<h1 class = "WaveCast-logo"> WaveCast </h1>
 		<h1></h1>
-		<div class="saludo">
-			<?php
-				mostrarSaludo();
-			?>
-		</div>
 	</div>
-	
+	<div class="saludo">
+		<?php
+			mostrarSaludo();
+		?>
+	</div>
 </header>
