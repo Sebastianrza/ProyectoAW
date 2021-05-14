@@ -326,3 +326,8 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO `podcast` (`userPodcast`, `nombrePodcast`, `idPodcast`, `Descripción`, `género`, `Fecha`) 
+VALUES ('user', 'Podcast 1', '1', 'Este es el podcast número 1', 'Acción', '2021-05-11'), ('user', 'Podcast 2', '2', 'Este es el podcast número 2', 'Cultura', '2021-05-02'), 
+('user', 'Podcast 3', '3', 'Este es el podcast número 3', 'Acción', '2021-05-07'), ('user', 'Podcast 4', '4', 'Este es el podcast número 4', 'Cultura', '2021-06-06'), 
+('user', 'Podcast 5', '5', 'Este es el podcast número 5', 'Acción', '2021-05-09'), ('user', 'Podcast 6', '6', 'Este es el podcast número 6', 'Cultura', '2021-05-06');
