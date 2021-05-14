@@ -72,13 +72,13 @@ class FormularioSubirPodcast extends Form
             $result['genero'] = "Debe de colocar el género del podcast";
         }
         $fecha = date("Y-m-d");
-        $ruta = 'hola';
+        $ruta = '/archivos';
         if (count($result) === 0) {
             $podcast = Podcast::creaPodcast($nombrePodcast,$nombreU,$Descripcion, $genero,$fecha, $ruta);
             if (!$podcast ) {
                 $result[] = "El podcast ya existe";
             } else {
-                $nombre=$_FILES['userfile']['name'];
+                $nombre=$podcast->idPodcast().$podcast->nombrePodcast().".mp3";
                 $guardado=$_FILES['userfile']['tmp_name'];
                 
                 //Verifica que carpeta donde se guarda existe

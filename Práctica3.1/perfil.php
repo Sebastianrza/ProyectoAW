@@ -25,22 +25,22 @@ $contenidoPrincipal = <<<EOS
     <div class='podcast-user'>
     <ul class = "list-user">
         <li class = "list-user1">
-            <a href = "">Información del perfil</a>
+            <a href = "#info">Información del perfil</a>
         </li>	
         <li class = "list-user1">
-            <a href = "">Podcast Subidos</a>
+            <a href = "#podc-sub">Podcast Subidos</a>
         </li>		
         <li class = "list-user1">
-            <a href = "">Podcast Favoritos</a>
+            <a href = "podc-fav">Podcast Favoritos</a>
         </li>	
         <li class = "list-user1">
-            <a href = "">Seguidores</a>
+            <a href = "#seguidores">Seguidores</a>
         </li>	
         <li class = "list-user1">
-        <a href = "">Siguiendo</a>
+        <a href = "#siguiendo">Siguiendo</a>
         </li>
         <li class = "list-user1">
-        <a href = "">Editar Perfil</a>
+        <a href = "#edit-perfil">Editar Perfil</a>
         </li>
     </ul>
     </div>
@@ -61,6 +61,26 @@ $contenidoPrincipal = <<<EOS
         $bio
     </div>
     <div class='subir-podc'>
+    
+   
+    
+    </div>
+    <div class='podc-fav'>
+    
+   
+    
+    </div>
+    <div class='seguidores'>
+    
+   
+    
+    </div>
+    <div class='siguiendo'>
+    
+   
+    
+    </div>
+    <div class='edit-perfil'>
     
    
     
