@@ -13,7 +13,7 @@ $arr = Podcast::buscaId();
 
 
 $contenidoPrincipal = <<<EOS
-    
+
     <audio id = "audio">
     <source src="$rutaPodcast" type="audio/mp3">
     </audio>
@@ -23,27 +23,20 @@ $contenidoPrincipal = <<<EOS
             $arr
         </div>
         <div class = "audio_buttons">
-            <input type="button" value="Play" onclick="play();">
-            &nbsp;
-            &nbsp;
-            <input type="button" value="Pause" onclick="pause();">
-            &nbsp;
-            &nbsp;
-            <input type="button" value="+" onclick="volumeUp();">
-            &nbsp;
-            &nbsp;
-            <input type="button" value="-" onclick="volumeDown();">
-            &nbsp;
-            &nbsp;
-            <input type="button" value="&laquo" onclick="back();">
-            &nbsp;
-            &nbsp;
-            <input type="button" value="&raquo" onclick="advance();">
-            <br><br><br>
+            <a class='btn-audio' href = "#edit-perfil" onclick = "back()">&laquo</a>
+            <a class='btn-audio' href = "#edit-perfil" onclick = "play()">Play</a>
+            <a class='btn-audio' href = "#edit-perfil" onclick = "pause()">Pause</a>
+            <a class='btn-audio' href = "#edit-perfil" onclick = "advance()">&raquo</a>
+            <a class='btn-audio' href = "#edit-perfil" onclick = "volumeUp()">+</a>
+            <a class='btn-audio' href = "#edit-perfil" onclick = "volumeDown()">-</a>
+            <a class='btn-audio' href = "#edit-perfil" onclick = "muted()">Mute</a>
         </div> 
     </div>
 
-   
+            <div class = "progress-bar">
+                <div class = "progressed" id = "progressed"></div>
+            </div>
+
 
     <script src="includes/js/botones.js"></script>
 

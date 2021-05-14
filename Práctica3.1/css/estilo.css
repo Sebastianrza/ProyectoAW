@@ -229,6 +229,7 @@ label {
 }
 
 .audio_buttons{
+    margin-top: 50px;
     display:inline-block;
     width: 100%;
     text-align: center;
@@ -237,4 +238,39 @@ label {
 .buttons{
 
     margin-inline: 10px;
+}
+
+.progress-bar{
+    margin-top: 30px;
+    width:100%;
+    background:rgba(48, 44, 44, 0.096);
+    height:25px;
+    border-radius: 8px;
+}
+.progressed{
+    width:0;
+    background:#60a3bc;
+    height:25px;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.btn-audio {
+    margin-left: 10px;
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #60a3bc;
+    padding: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+.btn-audio:hover  {
+    color: #fff !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: #60a3bc;
+    transition: all 0.3s ease 0s;
 }
