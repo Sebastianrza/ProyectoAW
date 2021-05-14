@@ -104,7 +104,22 @@ class Podcast{
          }
          return $result;
     }
+    public static function buscaId(){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
 
+        $sql= "SELECT * from podcast";
+        $datos = mysqli_query($conn, $sql);
+        $html = "";
+
+        while($mostrar=mysqli_fetch_array($datos)){
+            $html .= <<<EOF
+                <span class = "caja"><a href=?idPodcast=$mostrar[idPodcast] ><img src=img/pruebas/$mostrar[idPodcast].jpg  width="175" height= "175" alt=Los Tejos /></a></span> 
+        EOF;
+        }
+        return $html;
+
+    }
 
 }
 
