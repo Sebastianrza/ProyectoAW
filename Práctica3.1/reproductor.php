@@ -58,13 +58,7 @@ class reproductor extends Podcast {
 
     public function muestraPodcast(){
         
-        $usuario = "root";
-        $contrasena = "";
-        $servidor = "localhost";
-        $database = "wavecast";
-        
-        $conexion = mysqli_connect($servidor, $usuario, $contrasena, $database) or die("No se ha podido conectar con el servidor");
-
+        $conexion = mysqli_connect(BD_HOST, BD_USER, BD_PASS, BD_NAME) or die("No se ha podido conectar con el servidor");
         $sql= "SELECT * from podcast";
         $datos = mysqli_query($conexion, $sql);
 
