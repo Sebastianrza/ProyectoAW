@@ -180,6 +180,9 @@ label {
 .User-Data{
 	font-family: 'Itim';
 }
+.podcast-user{
+	text-align: center;
+}
 .list-user1{
 	display: inline;
 	font-family: 'Itim';
@@ -223,5 +226,15 @@ label {
 /*Reproductor*/
 .caja {
     margin-inline: 20px;
-    border-radius: 15px;
+}
+
+.audio_buttons{
+    display:inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.buttons{
+
+    margin-inline: 10px;
 }

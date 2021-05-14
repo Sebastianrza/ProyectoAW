@@ -23,26 +23,26 @@ if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.jpg')){
 }*/
 $contenidoPrincipal = <<<EOS
     <div class='podcast-user'>
-    <ul class = "list-user">
-        <li class = "list-user1">
-            <a href = "#info">Información del perfil</a>
-        </li>	
-        <li class = "list-user1">
-            <a href = "#podc-sub">Podcast Subidos</a>
-        </li>		
-        <li class = "list-user1">
-            <a href = "podc-fav">Podcast Favoritos</a>
-        </li>	
-        <li class = "list-user1">
-            <a href = "#seguidores">Seguidores</a>
-        </li>	
-        <li class = "list-user1">
-        <a href = "#siguiendo">Siguiendo</a>
-        </li>
-        <li class = "list-user1">
-        <a href = "#edit-perfil">Editar Perfil</a>
-        </li>
-    </ul>
+        <ul class = "list-user">
+            <li class = "list-user1">
+                <a href = "#info">Información del perfil</a>
+            </li>	
+            <li class = "list-user1">
+                <a href = "#podc-sub">Podcast Subidos</a>
+            </li>		
+            <li class = "list-user1">
+                <a href = "podc-fav">Podcast Favoritos</a>
+            </li>	
+            <li class = "list-user1">
+                <a href = "#seguidores">Seguidores</a>
+            </li>	
+            <li class = "list-user1">
+            <a href = "#siguiendo">Siguiendo</a>
+            </li>
+            <li class = "list-user1">
+            <a href = "#edit-perfil">Editar Perfil</a>
+            </li>
+        </ul>
     </div>
     <div class='User-Data'>
         <h4> Foto de Perfil </h4>
