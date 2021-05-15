@@ -6,14 +6,14 @@ div#contenedor {
 	width: 1500px;
 	margin: auto;
 	border: 1px solid black;
-	background-color: #aaaaaa;
+	background-color: #03294E;
 	margin-top: 30px;
 }
 
 header {
 	padding: 20px;
 	height: 110px;
-	background-color: #0a0659;
+	background-color: #03294E;
 	background-image: url("../img/header.jpg");
 	color: white;
 	margin-inline: 10px;
@@ -112,6 +112,7 @@ aside {
 }
 
 main {
+	background-image:  url("../img/imagenFondo.jpg");;
 	padding: 10px;
 	float: left;
 	min-height: 600px;
@@ -229,23 +230,27 @@ label {
 }
 
 .audio_buttons{
-    margin-top: 50px;
+    margin-top: 20px;
+	margin-bottom: 15px;
     display:inline-block;
     width: 100%;
     text-align: center;
 }
 
 .buttons{
-
     margin-inline: 10px;
 }
 
 .progress-bar{
-    margin-top: 30px;
-    width:100%;
-    background:rgba(48, 44, 44, 0.096);
+    width:80%;
+    background:rgb(167, 164, 164);
     height:25px;
     border-radius: 8px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	margin-bottom: 15px;
 }
 .progressed{
     width:0;
@@ -287,4 +292,12 @@ margin-right: 5%;
 	width: 200px;
 	border: 1px solid #999999;
 	margin-top: 13px;
+}
+
+.audio-control{
+	background-color: #03294E;
+	border-radius: 50px;
+	margin: auto;
+	width: 60%;
+	margin-top: 20px;
 }

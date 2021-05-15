@@ -22,20 +22,23 @@ $contenidoPrincipal = <<<EOS
         <div class = "podcast-list">
             $arr
         </div>
-        <div class = "audio_buttons">
-            <a class='btn-audio' href = "#" onclick = "back()">&laquo</a>
-            <a class='btn-audio' href = "#" onclick = "play()">Play</a>
-            <a class='btn-audio' href = "#" onclick = "pause()">Pause</a>
-            <a class='btn-audio' href = "#" onclick = "advance()">&raquo</a>
-            <a class='btn-audio' href = "#" onclick = "volumeUp()">+</a>
-            <a class='btn-audio' href = "#" onclick = "volumeDown()">-</a>
-            <a class='btn-audio' href = "#" onclick = "muted()">Mute</a>
-        </div> 
-    </div>
-
+        <div class ="audio-control">
+            <div class = "audio_buttons">
+                <button class='btn-audio' onclick = "back()">&laquo</a>
+                <button class='btn-audio' onclick = "play()">Play</a>
+                <button class='btn-audio' onclick = "pause()">Pause</a>
+                <button class='btn-audio' onclick = "advance()">&raquo</a>
+                <button class='btn-audio' onclick = "volumeUp()">+</a>
+                <button class='btn-audio' onclick = "volumeDown()">-</a>
+                <button class='btn-audio' onclick = "muted()">Mute</a>
+            </div>
             <div class = "progress-bar">
                 <div class = "progressed" id = "progressed"></div>
             </div>
+        </div> 
+    </div>
+
+
 
 
     <script src="includes/js/botones.js"></script>
