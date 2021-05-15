@@ -23,13 +23,13 @@ $contenidoPrincipal = <<<EOS
             $arr
         </div>
         <div class = "audio_buttons">
-            <a class='btn-audio' href = "#edit-perfil" onclick = "back()">&laquo</a>
-            <a class='btn-audio' href = "#edit-perfil" onclick = "play()">Play</a>
-            <a class='btn-audio' href = "#edit-perfil" onclick = "pause()">Pause</a>
-            <a class='btn-audio' href = "#edit-perfil" onclick = "advance()">&raquo</a>
-            <a class='btn-audio' href = "#edit-perfil" onclick = "volumeUp()">+</a>
-            <a class='btn-audio' href = "#edit-perfil" onclick = "volumeDown()">-</a>
-            <a class='btn-audio' href = "#edit-perfil" onclick = "muted()">Mute</a>
+            <a class='btn-audio' href = "#" onclick = "back()">&laquo</a>
+            <a class='btn-audio' href = "#" onclick = "play()">Play</a>
+            <a class='btn-audio' href = "#" onclick = "pause()">Pause</a>
+            <a class='btn-audio' href = "#" onclick = "advance()">&raquo</a>
+            <a class='btn-audio' href = "#" onclick = "volumeUp()">+</a>
+            <a class='btn-audio' href = "#" onclick = "volumeDown()">-</a>
+            <a class='btn-audio' href = "#" onclick = "muted()">Mute</a>
         </div> 
     </div>
 

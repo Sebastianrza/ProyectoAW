@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-05-2021 a las 19:22:57
+-- Tiempo de generación: 15-05-2021 a las 00:15:37
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -174,7 +174,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`email`, `nombre`, `username`, `pass`, `biografia`, `rol`) VALUES
 ('algonz22@ucm.es', 'Alex', 'Algonz', '$2y$10$nk2HM6Z0iazQFbJtWZjWHuHl4h6.pFGUcuLOmdLHE4vCyRgUWJtQW', '', NULL),
 ('srza2011@hotmail.com', 'Sebastian Zambrano', 'sebastianrza', '$2y$10$1EdMNPSuS8NVoQ7ec68nSuxCXkeOnDXoXZnYPbI3DsKjIouerlll6', 'Hola bienvieniod sfnwfnsjndjln sgdsnlds s', 'user'),
-('user@user.com', 'user', 'user', '$2y$10$YSiWTWQIPTr7Ymmwdibo8uc64JHDd4zmFy7QdtveoRY0fShwHyGbi', '', NULL);
+('user@user.com', 'user', 'user', '$2y$10$YSiWTWQIPTr7Ymmwdibo8uc64JHDd4zmFy7QdtveoRY0fShwHyGbi', '', NULL),
+('User@ucm.es', 'Userucm', 'Userucm', '$2y$10$6IqUCQVDq2u7bVX9mH6s7.CXWlz7IimNUhxJj29OnVr/5GmYLSNlu', 'Esta es una cuenta de prueba para la entrega de la práctica 3 de la materia AW', 'user');
 
 --
 -- Índices para tablas volcadas
