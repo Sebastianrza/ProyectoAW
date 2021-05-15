@@ -114,7 +114,7 @@ class Podcast{
 
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
-                <span class = "caja"><a href=?idPodcast=$mostrar[idPodcast] ><img src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></span> 
+                <span class = "caja"><a href=?idPodcast=$mostrar[idPodcast] ><img class ="img-podcast" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></span> 
         EOF;
         }
         return $html;

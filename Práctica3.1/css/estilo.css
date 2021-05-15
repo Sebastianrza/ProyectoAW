@@ -274,3 +274,17 @@ label {
     background: #60a3bc;
     transition: all 0.3s ease 0s;
 }
+
+.podcast-list{
+margin-left: 5%;
+margin-right: 5%;
+}
+
+.img-podcast{
+	border-radius: 8px;
+	padding:8px;
+	background-color: #f5f5f5;
+	width: 200px;
+	border: 1px solid #999999;
+	margin-top: 13px;
+}
