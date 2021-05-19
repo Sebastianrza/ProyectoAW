@@ -55,6 +55,7 @@ class exploraPlaylist {
             echo "</div>";
         }
         echo "</div>";
-    }                                                                                               
-    
-}
+    }   
+}                        
+
+

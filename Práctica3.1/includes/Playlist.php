@@ -1,6 +1,8 @@
 <?php
 
 namespace es\ucm\fdi\aw;
+require_once __DIR__.'/config.php';
+
 class Playlist {   
     private $genero, $sql, $nombre, $descripcion, $propietario, $imagen;
   
@@ -12,6 +14,43 @@ class Playlist {
         $this->propietario = $propietario;
         $this->imagen = $imagen;
         $this->listaPocast = [];
+    }
+    public static function getAll(){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $sql = "SELECT * from playlist";
+        $datos = mysqli_query($conn, $sql);
+        $html = "";
+        $html .=  "<div class= \"contenedor\">";
+        while($mostrar=mysqli_fetch_array($datos)){
+            $html .= <<<EOF
+            <span class = "caja"><a href=Playlist.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175"     /></a></span> 
+            <span"><a href=Playlist.php?idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a></span> 
+             <h3> $mostrar[Descripcion]</h3>
+            EOF;
+        }
+        $html .=   "</div>";
+        return $html;
+    }
+    public static function getAllPodcast(){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $sql = "SELECT * from playlist";
+        $datos = mysqli_query($conn, $sql);
+        $html = "";
+        $html .=  "<div class= \"contenedor\">";
+        while($mostrar=mysqli_fetch_array($datos)){
+            $html .= <<<EOF
+            <span class = "caja"><a href=playlist.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175"     /></a></span> 
+            <span"><a href=playlist.php?idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a></span> 
+             <h3> $mostrar[Descripcion]</h3>
+            EOF;
+            echo "<div class= \"infoPlaylist\">";                         
+            echo "<a  href=/includes/Playlist.php?idPlaylist=$mostrar[idPlaylist] > <h3> $mostrar[Titulo] </h3> </a> ";
+            echo "<a  href=playlist.php?idPlaylist=$mostrar[idPlaylist] > <img src=img/pruebas/$mostrar[imagen]> </a> "; 
+        }
+        $html .=   "</div>";
+        return $html;
     }
 
     public function borraPodcast($idPodcast){
