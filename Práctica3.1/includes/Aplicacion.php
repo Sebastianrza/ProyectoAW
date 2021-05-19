@@ -113,7 +113,7 @@ class Aplicacion
 	 */
 	public function conexionBd()
 	{
-	    $this->compruebaInstanciaInicializada();
+	   $this->compruebaInstanciaInicializada();
 		if (! $this->conn ) {
 			$bdHost = $this->bdDatosConexion['host'];
 			$bdUser = $this->bdDatosConexion['user'];

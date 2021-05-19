@@ -1,6 +1,6 @@
 <?php
-
 namespace es\ucm\fdi\aw;
+require_once __DIR__.'/config.php';
 class exploraPlaylist {   
     private $sql;
   
@@ -44,7 +44,7 @@ class exploraPlaylist {
         $app = Aplicacion::getSingleton();
         $conexion = $app->conexionBd();
         $sql = "SELECT * from playlist";
-        $datos = mysqli_query($conexion, $sql);
+        $datos = $conexion->query($sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST
         echo "<div class= \"contenedor\">";
         while($mostrar=mysqli_fetch_array($datos)){
