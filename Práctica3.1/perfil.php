@@ -15,12 +15,13 @@ $bio = $usuario->bio();
 $rol =$usuario->rol();
 $email = $usuario->email();
 $podcast = 'subirPodcast.php';
-/*
-if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.jpg')){
-    $img = '<img class="imagen-user"src="./includes/ImagenesUser/$nombreUsuario">';
+$foto = 'subirFoto.php';
+
+if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.png')){
+    $img = "./includes/ImagenesUser/".$nombreUsuario.".png";
 }else{
-    $img = '<img class="imagen-user"src="./includes/ImagenesUser/user.png">';
-}*/
+    $img = "./includes/ImagenesUser/user.png";
+}
 $contenidoPrincipal = <<<EOS
     <div class='podcast-user'>
         <ul class = "list-user">
@@ -46,8 +47,8 @@ $contenidoPrincipal = <<<EOS
     </div>
     <div class='User-Data'>
         <h4> Foto de Perfil </h4>
-        <img class="imagen-user"src="./includes/ImagenesUser/user.png">
-        <a class='btn-prueba' href=''>Cambiar Imagen</a>
+        <img class='imagen-user'src=$img>
+        <a class='btn-prueba' href='$foto'>Cambiar Imagen</a>
         <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
         <h4> Nombre de usuario: </h4>
         <h4> $nombreUsuario </h4>
