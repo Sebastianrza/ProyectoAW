@@ -86,7 +86,7 @@ class Podcast{
     public static function consultarPodcast($nombrePodcast, $userPodcast){
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $sql = sprintf('select * from Podcast P where P.nombrePodcast = "%s"', $conn->real_escape_string($nombrePodcast), 
+        $sql = sprintf('select * from podcast P where P.nombrePodcast = "%s"', $conn->real_escape_string($nombrePodcast), 
         "and P.userPodcast = '%s'", $conn->real_escape_string($userPodcast));//dejarla así y probarla 
         $rs = $conn->query($sql);
         $result = false;
