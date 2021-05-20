@@ -46,12 +46,12 @@ class exploraPlaylist {
         $sql = "SELECT * from playlist";
         $datos = $conexion->query($sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST
-        echo "<div class= \"contenedor\">";
+        echo "<div class= \"contenedorplaylist\" style= \"display: flex\">";
         while($mostrar=mysqli_fetch_array($datos)){
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             echo "<div class= \"infoPlaylist\">";                         
-            echo "<a  href=playlist.php?idPlaylist=$mostrar[idPlaylist] > <h3> $mostrar[Titulo] </h3> </a> ";
-            echo "<a  href=playlist.php?idPlaylist=$mostrar[idPlaylist] > <img src=img/pruebas/$mostrar[imagen]> </a> ";  
+            echo "<a  href=verlista.php?idPlaylist=$mostrar[idPlaylist] > <h3> $mostrar[Titulo] </h3> </a> ";
+            echo "<a  href=verlista.php?idPlaylist=$mostrar[idPlaylist] > <img src=img/pruebas/$mostrar[imagen]> </a> ";  
             echo "</div>";
         }
         echo "</div>";

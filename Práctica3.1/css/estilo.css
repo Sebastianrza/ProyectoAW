@@ -2,6 +2,10 @@ body {
 	background-color: #CDCDCD;
 }
 
+.contenedorplaylist{
+	display: flex;
+}
+
 div#contenedor {
 	width: 1500px;
 	margin: auto;
@@ -300,4 +304,9 @@ margin-right: 5%;
 	margin: auto;
 	width: 60%;
 	margin-top: 20px;
+}
+
+.cajaplaylist{
+	border: 3px solid black;
+	margin-right: 10px;
 }

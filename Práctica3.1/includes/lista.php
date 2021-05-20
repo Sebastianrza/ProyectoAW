@@ -1,6 +1,7 @@
 <?php
-namespace es\ucm\fdi\aw;
-class Lista extends reproductor {
+namespace es\ucm\fdi\aw ;
+require_once __DIR__.'/..\reproductor.php';
+class Lista{
 		var $genero;
 		var $numPodcast;
 		var $activa;
