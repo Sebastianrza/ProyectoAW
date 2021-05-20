@@ -104,18 +104,24 @@ class Podcast{
          }
          return $result;
     }
-    public static function buscaId(){
+    public static function buscaId($idPodcast){
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
 
-        $sql= "SELECT * from podcast";
+        $sql= "SELECT * from podcast P WHERE p.idPodcast = $idPodcast";
         $datos = mysqli_query($conn, $sql);
         $html = "";
 
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
-                <span class = "caja"><a href=?idPodcast=$mostrar[idPodcast] ><img class ="img-podcast" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></span> 
-        EOF;
+            <div class="infoPodcast">
+                <div class = "infoPodcastIZ"><a href=?idPodcast=$mostrar[idPodcast] ><img class ="img-podcast" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></div> 
+                <div class= "infoPodcastDR">
+                    <h3 class="nombrePodcast">$mostrar[nombrePodcast]</h3>
+                    <p class="desc">$mostrar[Descripción]</p>
+                </div>
+            </div>
+            EOF;
         }
         return $html;
 

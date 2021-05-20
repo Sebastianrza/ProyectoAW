@@ -24,5 +24,6 @@
 ?>
 </div>
 <script src = "includes/js/navbar.js"></script>
+
 </body>
 </html>

@@ -15,23 +15,16 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
 	<div class = "navbar">
 		<nav class = "navigation hide" id = "navigation">
 					<span class = "close-icon" onclick = "showIconBar()"><i class = "fa fa-close"></i></span>
-			<ul class = "navlist">
-				<li class = "nav-item">
-					<a href = "index.php">Index</a>
-				</li>		
-				<li class = "nav-item">
-					<a href = "reproductor.php">Reproductor</a>
-				</li>	
+			<ul class = "navlist">	
 				<li class = "nav-item">
 					<a href = "foro.php">Foro</a>
-				</li>
-				<li class = "nav-item">
-					<a href = "Explorar.php">Explora Playlist</a>
-				</li>		
+				</li>	
 				<li class = "nav-item">
 					<a href = "perfil.php">Perfil</a>
-				</li>
-						
+				</li>	
+				<li class = "nav-item">
+					<a href = "Explorar.php">Index</a>
+				</li>	
 			</ul>
 		</nav>
 		<a href = "#" class = "bar-icon" id = "iconBar" onclick = "hideIconBar()"><i class="fa fa-bars"></i></a>
@@ -52,18 +45,14 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
 					<span class = "close-icon" onclick = "showIconBar()"><i class = "fa fa-close"></i></span>
 			<ul class = "navlist">
 				<li class = "nav-item">
-					<a href = "index.php">Index</a>
-				</li>		
-				<li class = "nav-item">
-					<a href = "reproductor.php">Reproductor</a>
-				</li>	
-				<li class = "nav-item">
-					<a href = "foro.php">Foro</a>
+					<a href = "perfil.php">Perfil</a>
 				</li>
 				<li class = "nav-item">
-					<a href = "Explorar.php">Explora Playlist</a>
-				</li>		
-				
+					<a href = "foro.php">Foro</a>
+				</li>	
+				<li class = "nav-item">
+					<a href = "Explorar.php">Index</a>
+				</li>	
 						
 			</ul>
 		</nav>

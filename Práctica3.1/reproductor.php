@@ -9,7 +9,7 @@ $arr = array();
 $idPodcast = $_GET["idPodcast"];
 $rutaPodcast = "archivos/pruebas/".$idPodcast.".mp3";
 
-$arr = Podcast::buscaId();
+$arr = Podcast::buscaId($idPodcast);
 
 
 $contenidoPrincipal = <<<EOS
@@ -44,5 +44,6 @@ $contenidoPrincipal = <<<EOS
     <script src="includes/js/botones.js"></script>
 
     EOS;
+
 
 require __DIR__.'/includes/plantillas/plantilla.php';

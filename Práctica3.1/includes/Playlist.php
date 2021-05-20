@@ -57,9 +57,11 @@ class Playlist {
         $html .=  "<div class= \"contenedorplaylist\" style= \"display: flex\">";
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
-            <div class = "cajaplaylist"><a href=verlista.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" /></a>
+            <div class = "cajaplaylist">
+            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" /></a>
             <a href=verlista.php?idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a>
-             <h3> $mostrar[Descripcion]</h3></div> 
+             <p class="desc"> $mostrar[Descripcion]</p>
+             </div> 
             EOF;
         }
         $html .=   "</div>";
@@ -85,7 +87,7 @@ class Playlist {
         $datos = mysqli_query($conn, $sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST
         $html = "";
-        $html .=  "<div class= \"contenedor\">";;
+        $html .=  "<div class= \"contenedor\">";
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
@@ -113,29 +115,40 @@ class Playlist {
         $sql = "SELECT * from playlist WHERE idPlaylist = $idPlaylist";
         //Aqui obtengo la info de la playlist
         $datos = mysqli_query($conn, $sql);
+        $html = "";
+        $html .=  "<div class= \"contenedor\">";
         while($mostrar=mysqli_fetch_array($datos)){
-            echo "<div class= \"contenedorTitulo\">";
-            echo "$mostrar[Titulo] ";
-            //esto es un enlace para llegar al perfil del usuario propietario de la playlist
-            echo "Esta playlist pertenece a :<a href= \"/perfil.php\" >  $mostrar[idPropietario]  </a> ";
-            echo "</div>";
-            echo "$mostrar[Descripcion] ";
+            
+            $html .= <<<EOF
+            <div class= "contenedorTitulo">
+            <h1> $mostrar[Titulo] </h1>
+            <p class="desc"> $mostrar[Descripcion] </p>
+             </div>
+            <br>
+            <br>
+             Esta playlist pertenece a: <a href= perfil.php>  $mostrar[idPropietario]  </a> 
+             </div>
+            EOF;
         }
         //Aqui obtengo la información de los podcast que pertenecen a la playlist
         $sql= "SELECT * FROM podcast JOIN listapodcast ON podcast.idPodcast = listapodcast.idPodcast WHERE listapodcast.idLista = $idPlaylist";
         $datos = mysqli_query($conn, $sql);
-        //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST
-        echo "<div class= \"contenedorPlaylist\">";
+        //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
+        $html .=  "<div class= \"contenedorPlaylist\">";
         while($mostrar=mysqli_fetch_array($datos)){
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
-            echo "<div class= \"infoPlaylist\">";                               /*!!aqui debería ser la imagen de la playlist que es única */
-            echo "<a  href=reproductor.php?idPodcast=$mostrar[idPodcast] > <img src=img/pruebas/$mostrar[idPodcast].jpg /> </a>";
-            echo "<a  href=reproductor.php?idPodcast=$mostrar[idPodcast] > <h3> $mostrar[nombrePodcast] </h3> </a> ";
-            echo "<a  <h5> $mostrar[Descripción] </h5> </a> ";
-            echo "</div>";
+             $html .= <<<EOF
+            <div class="infoPlaylist">                         
+            <a  href=reproductor.php?idPodcast=$mostrar[idPodcast] > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
+            <a  href=reproductor.php?idPodcast=$mostrar[idPodcast] > <h3> $mostrar[nombrePodcast] </h3> </a>
+            <a  <h5> $mostrar[Descripción] </h5> </a> 
+            </div>
+            EOF;
         }
-        echo "</div>";
-    }                                                                                               
+        $html .=   "</div>";
+        return $html;
+    }             
+          
     
 }
 

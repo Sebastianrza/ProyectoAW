@@ -21,7 +21,7 @@ $arr = Playlist::getAll();
 $contenidoPrincipal = <<<EOS
 
     <div class = "Playlist">
-    <h1>Todas las playlist</h1>
+    <h1 class="tituloexplora">Todas las playlist</h1>
         <div class = "podcast-list">
             $arr
         </div>
