@@ -1,12 +1,12 @@
 <?php
 namespace es\ucm\fdi\aw;
 require_once __DIR__.'/includes/config.php';
-
-//$htmlFormLogin = $form->gestiona();
 $tituloPagina = 'Perfil del Usuario';
 if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
     $nombreU = $_SESSION['nombre']; 
     $usuario = Usuario::buscaUsuario($nombreU);
+}else{
+    header('Location: login.php');
 }
 
 $nombreUsuario = $usuario->nombreUsuario();

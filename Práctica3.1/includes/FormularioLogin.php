@@ -55,7 +55,15 @@ class FormularioLogin extends Form
                 $_SESSION['login'] = true;
                 $_SESSION['nombre'] = $nombreUsuario;
                 $_SESSION['esAdmin'] = strcmp($usuario->rol(), 'admin') == 0 ? true : false;
-                $result = 'index.php';
+                $_SESSION['empresa'] = strcmp($usuario->rol(), 'empresa') == 0 ? true : false;
+                if($_SESSION['esAdmin'] ===true){
+                    $result = 'admin.php';
+                }elseif($_SESSION['empresa'] ===true){
+                    $result = 'empresa.php';
+                }else{
+                    $result = 'index.php';
+                }
+                
             }
         }
         return $result;
