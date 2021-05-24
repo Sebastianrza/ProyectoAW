@@ -182,20 +182,6 @@ label {
 	font-size: 40px;
 	font-family: aquire;
 }
-.User-Data{
-	font-family: 'Itim';
-}
-.podcast-user{
-	text-align: center;
-}
-.list-user1{
-	display: inline;
-	font-family: 'Itim';
-}
-.imagen-user{
-	height: 25%;
-	width: 25%;
-}
 
 .btn-upload {
 	width: 180px;
@@ -379,3 +365,34 @@ h5{
 	margin-left: 20px;
 }
 
+/**perfil*/
+
+.User-Data{
+	font-family: 'Itim';
+}
+.podcast-user{
+	text-align: center;
+}
+.list-user1{
+	display: inline;
+	font-family: 'Itim';
+}
+.imagen-user{
+	height: 25%;
+	width: 25%;
+}
+.subir-podc{
+	display: none;
+}
+.podc-fav{
+	display: none;
+}
+.seguidores{
+	display: none;
+}
+.siguiendo{
+	display: none;
+}
+.edit-perfil{
+	display:none;
+}

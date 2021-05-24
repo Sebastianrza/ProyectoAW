@@ -61,35 +61,29 @@ $contenidoPrincipal = <<<EOS
         <h2> Biografía</h2>
         $bio
     </div>
-    <div class='subir-podc'>
     <div id='subir-podc'class='subir-podc'>
     
    
     <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
     
     </div>
-    <div class='podc-fav'>
     <div id='podc-fav'class='podc-fav'>
     
    
    no
     
     </div>
-    <div class='seguidores'>
-    
     <div id='seguidores' class='seguidores'>
     si
    
     
     </div>
-    <div class='siguiendo'>
     <div id='siguiendo' class='siguiendo'>
     
    
     hola
     
     </div>
-    <div class='edit-perfil'>
     <div id='edit-perfil' class='edit-perfil'>
     
    
