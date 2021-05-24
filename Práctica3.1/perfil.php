@@ -26,66 +26,76 @@ $contenidoPrincipal = <<<EOS
     <div class='podcast-user'>
         <ul class = "list-user">
             <li class = "list-user1">
-                <a href = "#info">Información del perfil</a>
+                <a href = "#" onclick="openInformacion();">Información del perfil</a>
             </li>	
             <li class = "list-user1">
-                <a href = "#podc-sub">Podcast Subidos</a>
+                <a href = "#" onclick="openPodSub();return false;">Podcast Subidos</a>
             </li>		
             <li class = "list-user1">
-                <a href = "podc-fav">Podcast Favoritos</a>
+                <a href ="#" onclick="openPodFav();return false;">Podcast Favoritos</a>
             </li>	
             <li class = "list-user1">
-                <a href = "#seguidores">Seguidores</a>
+                <a href = "#" onclick="openSeguidores();return false;">Seguidores</a>
             </li>	
             <li class = "list-user1">
-            <a href = "#siguiendo">Siguiendo</a>
+            <a href = "#" onclick="openSiguiendo();return false;">Siguiendo</a>
             </li>
             <li class = "list-user1">
-            <a href = "#edit-perfil">Editar Perfil</a>
+            <a href = "#" onclick="openeditperfil();return false;">Editar Perfil</a>
             </li>
         </ul>
     </div>
     <div class='User-Data'>
+    <div id='User-Data' class='User-Data'>
         <h4> Foto de Perfil </h4>
         <img class='imagen-user'src=$img>
         <a class='btn-prueba' href='$foto'>Cambiar Imagen</a>
-        <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
         <h4> Nombre de usuario: </h4>
         <h4> $nombreUsuario </h4>
         <h4> Nombre Completo: </h4>
-        <h4> $nombre </h4> 
         <h4>Correo Electrónico: $email</h4>
         <h4> Rol Activo: $rol </h4> 
     </div>
     <div class='User-bio'>
+    <div id='User-bio'class='User-bio'>
         <h2> Biografía</h2>
         $bio
     </div>
     <div class='subir-podc'>
+    <div id='subir-podc'class='subir-podc'>
     
    
+    <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
     
     </div>
     <div class='podc-fav'>
+    <div id='podc-fav'class='podc-fav'>
     
    
+   no
     
     </div>
     <div class='seguidores'>
     
+    <div id='seguidores' class='seguidores'>
+    si
    
     
     </div>
     <div class='siguiendo'>
+    <div id='siguiendo' class='siguiendo'>
     
    
+    hola
     
     </div>
     <div class='edit-perfil'>
+    <div id='edit-perfil' class='edit-perfil'>
     
    
+   esto
     
     </div>
 EOS;
 
-require __DIR__.'/includes/plantillas/plantilla.php';
+require __DIR__.'/includes/plantillas/plantillaPerfil.php';
