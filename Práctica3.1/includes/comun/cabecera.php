@@ -23,7 +23,7 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
 					<a href = "perfil.php">Perfil</a>
 				</li>	
 				<li class = "nav-item">
-					<a href = "Explorar.php">Index</a>
+					<a href = "Explorar.php">Inicio</a>
 				</li>	
 			</ul>
 		</nav>
@@ -51,7 +51,7 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
 					<a href = "foro.php">Foro</a>
 				</li>	
 				<li class = "nav-item">
-					<a href = "Explorar.php">Index</a>
+					<a href = "Explorar.php">Inicio</a>
 				</li>	
 						
 			</ul>
