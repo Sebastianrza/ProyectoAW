@@ -25,7 +25,7 @@ function mostrarSaludo() {
 			</ul>
 		</nav>
 		<a href = "#" class = "bar-icon" id = "iconBar" onclick = "hideIconBar()"><i class="fa fa-bars"></i></a>
-		<h1 class = "WaveCast-logo"> WaveCast </h1>
+		<h1 class = "WaveCast-logo"><a href = "index.php">WaveCast</a></h1>
 		<h1></h1>
 	</div>
 	<div class="saludo">

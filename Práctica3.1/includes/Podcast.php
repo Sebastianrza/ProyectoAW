@@ -114,19 +114,30 @@ class Podcast{
 
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
-            <div class="infoPodcast">
-                <div class = "infoPodcastIZ"><a href=?idPodcast=$mostrar[idPodcast] ><img class ="img-podcast" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></div> 
-                <div class= "infoPodcastDR">
-                    <h3 class="nombrePodcast">$mostrar[nombrePodcast]</h3>
-                    <p class="desc">$mostrar[Descripción]</p>
-                </div>
-            </div>
+            <span class = "caja"><span class ="info">$mostrar[Descripción]</span><a href=?idPodcast=$mostrar[idPodcast]>
+            <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></span> 
             EOF;
         }
         return $html;
-
     }
 
+    public static function buscaNombre($idPodcast){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+
+        $sql= "SELECT * from podcast P WHERE p.idPodcast = $idPodcast";
+        $datos = mysqli_query($conn, $sql);
+        $html = "";
+        $mostrar="";
+
+        while($mostrar=mysqli_fetch_array($datos)){
+            $html .= <<<EOF
+            <div class ="nombre-podcast">$mostrar[nombrePodcast] - $mostrar[userPodcast]</div>
+            EOF;
+        }
+        return $html;
+    }
+    
 }
 
 ?>

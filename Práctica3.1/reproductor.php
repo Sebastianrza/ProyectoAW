@@ -10,7 +10,7 @@ $idPodcast = $_GET["idPodcast"];
 $rutaPodcast = "archivos/pruebas/".$idPodcast.".mp3";
 
 $arr = Podcast::buscaId($idPodcast);
-
+$nombre = Podcast::buscaNombre($idPodcast);
 
 $contenidoPrincipal = <<<EOS
 
@@ -23,6 +23,7 @@ $contenidoPrincipal = <<<EOS
             $arr
         </div>
         <div class ="audio-control">
+            $nombre
             <div class = "audio_buttons">
                 <button class='btn-audio' onclick = "back()">&laquo</a>
                 <button class='btn-audio' onclick = "play()">Play</a>

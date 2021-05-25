@@ -6,7 +6,6 @@ var progressed = document.getElementById("progressed");
 
 function play(){
 	audio.play();
-
 }
 
 function pause(){
