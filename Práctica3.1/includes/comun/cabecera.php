@@ -20,7 +20,7 @@ function mostrarSaludo() {
 					<a href = "perfil.php">Perfil</a>
 				</li>	
 				<li class = "nav-item">
-					<a href = "Explorar.php">Inicio</a>
+					<a href = "index.php">Inicio</a>
 				</li>	
 			</ul>
 		</nav>

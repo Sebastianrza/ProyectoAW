@@ -43,9 +43,9 @@ class exploraPlaylist {
     public function muestralistaPlaylist(){
         $app = Aplicacion::getSingleton();
         $conexion = $app->conexionBd();
-        $sql = "SELECT * from playlist";
+        $sql = "SELECT * from playlist WHERE playlist.idPlaylist != 3";
         $datos = $conexion->query($sql);
-        //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST
+        //CONTENEDOR EXTERNO PARA TODA LA PLAYLISTx
         echo "<div class= \"contenedorplaylist\" style= \"display: flex\">";
         while($mostrar=mysqli_fetch_array($datos)){
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
