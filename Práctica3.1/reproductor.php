@@ -2,7 +2,11 @@
 namespace es\ucm\fdi\aw;
 require_once __DIR__.'/includes/config.php';
 
-$tituloPagina = 'Reproductor';
+
+//COMPROBAR QUE LA PLAYLIST EXISTE
+if(isset($_GET['idPlaylist'])){
+    $playlist = $_GET['idPlaylist'];
+}
 
 $arr = array();
 
@@ -11,8 +15,9 @@ $rutaPodcast = "archivos/pruebas/".$idPodcast.".mp3";
 
 $arr = Podcast::buscaId($idPodcast);
 $nombre = Podcast::buscaNombre($idPodcast);
-
+$tituloPagina = 'Lista';
 $contenidoPrincipal = <<<EOS
+
 
     <audio id = "audio">
     <source src="$rutaPodcast" type="audio/mp3">
@@ -44,7 +49,6 @@ $contenidoPrincipal = <<<EOS
 
     <script src="includes/js/botones.js"></script>
 
-    EOS;
-
-
+EOS;
 require __DIR__.'/includes/plantillas/plantilla.php';
+?>

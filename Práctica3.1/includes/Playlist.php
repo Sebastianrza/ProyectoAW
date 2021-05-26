@@ -51,7 +51,7 @@ class Playlist {
     public static function getAll(){
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $sql = "SELECT * from playlist";
+        $sql = "SELECT * from playlist WHERE playlist.idPlaylist != 3";
         $datos = mysqli_query($conn, $sql);
         $html = "";
         $html .=  "<div class= \"contenedorplaylist\" style= \"display: flex\">";
@@ -139,7 +139,7 @@ class Playlist {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
              $html .= <<<EOF
             <div class="infoPlaylist">                         
-            <a href=#?idPodcast=$mostrar[idPodcast] > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
+            <a href=reproductor.php?idPodcast=$mostrar[idPodcast] > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
             <a href=reproductor.php?idPodcast=$mostrar[idPodcast] > <h3> $mostrar[nombrePodcast] </h3> </a>
             <a  <h5> $mostrar[Descripción] </h5> </a> 
             </div>
