@@ -114,8 +114,14 @@ class Podcast{
 
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
-            <span class = "caja"><span class ="info">$mostrar[Descripción]</span><a href=?idPodcast=$mostrar[idPodcast]>
-            <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></span> 
+            <div id="audioreproduciendo" >
+                <a href="archivos/pruebas/$mostrar[filename]"> 
+                    <span class = "caja">
+                        <span class ="info">$mostrar[Descripción]</span> 
+                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos />
+                    </span> 
+                </a>
+            </div>
             EOF;
         }
         return $html;
@@ -155,16 +161,29 @@ class Podcast{
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
              $html .= <<<EOF
             <div class="infoPlaylist">                         
-            <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist  > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
-            <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist  > <h3> $mostrar[nombrePodcast] </h3> </a>
-            <!-- <a  <h5> $mostrar[Descripción] </h5> </a> -->
+                <a id="pod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
+                </a> 
+            <a  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >   <h3> $mostrar[nombrePodcast] </h3>  <!-- </a> 
+            <!-- <h5> $mostrar[Descripción] </h5> -->
             </div>
             EOF;
         }
         $html .=   "</div>";
         return $html;
-    }     
-    
+    }  
+    public static function getPlaylistPodcastId($idPlaylist){
+        
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $sql = "SELECT * from playlist WHERE idPlaylist = $idPlaylist";
+        //Aqui obtengo la info de la playlist
+        $datos = mysqli_query($conn, $sql);
+        //Aqui obtengo la información de los podcast que pertenecen a la playlist
+        $sql= "SELECT podcast.idPodcast FROM `listapodcast` JOIN podcast ON listapodcast.idPodcast = podcast.idPodcast WHERE listapodcast.idLista = $idPlaylist";
+        $datos = mysqli_query($conn, $sql);
+        //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
+        return mysqli_fetch_array($datos);
+    }
 }
 
 ?>

@@ -9,26 +9,31 @@ if(isset($_GET['idPlaylist'])){
 }
 
 $arr = array();
-
+$nombreAudios = array();
 
 $idPodcast = $_GET["idPodcast"];
 $idPlaylist = $_GET["idPlaylist"];
 $rutaPodcast = "archivos/pruebas/".$idPodcast.".mp3";
+
+//funcion para conseguir todos los podcast que pertenecen a esta playlist
 $listaPodcast = Podcast::muestraListaPodcast($idPlaylist, $idPodcast);
+$idVarios = Podcast::getPlaylistPodcastId($idPlaylist);
+
+//Recorremos toda la lista aregando los archivos de audio asociados a cada idPodcast
+foreach($idVarios as $aud){
+    $aud = "archivos/pruebas/".$aud.".mp3";
+}
+
 
 $arr = Podcast::buscaId($idPodcast);
 $nombre = Podcast::buscaNombre($idPodcast);
 
 
+$html = "";
+$html .= "<audio id = \"audio\" src=\"archivos/pruebas/$idPodcast.mp3\"> ";
 
-$tituloPagina = 'Lista';
-$contenidoPrincipal = <<<EOS
-
-
-    <audio id = "audio">
-    <source src="$rutaPodcast" type="audio/mp3">
-    </audio>
-
+$html .= "</audio>";
+$contenido = <<<EOS
     <div class = "reproductor">
         <div class = "podcast-list">
             $arr
@@ -52,12 +57,15 @@ $contenidoPrincipal = <<<EOS
             </div>
         </div> 
     </div>
-
-
-
-
     <script src="includes/js/botones.js"></script>
+EOS;
 
+$html .= $contenido;
+
+$tituloPagina = 'Lista';
+$contenidoPrincipal = <<<EOS
+    $html
 EOS;
 require __DIR__.'/includes/plantillas/plantilla.php';
+
 ?>
