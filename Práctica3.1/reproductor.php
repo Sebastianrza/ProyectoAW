@@ -10,11 +10,17 @@ if(isset($_GET['idPlaylist'])){
 
 $arr = array();
 
+
 $idPodcast = $_GET["idPodcast"];
+$idPlaylist = $_GET["idPlaylist"];
 $rutaPodcast = "archivos/pruebas/".$idPodcast.".mp3";
+$listaPodcast = Podcast::muestraListaPodcast($idPlaylist, $idPodcast);
 
 $arr = Podcast::buscaId($idPodcast);
 $nombre = Podcast::buscaNombre($idPodcast);
+
+
+
 $tituloPagina = 'Lista';
 $contenidoPrincipal = <<<EOS
 
@@ -26,6 +32,9 @@ $contenidoPrincipal = <<<EOS
     <div class = "reproductor">
         <div class = "podcast-list">
             $arr
+        </div>
+        <div class = "podcast-list">
+            $listaPodcast
         </div>
         <div class ="audio-control">
             $nombre

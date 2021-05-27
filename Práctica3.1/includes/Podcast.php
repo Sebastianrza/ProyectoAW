@@ -137,6 +137,33 @@ class Podcast{
         }
         return $html;
     }
+    public static function muestraListaPodcast($idPlaylist, $idPodcast){
+        
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $sql = "SELECT * from playlist WHERE idPlaylist = $idPlaylist";
+        //Aqui obtengo la info de la playlist
+        $datos = mysqli_query($conn, $sql);
+        $html = "";
+        $html .=  "<div class= \"contenedor\">";
+        //Aqui obtengo la información de los podcast que pertenecen a la playlist
+        $sql= "SELECT podcast.userPodcast, podcast.nombrePodcast, podcast.idPodcast, podcast.Descripción, podcast.filename FROM `listapodcast` JOIN podcast ON listapodcast.idPodcast = podcast.idPodcast WHERE listapodcast.idLista = $idPlaylist AND listapodcast.idPodcast != $idPodcast";
+        $datos = mysqli_query($conn, $sql);
+        //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
+        $html .=  "<div class= \"contenedorPlaylist\">";
+        while($mostrar=mysqli_fetch_array($datos)){
+            //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
+             $html .= <<<EOF
+            <div class="infoPlaylist">                         
+            <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist  > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
+            <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist  > <h3> $mostrar[nombrePodcast] </h3> </a>
+            <!-- <a  <h5> $mostrar[Descripción] </h5> </a> -->
+            </div>
+            EOF;
+        }
+        $html .=   "</div>";
+        return $html;
+    }     
     
 }
 
