@@ -8,7 +8,8 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
 }else{
     header('Location: login.php');
 }
-
+$pod = array();
+$pod = Podcast::buscaPodUser($nombreU);
 $nombreUsuario = $usuario->nombreUsuario();
 $nombre = $usuario->nombre();
 $bio = $usuario->bio();
@@ -45,32 +46,28 @@ $contenidoPrincipal = <<<EOS
             </li>
         </ul>
     </div>
-    <div class='User-Data'>
     <div id='User-Data' class='User-Data'>
-        <h4> Foto de Perfil </h4>
-        <img class='imagen-user'src=$img>
-        <a class='btn-prueba' href='$foto'>Cambiar Imagen</a>
-        <h4> Nombre de usuario: </h4>
-        <h4> $nombreUsuario </h4>
-        <h4> Nombre Completo: </h4>
-        <h4>Correo Electrónico: $email</h4>
-        <h4> Rol Activo: $rol </h4> 
+            <h4> Foto de Perfil </h4>
+            <img class='imagen-user'src=$img>
+            <a class='btn-prueba' href='$foto'>Cambiar Imagen</a>
+            <h4> Nombre de usuario: </h4>
+            <h4> $nombreUsuario </h4>
+            <h4> Nombre Completo: </h4>
+            <h4>Correo Electrónico: $email</h4>
+            <h4> Rol Activo: $rol </h4> 
     </div>
-    <div class='User-bio'>
     <div id='User-bio'class='User-bio'>
         <h2> Biografía</h2>
         $bio
     </div>
     <div id='subir-podc'class='subir-podc'>
-    
-   
-    <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
-    
+        $pod
+        <div id='boton' class='boton'>
+            <a class='btn-prueba' href='$podcast'>Subir Podcast</a>
+        </div>
     </div>
     <div id='podc-fav'class='podc-fav'>
     
-   
-   no
     
     </div>
     <div id='seguidores' class='seguidores'>

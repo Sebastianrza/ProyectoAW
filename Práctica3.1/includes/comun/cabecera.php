@@ -22,6 +22,9 @@ function mostrarSaludo() {
 				<li class = "nav-item">
 					<a href = "index.php">Inicio</a>
 				</li>	
+				<li class ="nav-item">
+					<a href = "admin.php">Administrar</a>
+				</li>
 			</ul>
 		</nav>
 		<a href = "#" class = "bar-icon" id = "iconBar" onclick = "hideIconBar()"><i class="fa fa-bars"></i></a>

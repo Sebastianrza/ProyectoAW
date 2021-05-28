@@ -1,7 +1,7 @@
 <?php
 
 $tituloPagina = 'Empresas';
-if(isset($_SESSION["login"]) && ($_SESSION["login"]===true) && ($_SESSION['empresas'] === true)){
+if(isset($_SESSION["login"]) && ($_SESSION["login"]===true) && ($_SESSION['empresa'] === true)){
     $nombreU = $_SESSION['nombre']; 
 }else{
     header('Location: index.php');
