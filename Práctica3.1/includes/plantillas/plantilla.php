@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../js/Playlist.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">

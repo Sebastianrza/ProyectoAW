@@ -115,10 +115,10 @@ class Podcast{
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
             <div id="audioreproduciendo" >
-                <a href="archivos/pruebas/$mostrar[filename]"> 
+                <!-- <a href="archivos/pruebas/$mostrar[filename]"> -->
                     <span class = "caja">
                         <span class ="info">$mostrar[Descripción]</span> 
-                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos />
+                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" />
                     </span> 
                 </a>
             </div>
@@ -184,6 +184,19 @@ class Podcast{
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         return mysqli_fetch_array($datos);
     }
+    public static function getPodcastName($idPodcast){
+        
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $sql = "SELECT podcast.filename from podcast WHERE idPodcast = $idPodcast";
+        $datos = mysqli_query($conn, $sql);
+        $name = "";
+        while($mostrar=mysqli_fetch_array($datos)){
+            $name = $mostrar["filename"];
+        }
+        return $name;
+    }
+
 }
 
 ?>

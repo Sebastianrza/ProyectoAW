@@ -1,17 +1,10 @@
-"use strict"
-
 $(document).ready(function () {
-    $(".etiqueta").on("click", function (event) {
-        
-        let texto = $(event.target).text();
-       
 
-    });
+  $("audio").on("ended", function (event) {
 
-    $(".etiqueta").on("click", function (event) {
-        
-      let texto = $(event.target).text();
-     
+    let nextaudios = $("#pod").prop("href");
+    window.location.href = nextaudios;
 
   });
+
 });

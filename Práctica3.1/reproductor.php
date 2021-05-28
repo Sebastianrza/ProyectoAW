@@ -13,26 +13,20 @@ $nombreAudios = array();
 
 $idPodcast = $_GET["idPodcast"];
 $idPlaylist = $_GET["idPlaylist"];
-$rutaPodcast = "archivos/pruebas/".$idPodcast.".mp3";
+$nombreArchivo = Podcast::getPodcastName($idPodcast);
 
 //funcion para conseguir todos los podcast que pertenecen a esta playlist
 $listaPodcast = Podcast::muestraListaPodcast($idPlaylist, $idPodcast);
 $idVarios = Podcast::getPlaylistPodcastId($idPlaylist);
-
-//Recorremos toda la lista aregando los archivos de audio asociados a cada idPodcast
-foreach($idVarios as $aud){
-    $aud = "archivos/pruebas/".$aud.".mp3";
-}
-
 
 $arr = Podcast::buscaId($idPodcast);
 $nombre = Podcast::buscaNombre($idPodcast);
 
 
 $html = "";
-$html .= "<audio id = \"audio\" src=\"archivos/pruebas/$idPodcast.mp3\"> ";
-
+$html .= "<audio autoplay id = \"audio\" src=\"archivos/pruebas/$nombreArchivo\"> ";
 $html .= "</audio>";
+
 $contenido = <<<EOS
     <div class = "reproductor">
         <div class = "podcast-list">
