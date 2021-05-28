@@ -148,7 +148,28 @@ class Playlist {
         $html .=   "</div>";
         return $html;
     }             
-           
+    //AND playlist.idPlaylist != 3"
+    public static function buscarPlaylist($criterio){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $sql = "SELECT * from playlist WHERE playlist.Titulo like concat('%', '$criterio', '%') "; 
+   
+        $datos = mysqli_query($conn, $sql);
+        $html = "";
+        $html .=  "<div class= \"contenedorplaylist\" style= \"display: flex\">";
+        $html .= "<h2> Resultados por playlist: </h2>";
+        while($mostrar=mysqli_fetch_array($datos)){
+            $html .= <<<EOF
+            <div class = "cajaplaylist">
+            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" /></a>
+            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a>
+             <p class="desc"> $mostrar[Descripcion]</p>
+             </div> 
+            EOF;
+        }
+        $html .=   "</div>";
+        return $html;
+    }     
           
     
 }

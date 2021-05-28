@@ -18,6 +18,10 @@
 ?>
 	<main>
 		<article>
+		<form action ="busqueda.php" method= "get" class = "form_search">
+		<input type="text" placeholder="Buscar" id="fname" name="fname">
+		<input type= "submit" value="BUSCAR" class= "btn_search">
+        </form>
 			<?= $contenidoPrincipal ?>
 		</article>
 	</main>
