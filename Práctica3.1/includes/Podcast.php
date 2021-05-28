@@ -232,7 +232,7 @@ class Podcast
         $datos = mysqli_query($conn, $sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         $html .=  "<div class= \"contenedorPlaylist\">";
-        $html .= "<h2> Resultados por usuario por nombre de Podcast: </h2>";
+        $html .= "<h2> Resultados por nombre de Podcast: </h2>";
         while ($mostrar = mysqli_fetch_array($datos)) {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
@@ -262,7 +262,7 @@ class Podcast
         $datos = mysqli_query($conn, $sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         $html .=  "<div class= \"contenedorPlaylist\">";
-        $html .= "<h2> Resultados por usuario por nombre de usuario:
+        $html .= "<h2> Resultados por nombre de usuario:
          </h2>";
         while ($mostrar = mysqli_fetch_array($datos)) {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
