@@ -181,7 +181,7 @@ class Podcast
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
             <div class="infoPlaylist">                         
-                <a id="pod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
+                <a class="pod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
                 </a> 
             <a  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >   <h3> $mostrar[nombrePodcast] </h3>  <!-- </a> 
             <!-- <h5> $mostrar[Descripción] </h5> -->
@@ -237,7 +237,7 @@ class Podcast
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
             <div class="infoPlaylist">                         
-                <a id="pod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista] >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg >
+                <a class="pod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista] >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg >
                 </a> 
             
             <a  href=reproductor.php?idPodcast=$mostrar[nombrePodcast]&idPlaylist=$criterio >   <h3> $mostrar[nombrePodcast] </h3>      <h5> $mostrar[Descripción] </h5> </a> 
@@ -267,7 +267,7 @@ class Podcast
         while ($mostrar = mysqli_fetch_array($datos)) {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
-            <a id="pod"  href=perfil.php > </h1> <!--src=img/pruebas/$mostrar[username].jpg --> $mostrar[username] </h1> </a> 
+            <a class="pod"  href=perfil.php > </h1> <!--src=img/pruebas/$mostrar[username].jpg --> $mostrar[username] </h1> </a> 
             
             </div>
             EOF;
