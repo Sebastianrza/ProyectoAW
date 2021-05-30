@@ -1,9 +1,10 @@
-var contador = -1;
+
 $(document).ready(function () {
 
   $("audio").on("ended", function (event) {
     var audios= [];
-    $(".contenedorPlaylist > .infoPlaylist > a").each(function(){
+    var contador = localStorage.getItem('contador');
+    $(".enlacepod").each(function(){
       //Almacenar cada uno en un array
       audios.push($(this).prop("href"));
     });
@@ -14,8 +15,10 @@ $(document).ready(function () {
     if(contador > audios.length-1){
      contador = 0; 
     }
+    localStorage.setItem('contador', contador);
+ 
     window.location.href = audios[contador];
-  
+    
   });
 
 });

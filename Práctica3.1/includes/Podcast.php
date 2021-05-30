@@ -181,7 +181,7 @@ class Podcast
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
             <div class="infoPlaylist">                         
-                <a class="pod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
+                <a class="enlacepod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
                 </a> 
             <a  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >   <h3> $mostrar[nombrePodcast] </h3>  <!-- </a> 
             <!-- <h5> $mostrar[Descripción] </h5> -->
@@ -237,7 +237,7 @@ class Podcast
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
             <div class="infoPlaylist">                         
-                <a class="pod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista] >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg >
+                <a class="enlacepod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista] >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg >
                 </a> 
             
             <a  href=reproductor.php?idPodcast=$mostrar[nombrePodcast]&idPlaylist=$criterio >   <h3> $mostrar[nombrePodcast] </h3>      <h5> $mostrar[Descripción] </h5> </a> 
