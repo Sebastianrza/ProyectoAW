@@ -1,7 +1,8 @@
 <?php
-
 namespace es\ucm\fdi\aw;
+
 require_once __DIR__.'/config.php';
+
 
 class Playlist {
     private $genero, $sql, $nombre, $descripcion, $propietario, $imagen, $idPlaylist;
@@ -126,7 +127,7 @@ class Playlist {
              </div>
             <br>
             <br>
-             Esta playlist pertenece a: <a href= perfil.php>  $mostrar[idPropietario]  </a> 
+             Esta playlist pertenece a: <a href= perfil_user.php?username=$mostrar[idPropietario]>  $mostrar[idPropietario]  </a> 
              </div>
             EOF;
         }
@@ -141,7 +142,7 @@ class Playlist {
             <div class="infoPlaylist">                         
             <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
             <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <h3> $mostrar[nombrePodcast] </h3> </a>
-            <a  <h5> $mostrar[Descripción] </h5> </a> 
+            <a  <h5> $mostrar[Descripcion] </h5> </a> 
             </div>
             EOF;
         }
