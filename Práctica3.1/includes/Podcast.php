@@ -275,5 +275,26 @@ class Podcast
         $html .=   "</div>";
         return $html;
     }
+    public static function buscaPodUser($userPodcast){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        
+        $sql= "SELECT * FROM podcast P where P.userPodcast = '$userPodcast'";
+        $datos = mysqli_query($conn, $sql);
+        $html = "";
+        $mostrar="";
+        if($datos){
+            while($mostrar=mysqli_fetch_array($datos)){
+                $html .= <<<EOF
+                <span class = "caja"><span class ="info">$mostrar[Descripción]</span><a href=?idPodcast=$mostrar[idPodcast]>
+                <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  /></a></span> 
+                <p> $mostrar[Descripción]<p>
+                EOF;
+                
+            }
+        }
+       
+        return $html;
+    }
     
 }
