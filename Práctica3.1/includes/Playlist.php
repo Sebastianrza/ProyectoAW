@@ -142,7 +142,7 @@ class Playlist {
             <div class="infoPlaylist">                         
             <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
             <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <h3> $mostrar[nombrePodcast] </h3> </a>
-            <a  <h5> $mostrar[Descripcion] </h5> </a> 
+            <a  <h5> $mostrar[Descripción] </h5> </a> 
             </div>
             EOF;
         }
