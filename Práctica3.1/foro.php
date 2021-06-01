@@ -13,4 +13,4 @@ $contenidoPrincipal = <<<EOS
 $htmlFormForo
 $muestraForo
 EOS;
-require __DIR__.'/includes/plantillas/plantillaForo.php';
+require __DIR__.'/includes/plantillas/plantilla.php';

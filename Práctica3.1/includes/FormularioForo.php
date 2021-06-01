@@ -20,15 +20,11 @@ class FormularioForo extends Form
         else
         $identificador = 0;
 
-        echo $identificador;
+        //echo $identificador;
 
 
         $html = <<<EOF
         <table>
-        <form name="form" action="agregar.php" method="post">
-            <input type="hidden" name="identificador" value="<?php echo $identificador;?>">
-            <input type="hidden" name="respuestas" value="<?php echo $respuestas;?>">
-            <tr>
                 <td>Autor </td>
                 <td><input type="text" name="autor"></td>
             </tr>
