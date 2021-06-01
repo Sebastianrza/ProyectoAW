@@ -121,6 +121,7 @@
 
 	main {
 	background-image: url("../img/logo_transparent.png");
+	background-repeat: no-repeat;
 	background-position-y: 48%;
 	background-position-x: 50%;
 	background-size: 81%;
@@ -356,7 +357,7 @@
 
 	a{
 	text-decoration: none;
-	color: black;
+	color: rgb(255, 255, 255);
 	}
 
 	h5{
@@ -481,4 +482,63 @@
 		text-align: center;
 		font-size: 30px;
 		background: rgba(3,41,78,0.8); 
+	}
+
+	/*Foro*/
+
+	h2{
+		font-size: 30px;
+	}
+
+	.foro{
+		margin:20px;
+		padding: 20px;
+		color:#FEFEFE;
+	}
+
+	b{
+		color:#FF0042;
+		font-weight: bolder;
+		text-decoration: none;
+	}
+	
+	.title-entrada{
+		font-size: 50px;
+	}
+	.foro{
+		margin:20px;
+		padding: 20px;
+	}
+	
+	.subforum{
+		margin-top:20px;
+	}
+	
+	.subforum-title{
+		background-color: #03294E;
+		padding:5px;
+		border-radius:5px;
+		margin: 4px;
+	}
+	
+	.subforum-row{
+		display: grid;
+		grid-template-columns: 7% 60% 13% 20%;
+	}
+	
+	.subforum-column{
+		padding: 10px;
+		margin: 4px;
+		border-radius:5px;
+		background-color: #03294E;	}
+	
+	.subforum-icon{
+		font-size: 35px;
+		align-items:center;
+	}
+	
+	.center{
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}

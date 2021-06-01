@@ -24,5 +24,5 @@ $tituloPagina = 'Lista';
 $contenidoPrincipal = <<<EOS
 $lista
 EOS;
-require __DIR__.'/includes/plantillas/plantilla.php';
+require __DIR__.'/includes/plantillas/plantillaForo.php';
 ?>
