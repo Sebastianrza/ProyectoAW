@@ -11,6 +11,11 @@ if(isset($_GET['idPlaylist'])){
 //$playlist = $_SESSION['Titulo'];
 $lista = Playlist::buscaPlaylist($playlist);
 
+$form = new FormularioForo();
+$htmlFormForo = $form->gestiona();
+
+$muestraForo = Podcast::muestraForo();
+
 $descripcion = $lista->getdescripcion();
 $Titulo = $lista->getTitulo();
 $idPropietario = $lista->getidPropietario();
@@ -23,6 +28,9 @@ $arr = array();
 $tituloPagina = 'Lista';
 $contenidoPrincipal = <<<EOS
 $lista
+
+$htmlFormForo
+$muestraForo
 EOS;
 require __DIR__.'/includes/plantillas/plantilla.php';
 ?>
