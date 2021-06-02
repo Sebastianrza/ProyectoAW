@@ -145,6 +145,105 @@ class Podcast
         return $html;
     }
 
+    public static function muestraForo(){
+
+    $app = Aplicacion::getSingleton();
+    $conn = $app->conexionBd();
+	$query = "SELECT * FROM  foro WHERE identificador = 0 ORDER BY fecha DESC";
+	$result = $conn->query($query);
+
+    $html ="";
+
+	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+		$id = $row['ID'];
+		$titulo = $row['titulo'];
+		$fecha = $row['fecha'];
+		$respuestas = $row['respuestas'];
+        $comentario = $row['mensaje'];
+        $autor = $row['autor'];
+        
+        $html .= <<<EOF
+
+        <div class = "foro">
+            <div class = "subforum-title">
+                <h2>$titulo</h2>
+            </div>
+            <div class = "subforum-row">
+                <div class = "subforum-icon subforum-column center">
+                    <i class = "fa fa-podcast"></i>
+                </div>
+                <div class = "subforum-description subforum-column">
+                    <p>$comentario</p>
+                </div>
+                <div class = "subforum-stats subforum-column center">
+                    <span><a href='respuestasForo.php?id=$id'>Ver $respuestas respuestas</a></span>
+                </div>
+                <div class = "subrofum-info subforum-column">
+                    <b>Posted by $autor</b> 
+                    <br>
+                    on <small>$fecha</small>
+                </div>
+            </div>
+        </div>
+        EOF;
+        
+	}
+    $html .= "</table>";
+
+    return $html;
+    }
+
+
+    public static function respuestasForo(){
+
+        if(isset($_GET["id"]))
+        $id = $_GET['id'];
+
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $query = "SELECT * FROM  foro WHERE identificador = '$id' ORDER BY fecha DESC";
+        $result = $conn->query($query);
+        
+        $html = "";
+    
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $id = $row['ID'];
+            $titulo = $row['titulo'];
+            $autor = $row['autor'];
+            $mensaje = $row['mensaje'];
+            $fecha = $row['fecha'];
+            $comentario = $row['mensaje'];
+            $respuestas = $row['respuestas'];
+            
+            $html .= <<<EOF
+    
+            <div class = "foro">
+                <div class = "subforum-title">
+                    <h2>$titulo</h2>
+                </div>
+                <div class = "subforum-row">
+                    <div class = "subforum-icon subforum-column center">
+                        <i class = "fa fa-podcast"></i>
+                    </div>
+                    <div class = "subforum-description subforum-column">
+                        <p>$comentario</p>
+                    </div>
+                    <div class = "subforum-stats subforum-column center">
+                        <span><a href='respuestasForo.php?id=$id'>Ver $respuestas respuestas</a></span>
+                    </div>
+                    <div class = "subrofum-info subforum-column">
+                        <b>Posted by $autor</b> 
+                        <br>
+                        on <small>$fecha</small>
+                    </div>
+                </div>
+            </div>
+            EOF;
+           
+        }
+        return $html;
+    }
+
     public static function buscaNombre($idPodcast)
     {
         $app = Aplicacion::getSingleton();
@@ -247,7 +346,15 @@ class Podcast
         }
         $html .=   "</div>";
         return $html;
+    }/*
+    public static function actualizaNumeroPodcast($userPodcast){
+        $app = Aplicacion::getSingleton();
+        $conexion = $app->conexionBd();
+        $sql ="Update usuario U set numeroPodcast=(SELECT count('$user')+1 from podcast P where
+        U.username = P.userPodcast) where U.username='$user'";
+        $conexion->query($sql);
     }
+   */
     public static function buscaUser($criterio)
     {
         $app = Aplicacion::getSingleton();
@@ -287,7 +394,7 @@ class Podcast
             while($mostrar=mysqli_fetch_array($datos)){
                 $html .= <<<EOF
                 <span class = "caja"><span class ="info">$mostrar[Descripción]</span><a href=?idPodcast=$mostrar[idPodcast]>
-                <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  /></a></span> 
+                <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></span> 
                 <p> $mostrar[Descripción]<p>
                 EOF;
                 
@@ -296,5 +403,4 @@ class Podcast
        
         return $html;
     }
-    
 }
