@@ -542,3 +542,27 @@
 		justify-content: center;
 		align-items: center;
 	}
+
+	/*Formulario foro*/
+
+	#campos-formulario{
+		visibility:collapse;
+	}
+
+	#formulario-foro{
+		width:250px;
+		height:200px;
+		background:#e6e6e6;
+		border-radius:8px;
+		box-shadow:0 0 40px -10px #000;
+		margin: auto;
+		padding:20px 30px;
+		box-sizing:border-box;
+		font-family:'Montserrat',sans-serif;
+		position:relative;
+	}
+
+	#bienvenida-formulario{
+		text-align:center;
+		color: #000000;
+	}

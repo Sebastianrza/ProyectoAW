@@ -21,18 +21,23 @@ class FormularioForo extends Form
         else
         $identificador = 0;
 
-        //echo $p;
+        $bienvenidaForo;
+        if($identificador == 0){
+          $bienvenidaForo = "Introduce un nuevo tema de discusión";
+        } else{
+          $bienvenidaForo = "Responde a ".$identificador;
+        }
 
         $html = <<<EOF
-        <table>
-            <tr>
+        <h2 id ="bienvenida-formulario">$bienvenidaForo</h2>
+        <table id ="formulario-foro">
+            <tr id ="campos-formulario">
               <td>ID</td>
                 <td><input type="text" id="prueba" name="prueba" value="$identificador" readonly></td>
                 <td><input type="text" id="num-playlist" name="num-playlist" value="$p" readonly></td>
             </tr>
-            <tr>
             
-            </tr>
+            <tr>
               <td>Autor </td>
                 <td><input type="text" name="autor"></td>
             </tr>
