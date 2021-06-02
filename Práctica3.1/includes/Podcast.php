@@ -346,7 +346,15 @@ class Podcast
         }
         $html .=   "</div>";
         return $html;
+    }/*
+    public static function actualizaNumeroPodcast($userPodcast){
+        $app = Aplicacion::getSingleton();
+        $conexion = $app->conexionBd();
+        $sql ="Update usuario U set numeroPodcast=(SELECT count('$user')+1 from podcast P where
+        U.username = P.userPodcast) where U.username='$user'";
+        $conexion->query($sql);
     }
+   */
     public static function buscaUser($criterio)
     {
         $app = Aplicacion::getSingleton();
