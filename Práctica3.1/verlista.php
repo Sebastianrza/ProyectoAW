@@ -4,8 +4,8 @@ require_once __DIR__.'/includes/config.php';
 
 
 //COMPROBAR QUE LA PLAYLIST EXISTE
-if(isset($_GET['idPlaylist'])){
-    $playlist = $_GET['idPlaylist'];
+if(isset($_GET["idPlaylist"])){
+    $playlist = $_GET["idPlaylist"];
 }
 //$_SESSION['Titulo'] = $_GET['Titulo'];
 //$playlist = $_SESSION['Titulo'];
@@ -14,7 +14,7 @@ $lista = Playlist::buscaPlaylist($playlist);
 $form = new FormularioForo();
 $htmlFormForo = $form->gestiona();
 
-$muestraForo = Podcast::muestraForo();
+$muestraForo = Podcast::muestraForo($playlist);
 
 $descripcion = $lista->getdescripcion();
 $Titulo = $lista->getTitulo();

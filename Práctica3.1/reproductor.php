@@ -22,6 +22,12 @@ $idVarios = Podcast::getPlaylistPodcastId($idPlaylist);
 $arr = Podcast::buscaId($idPodcast);
 $nombre = Podcast::buscaNombre($idPodcast);
 
+/*if(numPodcast == $nombreArchivo){
+    $next = 0;
+} else{
+    $next = $nombreArchivo + 1;
+}*/
+
 
 $html = "";
 $html .= "<audio autoplay id = \"audio\" src=\"archivos/pruebas/$nombreArchivo\"> ";
@@ -38,6 +44,7 @@ $contenido = <<<EOS
         <div class ="audio-control">
             $nombre
             <div class = "audio_buttons">
+                <button class='btn-audio' onclick = "muted()">PREVIOUS</a>
                 <button class='btn-audio' onclick = "back()">&laquo</a>
                 <button class='btn-audio' onclick = "play()">Play</a>
                 <button class='btn-audio' onclick = "pause()">Pause</a>
@@ -45,10 +52,12 @@ $contenido = <<<EOS
                 <button class='btn-audio' onclick = "volumeUp()">+</a>
                 <button class='btn-audio' onclick = "volumeDown()">-</a>
                 <button class='btn-audio' onclick = "muted()">Mute</a>
+                <button class='btn-audio' onclick = "muted()">NEXT</a>
             </div>
             <div class = "progress-bar">
                 <div class = "progressed" id = "progressed"></div>
             </div>
+
         </div> 
     </div>
     <script src="includes/js/botones.js"></script>
