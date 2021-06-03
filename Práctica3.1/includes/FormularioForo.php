@@ -29,7 +29,9 @@ class FormularioForo extends Form
         }
 
         $html = <<<EOF
-        <h2 id ="bienvenida-formulario">$bienvenidaForo</h2>
+        <div class ="marco-bienvenida">
+          <h2 id ="bienvenida-formulario">$bienvenidaForo</h2>
+        </div>
         <table id ="formulario-foro">
             <tr id ="campos-formulario">
               <td>ID</td>
