@@ -139,11 +139,11 @@ class Playlist {
         while($mostrar=mysqli_fetch_array($datos)){
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
              $html .= <<<EOF
-            <div class="infoPlaylist">                         
+            <span class="infoPlaylist">                         
             <a class="enlacepod" href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
             <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <h3> $mostrar[nombrePodcast] </h3> </a>
             <a  <h5> $mostrar[Descripción] </h5> </a> 
-            </div>
+            </span>
             EOF;
         }
         $html .=   "</div>";
