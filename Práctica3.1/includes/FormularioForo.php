@@ -63,7 +63,7 @@ class FormularioForo extends Form
     protected function procesaFormulario($datos){  
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        
+        date_default_timezone_set('Europe/Madrid');
         if(isset($_POST["submit"])){
             if(!empty($_POST['mensaje'])){
                 $autor=$_POST['autor'];
@@ -71,7 +71,7 @@ class FormularioForo extends Form
                 $mensaje=$_POST['mensaje'];
                 $respuestas=$_POST['respuestas'];
                 $identificador=$_POST['prueba'];
-                $fecha = date("d-m-y");
+                $fecha = date("Y-m-d");
                 $idPlaylist = $_POST['num-playlist'];
                 
                 
