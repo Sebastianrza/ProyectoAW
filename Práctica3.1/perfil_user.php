@@ -13,6 +13,7 @@ $nombre = $usuario->nombre();
 $bio = $usuario->bio();
 $rol =$usuario->rol();
 $email = $usuario->email();
+$lista = Playlist::buscarPlaylist($nombreU);
 
 $foto = 'subirFoto.php';
 
@@ -28,7 +29,7 @@ $contenidoPrincipal = <<<EOS
                 <a href = "#" onclick="openInformacion();">Información del perfil</a>
             </li>	
             <li class = "list-user1">
-                <a href = "#" onclick="openPodSub();return false;">Podcast Subidos</a>
+                <a href = "#" onclick="openInformacion();">Podcast Subidos</a>
             </li>		
             <li class = "list-user1">
                 <a href ="#" onclick="openPodFav();return false;">Podcast Favoritos</a>
@@ -57,11 +58,11 @@ $contenidoPrincipal = <<<EOS
         $bio
     </div>
     <div id='subir-podc'class='subir-podc'>
+    
         $pod
     </div>
     <div id='podc-fav'class='podc-fav'>
-    
-    
+        $lista
     </div>
     <div id='seguidores' class='seguidores'>
     si

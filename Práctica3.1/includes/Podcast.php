@@ -365,15 +365,21 @@ class Podcast
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         $html .=  "<div class= \"contenedorPlaylist\">";
         $html .= "<h2> Resultados por nombre de usuario:
+        
          </h2>";
         while ($mostrar = mysqli_fetch_array($datos)) {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
+            $html .=  "<div class= \"cajaUser\">";
             $html .= <<<EOF
-            <a class="pod"  href=perfil.php > </h1> <!--src=img/pruebas/$mostrar[username].jpg --> $mostrar[username] </h1> </a> 
             
+           
+            <a class="pod"  href=perfil_user.php?username=$mostrar[username] >  <img class="imagenUser" src=includes/ImagenesUser/$mostrar[username].png > </a>
+            <a <h5> $mostrar[username] </h5> </a> 
+
+            </div>
             </div>
             EOF;
-        }
+        }  
         $html .=   "</div>";
         return $html;
     }
