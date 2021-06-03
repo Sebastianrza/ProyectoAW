@@ -334,6 +334,8 @@
 	background-color: #60a3bc;
 	padding: 7.5px;
 	border-radius: 5%;
+	width: 350px;
+	height: 330px;
 	}
 
 	.infoPlaylist:hover{
@@ -349,13 +351,15 @@
 	border-radius: 5%;
 	width: 200px;
 	height: 200px;
+	margin-left: 60px;
+	margin-top: 15px;
 	}
 
 	.desc{
 	font-style: italic;
 	}
 
-	a{
+	.res-foro{
 	text-decoration: none;
 	color: rgb(255, 255, 255);
 	}
@@ -519,6 +523,8 @@
 		padding:5px;
 		border-radius:5px;
 		margin: 4px;
+		box-shadow:0 0 40px -10px #000;
+
 	}
 	
 	.subforum-row{
@@ -535,10 +541,55 @@
 	.subforum-icon{
 		font-size: 35px;
 		align-items:center;
+		box-shadow:0 0 40px -10px #000;
 	}
 	
+	.subforum-description{
+		box-shadow:0 0 40px -10px #000;
+	}
+
+	.subforum-stats{
+		box-shadow:0 0 40px -10px #000;
+	}
+
+	.subforum-info{
+		box-shadow:0 0 40px -10px #000;
+	}
+
 	.center{
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	/*Formulario foro*/
+
+	#campos-formulario{
+		visibility:collapse;
+	}
+
+	#formulario-foro{
+		width:250px;
+		height:200px;
+		background:#e6e6e6;
+		border-radius:8px;
+		box-shadow:0 0 40px -10px #000;
+		margin: auto;
+		padding:20px 30px;
+		box-sizing:border-box;
+		font-family:'Montserrat',sans-serif;
+		position:relative;
+	}
+
+	#bienvenida-formulario{
+		text-align:center;
+		color: #000000;
+	}
+
+	.marco-bienvenida{
+		border-radius:8px;
+		margin: auto;
+		width: 45%;
+		background:#e6e6e6;
+		box-shadow:0 0 40px -10px #000;
 	}

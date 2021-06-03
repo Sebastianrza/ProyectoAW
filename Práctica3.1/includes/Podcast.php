@@ -145,11 +145,10 @@ class Podcast
         return $html;
     }
 
-    public static function muestraForo(){
-
+    public static function muestraForo($idPlaylist){
     $app = Aplicacion::getSingleton();
     $conn = $app->conexionBd();
-	$query = "SELECT * FROM  foro WHERE identificador = 0 ORDER BY fecha DESC";
+	$query = "SELECT * FROM  foro WHERE identificador = 0 AND idPlaylist = $idPlaylist ORDER BY fecha DESC";
 	$result = $conn->query($query);
 
     $html ="";
@@ -176,7 +175,7 @@ class Podcast
                     <p>$comentario</p>
                 </div>
                 <div class = "subforum-stats subforum-column center">
-                    <span><a href='respuestasForo.php?id=$id'>Ver $respuestas respuestas</a></span>
+                    <span><a href='respuestasForo.php?ID=$row[ID]&idPlaylist=$idPlaylist'>Ver $respuestas respuestas</a></span>
                 </div>
                 <div class = "subrofum-info subforum-column">
                     <b>Posted by $autor</b> 
@@ -194,14 +193,10 @@ class Podcast
     }
 
 
-    public static function respuestasForo(){
-
-        if(isset($_GET["id"]))
-        $id = $_GET['id'];
-
+    public static function respuestasForo($ID, $idPlaylist){
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $query = "SELECT * FROM  foro WHERE identificador = '$id' ORDER BY fecha DESC";
+        $query = "SELECT * FROM  foro WHERE identificador = '$ID' ORDER BY fecha DESC";
         $result = $conn->query($query);
         
         $html = "";
@@ -229,7 +224,7 @@ class Podcast
                         <p>$comentario</p>
                     </div>
                     <div class = "subforum-stats subforum-column center">
-                        <span><a href='respuestasForo.php?id=$id'>Ver $respuestas respuestas</a></span>
+                        <span><a href='respuestasForo.php?ID=$row[ID]&idPlaylist=$idPlaylist'>Ver $respuestas respuestas</a></span>
                     </div>
                     <div class = "subrofum-info subforum-column">
                         <b>Posted by $autor</b> 
@@ -282,7 +277,7 @@ class Podcast
             <div class="infoPlaylist">                         
                 <a class="enlacepod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
                 </a> 
-            <a  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >   <h3> $mostrar[nombrePodcast] </h3>  <!-- </a> 
+            <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist ><h3>$mostrar[nombrePodcast]</h3></a> 
             <!-- <h5> $mostrar[Descripción] </h5> -->
             </div>
             EOF;

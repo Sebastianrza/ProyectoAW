@@ -9,23 +9,38 @@ class FormularioForo extends Form
     
     protected function generaCamposFormulario($datos, $errores = array())
     {   
+        $p = $_GET["idPlaylist"];
         if(isset($_GET["respuestas"]))
         $respuestas = $_GET['respuestas'];
         else
         $respuestas = 0;
         if(isset($_GET["identificador"]))
         $identificador = $_GET['identificador'];
-        else if(isset($_GET["id"]))
-        $identificador = $_GET["id"];
+        else if(isset($_GET["ID"]))
+        $identificador = $_GET["ID"];
         else
         $identificador = 0;
 
-        //echo $identificador;
-
+        $bienvenidaForo;
+        if($identificador == 0){
+          $bienvenidaForo = "Introduce un nuevo tema de discusión";
+        } else{
+          $bienvenidaForo = "Responde a ".$identificador;
+        }
 
         $html = <<<EOF
-        <table>
-                <td>Autor </td>
+        <div class ="marco-bienvenida">
+          <h2 id ="bienvenida-formulario">$bienvenidaForo</h2>
+        </div>
+        <table id ="formulario-foro">
+            <tr id ="campos-formulario">
+              <td>ID</td>
+                <td><input type="text" id="prueba" name="prueba" value="$identificador" readonly></td>
+                <td><input type="text" id="num-playlist" name="num-playlist" value="$p" readonly></td>
+            </tr>
+            
+            <tr>
+              <td>Autor </td>
                 <td><input type="text" name="autor"></td>
             </tr>
             <tr>
@@ -45,18 +60,19 @@ class FormularioForo extends Form
         return $html;
     }
 
-    protected function procesaFormulario($datos){   
+    protected function procesaFormulario($datos){  
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-
+        
         if(isset($_POST["submit"])){
             if(!empty($_POST['mensaje'])){
                 $autor=$_POST['autor'];
                 $titulo=$_POST['titulo'];
                 $mensaje=$_POST['mensaje'];
                 $respuestas=$_POST['respuestas'];
-                $identificador=$_POST['identificador'];
+                $identificador=$_POST['prueba'];
                 $fecha = date("d-m-y");
+                $idPlaylist = $_POST['num-playlist'];
                 
                 
                 //Evitamos que el usuario ingrese HTML
@@ -65,24 +81,27 @@ class FormularioForo extends Form
                 echo $identificador;
                 
                 //Grabamos el mensaje en la base de datos.
-                $query = "INSERT INTO foro (autor, titulo, mensaje, identificador, fecha, ult_respuesta) VALUES ('$autor', '$titulo', '$mensaje', '$identificador','$fecha','$fecha')";
+                $query = "INSERT INTO foro (autor, titulo, mensaje, identificador, fecha, ult_respuesta, idPlaylist) VALUES ('$autor', '$titulo', '$mensaje', '$identificador','$fecha','$fecha', '$idPlaylist')";
                 
                 echo $query;
                 echo "identificador:";
                 echo $identificador;
                 
                 $result = $conn->query($query);
-                
+
                 /* si es un mensaje en respuesta a otro actualizamos los datos */
-                if ($identificador != 0)
-                {
+               if ($identificador != 0)
+                {   
                     $query2 = "UPDATE foro SET respuestas=respuestas+1 WHERE ID='$identificador'";
                     $result2 = $conn->query($query2);
                     echo $query2;
-                    Header("Location: foro.php?id=$identificador");
+                    Header("Location: respuestasForo.php?ID=$identificador&idPlaylist=$idPlaylist");
+                    exit();
+                } else if($identificador == 0){
+                    Header("Location: verlista.php?idPlaylist=$idPlaylist");
                     exit();
                 }
-                //Header("Location: index.php");
+                
             }
         }
     }

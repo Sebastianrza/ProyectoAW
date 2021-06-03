@@ -13,7 +13,7 @@ $nombre = $usuario->nombre();
 $bio = $usuario->bio();
 $rol =$usuario->rol();
 $email = $usuario->email();
-$podcast = 'subirPodcast.php';
+
 $foto = 'subirFoto.php';
 
 if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.png')){

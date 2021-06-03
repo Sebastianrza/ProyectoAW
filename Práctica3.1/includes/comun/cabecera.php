@@ -12,10 +12,7 @@ function mostrarSaludo() {
 	<div class = "navbar">
 		<nav class = "navigation hide" id = "navigation">
 					<span class = "close-icon" onclick = "showIconBar()"><i class = "fa fa-close"></i></span>
-			<ul class = "navlist">	
-				<li class = "nav-item">
-					<a href = "foro.php">Foro</a>
-				</li>	
+			<ul class = "navlist">		
 				<li class = "nav-item">
 					<a href = "perfil.php">Perfil</a>
 				</li>	
