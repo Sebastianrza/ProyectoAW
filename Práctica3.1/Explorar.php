@@ -21,6 +21,4 @@ $contenidoPrincipal = <<<EOS
         </div>
     </div>
     <script src="includes/js/botones.js"></script>
-    EOS;                                                                    
-    
-
+    EOS;

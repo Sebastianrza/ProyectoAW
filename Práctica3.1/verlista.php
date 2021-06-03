@@ -3,6 +3,7 @@ namespace es\ucm\fdi\aw;
 require_once __DIR__.'/includes/config.php';
 
 
+
 //COMPROBAR QUE LA PLAYLIST EXISTE
 if(isset($_GET["idPlaylist"])){
     $playlist = $_GET["idPlaylist"];
