@@ -25,22 +25,16 @@ if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.png')){
 $contenidoPrincipal = <<<EOS
     <div class='podcast-user'>
         <ul class = "list-user">
-            <li class = "list-user1">
+           <li class = "list-user1">
                 <a href = "#" onclick="openInformacion();">Información del perfil</a>
             </li>	
             <li class = "list-user1">
-                <a href = "#" onclick="openInformacion();">Podcast Subidos</a>
+                <a href = "#" onclick="openPodSub();return false;">Podcast Subidos</a>
             </li>		
             <li class = "list-user1">
                 <a href ="#" onclick="openPodFav();return false;">Podcast Favoritos</a>
             </li>	
-            <li class = "list-user1">
-                <a href = "#" onclick="openSeguidores();return false;">Seguidores</a>
-            </li>	
-            <li class = "list-user1">
-            <a href = "#" onclick="openSiguiendo();return false;">Siguiendo</a>
-            </li>
-            
+          
         </ul>
     </div>
     <div id='User-Data' class='User-Data'>
@@ -58,23 +52,9 @@ $contenidoPrincipal = <<<EOS
         $bio
     </div>
     <div id='subir-podc'class='subir-podc'>
-    
-        $pod
+    $lista
     </div>
     <div id='podc-fav'class='podc-fav'>
-        $lista
-    </div>
-    <div id='seguidores' class='seguidores'>
-    si
-   
-    
-    </div>
-    <div id='siguiendo' class='siguiendo'>
-    
-   
-    hola
-    
-    </div>
     <div id='edit-perfil' class='edit-perfil'>
     
    

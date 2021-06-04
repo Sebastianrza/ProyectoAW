@@ -183,7 +183,6 @@
 	margin-right: 0.5em;
 	display: block;
 	}
-
 	@font-face {
 	font-family:aquire;
 	src:url('aquire.otf');
@@ -487,8 +486,8 @@
 		font-weight: 400;
 		font-size: 15px;
 		color: white;
-		padding-top: 3px;
-		padding-bottom:3px;
+		padding-top: 2px;
+		padding-bottom:2px;
 		padding-left:15px;
 		padding-right:15px;
 		background-color:#0a0659;
@@ -497,6 +496,30 @@
 		border-style: solid;
 		border-radius:35px;
 	}
+	.act-admin{
+		width: 100%;
+  		max-width: 600px;
+  		margin: 0 auto;
+  		display: flex;
+		text-align: center;
+  		flex-direction: column;
+  		justify-content: center;
+  		align-items: center;
+		border: 3px solid #0a0659;
+	}
+	.input-admin{
+		margin-bottom: 30px;
+		margin-left: 0;
+		float: left;
+		width: 50%;
+	}
+
+	.select-admin{
+		margin-bottom: 30px;
+		margin-left: 0;
+		float: left;
+	}
+
 	.container-home{
 		text-align: center;
 		overflow-x: auto;

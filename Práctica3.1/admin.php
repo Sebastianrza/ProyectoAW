@@ -4,6 +4,7 @@ namespace es\ucm\fdi\aw;
 require_once __DIR__.'/includes/config.php';
 require_once __DIR__.'/includes/MostrarDatos.php';
 $ayuda = mostrarDatos();
+
 $tituloPagina = 'Administrar Datos';
 if(isset($_SESSION["login"]) && ($_SESSION["login"]===true) && ($_SESSION['esAdmin'] === true)){
     $nombreU = $_SESSION['nombre']; 
@@ -20,7 +21,8 @@ $contenidoPrincipal = <<<EOS
                 <th>Email</th>
                 <th>Nombre</th>
                 <th>Username</th>
-                <th>Rol</th>   
+                <th>Rol</th>
+                <th>Cambiar rol</th>    
             </tr>
         </thead>
             $ayuda
