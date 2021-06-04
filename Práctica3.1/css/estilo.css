@@ -477,11 +477,26 @@
 	}
 
 	.boton{
-		position: fixed; 
-		bottom: 200px; 
-		right: 250px; 
+		position: relative; 
+		bottom: -500px; 
+		right: -1250px; 
 	}
 	/*tabla admin*/
+	.btn-admin{
+		text-decoration:none;
+		font-weight: 400;
+		font-size: 15px;
+		color: white;
+		padding-top: 3px;
+		padding-bottom:3px;
+		padding-left:15px;
+		padding-right:15px;
+		background-color:#0a0659;
+		border-color: #d8d8d8;
+		border-width: 3px;
+		border-style: solid;
+		border-radius:35px;
+	}
 	.container-home{
 		text-align: center;
 		overflow-x: auto;

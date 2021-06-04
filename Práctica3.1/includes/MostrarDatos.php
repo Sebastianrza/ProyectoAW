@@ -10,13 +10,15 @@ function mostrarDatos(){
     while( $datos = mysqli_fetch_array($resultset) ) {
     
     $html .= <<<EOF
-        <tr class='datos-admin'> <td>$datos[email]</td>
-        <td> $datos[nombre]</td>
-        <td> $datos[username] </td>
-        <td contenteditable=''true  >$datos[rol]</td>
-        </tr>
-    
-    EOF;   
+    <tr class='datos-admin'> <td>$datos[email]</td>
+    <td> $datos[nombre]</td>
+    <td> $datos[username] </td>
+    <td contenteditable=''true  >$datos[rol]</td>
+    <td>$datos[rol]</td>
+    <th><a href=actualizar.php?username=$datos[username] class="btn-admin">Editar</a></th>
+    </tr>
+
+        EOF;
     }
     return $html;
 }

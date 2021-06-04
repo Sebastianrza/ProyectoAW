@@ -25,8 +25,5 @@
 ?>
 </div>
 <script src = "includes/js/navbar.js"></script>
-<script src = "./includes/js/jquery/jquery-3.3.1.min.js"></script>
-	<script src = "./includes/js/dynamic.js"></script>
-
 </body>
 </html>
