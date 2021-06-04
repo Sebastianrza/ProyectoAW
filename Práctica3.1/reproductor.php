@@ -14,12 +14,13 @@ $nombreAudios = array();
 $idPodcast = $_GET["idPodcast"];
 $idPlaylist = $_GET["idPlaylist"];
 $nombreArchivo = Podcast::getPodcastName($idPodcast);
+$audios = Podcast::getPlaylistArray($idPlaylist);
 
 //funcion para conseguir todos los podcast que pertenecen a esta playlist
 $listaPodcast = Podcast::muestraListaPodcast($idPlaylist, $idPodcast);
 $idVarios = Podcast::getPlaylistPodcastId($idPlaylist);
 
-$arr = Podcast::buscaId($idPodcast);
+$arr = Podcast::buscaId($idPodcast,$idPlaylist);
 $nombre = Podcast::buscaNombre($idPodcast);
 
 /*if(numPodcast == $nombreArchivo){
@@ -31,6 +32,14 @@ $nombre = Podcast::buscaNombre($idPodcast);
 
 $html = "";
 $html .= "<audio autoplay id = \"audio\" src=\"archivos/pruebas/$nombreArchivo\"> ";
+foreach($audios as $a){
+    $source = <<<EOS
+    <source id="$a[idPodcast]" src="archivos/pruebas/$a[filename]">
+    EOS;
+    $html .= $source;
+}
+
+
 $html .= "</audio>";
 
 $contenido = <<<EOS
@@ -42,7 +51,7 @@ $contenido = <<<EOS
             $listaPodcast
         </div>
         <div class ="audio-control">
-            $nombre
+            <p id="nombrerepro" > $nombre </p>
             <div class = "audio_buttons">
                 <button class='btn-audio' onclick = "muted()">PREVIOUS</a>
                 <button class='btn-audio' onclick = "back()">&laquo</a>

@@ -12,6 +12,7 @@ if(isset($_GET["idPlaylist"])){
 //$playlist = $_SESSION['Titulo'];
 $lista = Playlist::buscaPlaylist($playlist);
 
+
 $form = new FormularioForo();
 $htmlFormForo = $form->gestiona();
 
