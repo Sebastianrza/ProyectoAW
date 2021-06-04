@@ -3,6 +3,7 @@ $(document).ready(function () {
   var reproduciendo = [];
   var restoaudios = [];
   var ids = [];
+  var titles = [];
 
   $("source").each(function () {
     audios.push($(this).prop("src"));
@@ -12,12 +13,20 @@ $(document).ready(function () {
     ids.push($(this).prop("id"));
   });
 
+  $("source").each(function () {
+    nombrerepro.push($(this).prop("id"));
+  });
+
   $(".caja").each(function () {
     reproduciendo.push($(this));
   });
 
   $(".infoPlaylist").each(function () {
     restoaudios.push($(this));
+  });
+
+  $(".nombre-podcast").each(function () {
+    titles.push($(this));
   });
 
   //BUSQUEDA DE LA POSICION DEL ELEMENTO CON IDPODCAST INICIAL (PARAMETRO)
@@ -31,6 +40,7 @@ $(document).ready(function () {
     //Ocultamos los elementos del anterior
     reproduciendo[contador].hide();
     restoaudios[contador].show();
+    titles[contador].hide();
 
     //Aumentamos el contador de la playlist
     contador++;
@@ -43,6 +53,7 @@ $(document).ready(function () {
       //Cambiar div resto de podcasts
       restoaudios[contador].hide();
       //Cambiar audio al siguiente
+      titles[contador].show();
       $("audio").prop("src", audios[contador]);
       $("audio")[0].load();
       $("audio")[0].play();
