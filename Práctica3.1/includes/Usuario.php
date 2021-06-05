@@ -52,10 +52,22 @@ class Usuario//Que puede pasar?
     
     public static function guarda($usuario)
     {
-        if ($usuario->id !== null) {
-            return self::actualiza($usuario);
-        }
         return self::inserta($usuario);
+    }
+
+    public static function actualiza($usuario, $biografia, $nombreApe){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $query=sprintf("Update usuario set nombre='%s', biografia='%s' where username ='$usuario'"
+            ,$conn->real_escape_string($nombreApe)
+            ,$conn->real_escape_string($biografia));
+        if ( $conn->query($query) ) {
+            
+        } else {
+            echo "Error al insertar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
+            exit();
+        }
+        return $usuario;
     }
     
     private static function inserta($usuario)

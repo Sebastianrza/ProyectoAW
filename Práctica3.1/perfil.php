@@ -1,6 +1,8 @@
 <?php
 namespace es\ucm\fdi\aw;
 require_once __DIR__.'/includes/config.php';
+$form = new FormularioEditarPerfil();
+$htmlFormLogin = $form->gestiona();
 $tituloPagina = 'Perfil del Usuario';
 if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
     $nombreU = $_SESSION['nombre']; 
@@ -8,6 +10,7 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"]===true)){
 }else{
     header('Location: login.php');
 }
+
 $pod = array();
 $pod = Podcast::buscaPodUser($nombreU);
 $nombreUsuario = $usuario->nombreUsuario();
@@ -17,7 +20,10 @@ $rol =$usuario->rol();
 $email = $usuario->email();
 $podcast = 'subirPodcast.php';
 $foto = 'subirFoto.php';
-
+$_SESSION['nombreUsuario'] = $nombreUsuario;
+$_SESSION['bio'] = $bio;
+$_SESSION['email'] = $email;
+$_SESSION['name'] = $nombre;
 if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.png')){
     $img = "./includes/ImagenesUser/".$nombreUsuario.".png";
 }else{
@@ -46,7 +52,7 @@ $contenidoPrincipal = <<<EOS
             <a class='btn-prueba' href='$foto'>Cambiar Imagen</a>
             <h4> Nombre de usuario: </h4>
             <h4> $nombreUsuario </h4>
-            <h4> Nombre Completo: </h4>
+            <h4> Nombre Completo: $nombre </h4>
             <h4>Correo Electrónico: $email</h4>
             <h4> Rol Activo: $rol </h4> 
     </div>
@@ -64,21 +70,10 @@ $contenidoPrincipal = <<<EOS
     
     
     </div>
-    <div id='seguidores' class='seguidores'>
-    si
-   
     
-    </div>
-    <div id='siguiendo' class='siguiendo'>
-    
-   
-    hola
-    
-    </div>
     <div id='edit-perfil' class='edit-perfil'>
-    
-   
-   esto
+    <h2 class='tituloexplora'>Editar Perfil</h2>
+    $htmlFormLogin
     
     </div>
 EOS;
