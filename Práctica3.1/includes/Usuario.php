@@ -76,33 +76,7 @@ class Usuario//Que puede pasar?
             exit();
         }
         return $usuario;
-    }
-    
-    private static function actualiza($usuario)
-    {
-        $app = Aplicacion::getSingleton();
-        $conn = $app->conexionBd();
-        $query=sprintf("UPDATE usuario U SET username = '%s', email = '%s', biografia = '%s',nombre='%s', pass='%s', rol='%s' WHERE U.id=%i"
-            , $conn->real_escape_string($usuario->nombreUsuario)
-            , $conn->real_escape_string($usuario->nombre)
-            , $conn->real_espape_string($usuario->email)
-            , $conn->real_escape_string($usuario->bio)
-            , $conn->real_escape_string($usuario->password)
-            , $conn->real_escape_string($usuario->rol)
-            , $usuario->id);
-        if ( $conn->query($query) ) {
-            if ( $conn->affected_rows != 1) {
-                echo "No se ha podido actualizar el usuario: " . $usuario->id;
-                exit();
-            }
-        } else {
-            echo "Error al actualizar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
-            exit();
-        }
-        
-        return $usuario;
-    }
-    
+    } 
     private $id;
 
     private $nombreUsuario;

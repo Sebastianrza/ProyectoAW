@@ -1,6 +1,7 @@
 <?php
 namespace es\ucm\fdi\aw;
 require_once __DIR__.'/config.php';
+
 function mostrarDatos(){
     $app = Aplicacion::getSingleton();
     $conn = $app->conexionBd();
@@ -11,12 +12,16 @@ function mostrarDatos(){
     
     $html .= <<<EOF
         <tr class='datos-admin'> <td>$datos[email]</td>
-        <td> $datos[nombre]</td>
-        <td> $datos[username] </td>
-        <td contenteditable=''true  >$datos[rol]</td>
+            <td> $datos[nombre]</td>
+            <td> $datos[username] </td>
+            <td>
+               $datos[rol]
+            </td>
+            <th><a href="actualizar.php?id=$datos[username]" class="btn-admin">Actualizar</a></th>
+            <th><a href="delete.php?id=$datos[username]" class="btn-admin">Eliminar</a></th>    
         </tr>
-    
-    EOF;   
+       
+        EOF;
     }
     return $html;
 }
