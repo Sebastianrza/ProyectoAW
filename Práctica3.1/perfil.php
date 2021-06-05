@@ -36,12 +36,6 @@ $contenidoPrincipal = <<<EOS
                 <a href ="#" onclick="openPodFav();return false;">Podcast Favoritos</a>
             </li>	
             <li class = "list-user1">
-                <a href = "#" onclick="openSeguidores();return false;">Seguidores</a>
-            </li>	
-            <li class = "list-user1">
-            <a href = "#" onclick="openSiguiendo();return false;">Siguiendo</a>
-            </li>
-            <li class = "list-user1">
             <a href = "#" onclick="openeditperfil();return false;">Editar Perfil</a>
             </li>
         </ul>

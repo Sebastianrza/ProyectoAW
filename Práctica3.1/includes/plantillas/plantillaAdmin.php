@@ -13,7 +13,7 @@
 <body>
 <div id="contenedor">
 <?php
-	require("includes/comun/cabecera.php");
+	require("./includes/comun/cabecera.php");
 ?>
 	<main>
 		<article>
@@ -21,9 +21,9 @@
 		</article>
 	</main>
 <?php
-	require("includes/comun/pie.php");
+	require("./includes/comun/pie.php");
 ?>
 </div>
-<script src = "includes/js/navbar.js"></script>
+<script src = "/includes/js/navbar.js"></script>
 </body>
 </html>
