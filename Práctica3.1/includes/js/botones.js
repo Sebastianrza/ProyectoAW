@@ -41,6 +41,7 @@ function muted(){
 	}
 }
 
+
 audio.ontimeupdate = function(e){
 	progressed.style.width = Math.floor(audio.currentTime*100/audio.duration) + "%";
 }

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
   var audios = [];
   var reproduciendo = [];
   var restoaudios = [];
@@ -11,10 +11,6 @@ $(document).ready(function () {
 
   $("source").each(function () {
     ids.push($(this).prop("id"));
-  });
-
-  $("source").each(function () {
-    nombrerepro.push($(this).prop("id"));
   });
 
   $(".caja").each(function () {
@@ -30,11 +26,11 @@ $(document).ready(function () {
   });
 
   //BUSQUEDA DE LA POSICION DEL ELEMENTO CON IDPODCAST INICIAL (PARAMETRO)
-    //obtener la url de la pagina
-    const urlParams = new URLSearchParams(window.location.search);
+  //obtener la url de la pagina
+  const urlParams = new URLSearchParams(window.location.search);
   //recuperar el idpocast de la url
-    const idGET = urlParams.get('idPodcast');
-    var contador = ids.findIndex((indexInList)=> indexInList == idGET);
+  const idGET = urlParams.get('idPodcast');
+  var contador = ids.findIndex((indexInList) => indexInList == idGET);
 
   $("audio").on("ended", function (event) {
     //Ocultamos los elementos del anterior
@@ -44,10 +40,10 @@ $(document).ready(function () {
 
     //Aumentamos el contador de la playlist
     contador++;
-    if(contador > audios.length-1) {
+    if (contador > audios.length - 1) {
       contador = 0;
     }
-    if(audios[contador] !== undefined){
+    if (audios[contador] !== undefined) {
       //Cambiar span podcast reproduciendo
       reproduciendo[contador].show();
       //Cambiar div resto de podcasts
@@ -61,4 +57,50 @@ $(document).ready(function () {
 
   });
 
+  $("#previous").on("click", function (event) {
+    reproduciendo[contador].hide();
+    restoaudios[contador].show();
+    titles[contador].hide();
+    contador--;
+    if (contador < 0) {
+      contador = audios.length - 1;
+    }
+    if (audios[contador] !== undefined) {
+      //Cambiar span podcast reproduciendo
+      reproduciendo[contador].show();
+      //Cambiar div resto de podcasts
+      restoaudios[contador].hide();
+      //Cambiar audio al siguiente
+      titles[contador].show();
+      $("audio").prop("src", audios[contador]);
+      $("audio")[0].load();
+      $("audio")[0].play();
+    }
+
+  });
+
+  $("#next").on("click", function (event) {
+    //Ocultamos los elementos del anterior
+    reproduciendo[contador].hide();
+    restoaudios[contador].show();
+    titles[contador].hide();
+
+    //Aumentamos el contador de la playlist
+    contador++;
+    if (contador > audios.length - 1) {
+      contador = 0;
+    }
+    if (audios[contador] !== undefined) {
+      //Cambiar span podcast reproduciendo
+      reproduciendo[contador].show();
+      //Cambiar div resto de podcasts
+      restoaudios[contador].hide();
+      //Cambiar audio al siguiente
+      titles[contador].show();
+      $("audio").prop("src", audios[contador]);
+      $("audio")[0].load();
+      $("audio")[0].play();
+    }
+
+  });
 });

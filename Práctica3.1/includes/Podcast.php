@@ -254,22 +254,41 @@ class Podcast
         return $html;
     }
 
-    public static function buscaNombre($idPodcast)
+    public static function buscaNombre($idPlaylist, $idPodcast)
     {
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
 
-        $sql = "SELECT * from podcast P WHERE p.idPodcast = $idPodcast";
+        $sql = "SELECT p.nombrePodcast, p.idPodcast, p.userPodcast from podcast P JOIN listapodcast ON listapodcast.idPodcast = p.idPodcast WHERE listapodcast.idLista = $idPlaylist";
         $datos = mysqli_query($conn, $sql);
         $html = "";
         $mostrar = "";
 
         while ($mostrar = mysqli_fetch_array($datos)) {
-            $html .= <<<EOF
-            <div class ="nombre-podcast">$mostrar[nombrePodcast] - $mostrar[userPodcast]</div>
-            EOF;
+            if($mostrar['idPodcast'] == $idPodcast){
+                $html .= <<<EOF
+                <div class ="nombre-podcast">$mostrar[nombrePodcast] - $mostrar[userPodcast]</div>
+                EOF;
+            }
+            else{
+                $html .= <<<EOF
+                <div class ="nombre-podcast" style="display:none;">$mostrar[nombrePodcast] - $mostrar[userPodcast]</div>
+                EOF;
+            }
         }
         return $html;
+    }
+    public static function getPodcastName($idPodcast)
+    {
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $sql = "SELECT podcast.filename from podcast WHERE idPodcast = $idPodcast";
+        $datos = mysqli_query($conn, $sql);
+        $name = "";
+        while ($mostrar = mysqli_fetch_array($datos)) {
+            $name = $mostrar["filename"];
+        }
+        return $name;
     }
     public static function muestraListaPodcast($idPlaylist, $idPodcast)
     {
@@ -327,19 +346,7 @@ class Podcast
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         return mysqli_fetch_array($datos);
     }
-    public static function getPodcastName($idPodcast)
-    {
-
-        $app = Aplicacion::getSingleton();
-        $conn = $app->conexionBd();
-        $sql = "SELECT podcast.filename from podcast WHERE idPodcast = $idPodcast";
-        $datos = mysqli_query($conn, $sql);
-        $name = "";
-        while ($mostrar = mysqli_fetch_array($datos)) {
-            $name = $mostrar["filename"];
-        }
-        return $name;
-    }
+    
     public static function getPlaylistArray($idPlaylist)
     {
 
