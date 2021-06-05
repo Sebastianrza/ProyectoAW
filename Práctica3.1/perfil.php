@@ -72,7 +72,7 @@ $contenidoPrincipal = <<<EOS
     </div>
     
     <div id='edit-perfil' class='edit-perfil'>
-    <h2 class='tituloexplora'>Editar Perfil</h2>
+    <h1>Editar Perfil</h1>
     $htmlFormLogin
     
     </div>
