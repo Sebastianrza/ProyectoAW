@@ -43,7 +43,7 @@ $html .= "</audio>";
 
 $contenido = <<<EOS
     <div class = "reproductor">
-        <div class = "podcast-list">
+        <div class = "podcastreproduciendo-contenedor">
             $arr
         </div>
         <div class = "podcast-list">

@@ -133,17 +133,17 @@ class Podcast
         while ($mostrar = mysqli_fetch_array($datos)) {
             if($mostrar["idPodcast"] == $idPodcast){
                 $html .= <<<EOF
-                <div id="audioreproduciendo" >
-                <!-- <a href="archivos/pruebas/$mostrar[filename]"> -->
-                    <span class = "caja">
-                        <span class ="info">$mostrar[Descripción]</span> 
-                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" />
-                    </span> 
-                </a>
+                    
+                <div class="div-imagen">
+                <div class ="descripcion-reproductor">
+                    <h3>$mostrar[nombrePodcast]</h3>
+                    <h5 class ="texto-descripcion">$mostrar[Descripción]</h5>
+                </div>
+                    <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175"/>
                 </div>
                 EOF;
             }
-            else{
+            /*else{
                 $html .= <<<EOF
                 <div id="audioreproduciendo" >
                 <!-- <a href="archivos/pruebas/$mostrar[filename]"> -->
@@ -154,7 +154,7 @@ class Podcast
                 </a>
                 </div>
                 EOF;
-            }
+            }*/
             
         }
         return $html;
@@ -319,12 +319,13 @@ class Podcast
             }
             else{
                 $html .= <<<EOF
-                <div class="infoPlaylist">                         
-                    <a class="enlacepod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
-                    </a> 
-                    <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist ><h3>$mostrar[nombrePodcast]</h3></a> 
-                    <!-- <h5> $mostrar[Descripción] </h5> -->
-                </div>
+                <a class="enlacepod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist >
+                    <span class="infoPlaylist">                         
+                        <img class="imagenPlaylistRep" src=img/pruebas/$mostrar[idPodcast].jpg />
+                        <h3>$mostrar[nombrePodcast]</h3></a> 
+                        <!-- <h5> $mostrar[Descripción] </h5> -->
+                    </span>
+                </a> 
             EOF;
             }
             
@@ -374,17 +375,15 @@ class Podcast
         $datos = mysqli_query($conn, $sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         $html .=  "<div class= \"contenedorPlaylist\">";
-        $html .= "<h2> Resultados por nombre de Podcast: </h2>";
+        $html .= "<h2 id =tipo-busqueda> Resultados por nombre de Podcast: </h2>";
         while ($mostrar = mysqli_fetch_array($datos)) {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
-            <div class="infoPlaylist">                         
-                <a class="enlacepod"  href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista] >  <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg >
-                </a> 
-            
-            <a  href=reproductor.php?idPodcast=$mostrar[nombrePodcast]&idPlaylist=$criterio >   <h3> $mostrar[nombrePodcast] </h3>      <h5> $mostrar[Descripción] </h5> </a> 
-            
+            <a class="enlacepod" href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista]> <div class="infoPlaylist">                         
+                <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg>
+            <h3> $mostrar[nombrePodcast] </h3>      <h5> $mostrar[Descripción] </h5>
             </div>
+            </a> 
             EOF;
         }
         $html .=   "</div>";

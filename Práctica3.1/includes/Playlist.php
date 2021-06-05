@@ -122,11 +122,9 @@ class Playlist {
             
             $html .= <<<EOF
             <div class= "contenedorTitulo">
-            <h1> $mostrar[Titulo] </h1>
+                <h1 class ="tituloPlaylist"> $mostrar[Titulo] </h1>
+            </div>
             <p class="desc"> $mostrar[Descripcion] </p>
-             </div>
-            <br>
-            <br>
              Esta playlist pertenece a: <a href= perfil_user.php?username=$mostrar[idPropietario]>  $mostrar[idPropietario]  </a> 
              </div>
             EOF;
@@ -139,11 +137,12 @@ class Playlist {
         while($mostrar=mysqli_fetch_array($datos)){
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
              $html .= <<<EOF
-            <span class="infoPlaylist">                         
-            <a class="enlacepod" href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg /> </a>
-            <a href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <h3> $mostrar[nombrePodcast] </h3> </a>
-            <a  <h5> $mostrar[Descripción] </h5> </a> 
+             <a class="enlacepod" href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$idPlaylist > <span class="infoPlaylist">                         
+            <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg />
+            <h3> $mostrar[nombrePodcast]</h3>
+            <h5> $mostrar[Descripción] </h5>
             </span>
+            </a>
             EOF;
         }
         $html .=   "</div>";
