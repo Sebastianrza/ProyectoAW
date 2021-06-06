@@ -55,14 +55,17 @@ class Playlist {
         $sql = "SELECT * from playlist WHERE playlist.idPlaylist != 3";
         $datos = mysqli_query($conn, $sql);
         $html = "";
-        $html .=  "<div class= \"contenedorplaylist\" style= \"display: flex\">";
+        $html .=  "<div class= \"contenedorPlaylist\">";
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
-            <div class = "cajaplaylist">
-            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" /></a>
-            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a>
-             <p class="desc"> $mostrar[Descripcion]</p>
-             </div> 
+    
+            <a class ="enlacepod" href=verlista.php?idPlaylist=$mostrar[idPlaylist]>
+                <span class="cajaplaylist">
+            <img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" />
+            <h3> $mostrar[Titulo]</h3>
+            <h5> $mostrar[Descripcion]</h5>
+            </span>
+            </a> 
             EOF;
         }
         $html .=   "</div>";
@@ -121,18 +124,16 @@ class Playlist {
         while($mostrar=mysqli_fetch_array($datos)){
             
             $html .= <<<EOF
-            <div class= "contenedorTitulo">
-                <h1 class ="tituloPlaylist"> $mostrar[Titulo] </h1>
-            </div>
+            <h1 class ="tituloPlaylist"> $mostrar[Titulo] </h1>
+            <h5 class ="pertenece-User">Esta playlist pertenece a: <a class ="user-redirecciona" href= perfil_user.php?username=$mostrar[idPropietario]>  $mostrar[idPropietario]  </a> </h5>
             <p class="desc"> $mostrar[Descripcion] </p>
-             Esta playlist pertenece a: <a href= perfil_user.php?username=$mostrar[idPropietario]>  $mostrar[idPropietario]  </a> 
              </div>
             EOF;
         }
         //Aqui obtengo la información de los podcast que pertenecen a la playlist
         $sql= "SELECT * FROM podcast JOIN listapodcast ON podcast.idPodcast = listapodcast.idPodcast WHERE listapodcast.idLista = $idPlaylist";
         $datos = mysqli_query($conn, $sql);
-        //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
+        //CONTENEDOR EXTERNO PARA t LA PLAYLIST  
         $html .=  "<div class= \"contenedorPlaylist\">";
         while($mostrar=mysqli_fetch_array($datos)){
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
@@ -156,15 +157,17 @@ class Playlist {
    
         $datos = mysqli_query($conn, $sql);
         $html = "";
-        $html .=  "<div class= \"contenedorplaylist\" style= \"display: flex\">";
-        $html .= "<h2> Resultados por playlist: </h2>";
+        $html .=  "<div class= \"contenedorPlaylist\">";
+        $html .= "<h2 id =tipo-busqueda> Resultados por playlist: </h2>";
         while($mostrar=mysqli_fetch_array($datos)){
             $html .= <<<EOF
-            <div class = "cajaplaylist">
-            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" /></a>
-            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a>
-             <p class="desc"> $mostrar[Descripcion]</p>
-             </div> 
+            <a class ="enlacepod" href=verlista.php?idPlaylist=$mostrar[idPlaylist]>
+            <span class = "cajaplaylist">
+            <img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" />
+            <h3> $mostrar[Titulo]</h3>
+            <h5> $mostrar[Descripcion]</h5>
+            </span> 
+            </a>
             EOF;
         }
         $html .=   "</div>";

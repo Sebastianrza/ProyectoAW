@@ -379,9 +379,11 @@ class Podcast
         while ($mostrar = mysqli_fetch_array($datos)) {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
-            <a class="enlacepod" href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista]> <div class="infoPlaylist">                         
-                <img class="imagenPlaylistt" src=img/pruebas/$mostrar[idPodcast].jpg>
-            <h3> $mostrar[nombrePodcast] </h3>      <h5> $mostrar[Descripción] </h5>
+            <a class="enlacepod" href=reproductor.php?idPodcast=$mostrar[idPodcast]&idPlaylist=$mostrar[idLista]> 
+            <div class="cajaplaylist">                         
+                <img class="img-podcast" src=img/pruebas/$mostrar[idPodcast].jpg>
+                <h3> $mostrar[nombrePodcast] </h3>      
+                <h5> $mostrar[Descripción] </h5>
             </div>
             </a> 
             EOF;
@@ -405,29 +407,29 @@ class Podcast
         //Aqui obtengo la info de la playlist
         //$datos = mysqli_query($conn, $sql);
         $html = "";
-        $html .=  "<div class= \"contenedor\">";
+        //$html .=  "<div class= \"contenedor\">";
         //Aqui obtengo la información de los podcast que pertenecen a la playlist
         $sql = "SELECT DISTINCT usuario.username FROM usuario WHERE usuario.username like concat('%', '$criterio', '%')";
         $datos = mysqli_query($conn, $sql);
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         $html .=  "<div class= \"contenedorPlaylist\">";
-        $html .= "<h2> Resultados por nombre de usuario:
-        
-         </h2>";
+        $html .= "<h2 id =tipo-busqueda> Resultados por nombre de usuario: </h2>";
         while ($mostrar = mysqli_fetch_array($datos)) {
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .=  "<div class= \"cajaUser\">";
             $html .= <<<EOF
-            
-           
-            <a class="pod"  href=perfil_user.php?username=$mostrar[username] >  <img class="imagenUser" src=includes/ImagenesUser/$mostrar[username].png > </a>
-            <a <h5> $mostrar[username] </h5> </a> 
+
+                <div class ="porUser-container">
+                    <a class="pod"  href=perfil_user.php?username=$mostrar[username] >
+                    <img class="imagenUser" src=includes/ImagenesUser/$mostrar[username].png > 
+                    </a>
+                </div>
 
             </div>
             </div>
             EOF;
         }  
-        $html .=   "</div>";
+        //$html .=   "</div>";
         return $html;
     }
     public static function buscaPodUser($userPodcast){
