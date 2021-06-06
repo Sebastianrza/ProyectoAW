@@ -20,10 +20,6 @@ $rol =$usuario->rol();
 $email = $usuario->email();
 $podcast = 'subirPodcast.php';
 $foto = 'subirFoto.php';
-$_SESSION['nombreUsuario'] = $nombreUsuario;
-$_SESSION['bio'] = $bio;
-$_SESSION['email'] = $email;
-$_SESSION['name'] = $nombre;
 if(file_exists('./includes/ImagenesUser/'. $usuario->nombreUsuario().'.png')){
     $img = "./includes/ImagenesUser/".$nombreUsuario.".png";
 }else{

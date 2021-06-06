@@ -56,6 +56,10 @@ class FormularioLogin extends Form
                 $_SESSION['nombre'] = $nombreUsuario;
                 $_SESSION['esAdmin'] = strcmp($usuario->rol(), 'admin') == 0 ? true : false;
                 $_SESSION['empresa'] = strcmp($usuario->rol(), 'empresa') == 0 ? true : false;
+                $_SESSION['nombreUsuario'] = $nombreUsuario;
+                $_SESSION['bio'] = $usuario->bio();
+                $_SESSION['email'] = $usuario->email();
+                $_SESSION['name'] = $usuario->nombre();
                 if($_SESSION['esAdmin'] ===true){
                     $result = 'admin.php';
                 }elseif($_SESSION['empresa'] ===true){

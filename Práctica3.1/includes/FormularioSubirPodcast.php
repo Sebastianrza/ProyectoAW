@@ -78,7 +78,7 @@ class FormularioSubirPodcast extends Form
             if (!$podcast ) {
                 $result[] = "El podcast ya existe";
             } else {
-                $nombre=$podcast->userPodcast().$podcast->idPodcast().".mp3";
+                $nombre=$podcast->idPodcast().".mp3";
                 $guardado=$_FILES['userfile']['tmp_name'];
                 
                 //Verifica que carpeta donde se guarda existe
