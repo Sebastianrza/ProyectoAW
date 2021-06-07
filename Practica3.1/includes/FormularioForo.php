@@ -8,7 +8,12 @@ class FormularioForo extends Form
     }
     
     protected function generaCamposFormulario($datos, $errores = array())
-    {   
+    { 
+        if(isset($_GET["autor"]))
+        $autor = $_GET['autor'];
+        else
+        $autor = 0;
+
         $p = $_GET["idPlaylist"];
         if(isset($_GET["respuestas"]))
         $respuestas = $_GET['respuestas'];
@@ -25,7 +30,7 @@ class FormularioForo extends Form
         if($identificador == 0){
           $bienvenidaForo = "Introduce un nuevo tema de discusión";
         } else{
-          $bienvenidaForo = "Responde a ".$identificador;
+          $bienvenidaForo = "Responde a ".$autor;
         }
 
         $html = <<<EOF
@@ -95,7 +100,7 @@ class FormularioForo extends Form
                     $query2 = "UPDATE foro SET respuestas=respuestas+1 WHERE ID='$identificador'";
                     $result2 = $conn->query($query2);
                     echo $query2;
-                    Header("Location: respuestasForo.php?ID=$identificador&idPlaylist=$idPlaylist");
+                    Header("Location: respuestasForo.php?ID=$identificador&idPlaylist=$idPlaylist&autor=$autor");
                     exit();
                 } else if($identificador == 0){
                     Header("Location: verlista.php?idPlaylist=$idPlaylist");

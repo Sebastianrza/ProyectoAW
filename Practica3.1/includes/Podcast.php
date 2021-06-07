@@ -159,68 +159,20 @@ class Podcast
     }
 
     public static function muestraForo($idPlaylist){
-    $app = Aplicacion::getSingleton();
-    $conn = $app->conexionBd();
-	$query = "SELECT * FROM  foro WHERE identificador = 0 AND idPlaylist = $idPlaylist ORDER BY fecha DESC";
-	$result = $conn->query($query);
-
-    $html ="";
-
-	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-		$id = $row['ID'];
-		$titulo = $row['titulo'];
-		$fecha = $row['fecha'];
-		$respuestas = $row['respuestas'];
-        $comentario = $row['mensaje'];
-        $autor = $row['autor'];
-        
-        $html .= <<<EOF
-
-        <div class = "foro">
-            <div class = "subforum-title">
-                <h2>$titulo</h2>
-            </div>
-            <div class = "subforum-row">
-                <div class = "subforum-icon subforum-column center">
-                    <i class = "fa fa-podcast"></i>
-                </div>
-                <div class = "subforum-description subforum-column">
-                    <p>$comentario</p>
-                </div>
-                <div class = "subforum-stats subforum-column center">
-                    <span><a href='respuestasForo.php?ID=$row[ID]&idPlaylist=$idPlaylist'>Ver $respuestas respuestas</a></span>
-                </div>
-                <div class = "subrofum-info subforum-column">
-                    <b>Posted by $autor</b> 
-                    on <small>$fecha</small>
-                </div>
-            </div>
-        </div>
-        EOF;
-        
-	}
-    $html .= "</table>";
-
-    return $html;
-    }
-
-
-    public static function respuestasForo($ID, $idPlaylist){
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $query = "SELECT * FROM  foro WHERE identificador = '$ID' ORDER BY fecha DESC";
+        $query = "SELECT * FROM  foro WHERE identificador = 0 AND idPlaylist = $idPlaylist ORDER BY fecha DESC";
         $result = $conn->query($query);
-        
-        $html = "";
+    
+        $html ="";
     
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             $id = $row['ID'];
             $titulo = $row['titulo'];
-            $autor = $row['autor'];
-            $mensaje = $row['mensaje'];
             $fecha = $row['fecha'];
-            $comentario = $row['mensaje'];
             $respuestas = $row['respuestas'];
+            $comentario = $row['mensaje'];
+            $autor = $row['autor'];
             
             $html .= <<<EOF
     
@@ -236,19 +188,69 @@ class Podcast
                         <p>$comentario</p>
                     </div>
                     <div class = "subforum-stats subforum-column center">
-                        <span><a href='respuestasForo.php?ID=$row[ID]&idPlaylist=$idPlaylist'>Ver $respuestas respuestas</a></span>
+                        <span><a href='respuestasForo.php?ID=$row[ID]&idPlaylist=$idPlaylist&autor=$autor'>Ver $respuestas respuestas</a></span>
                     </div>
                     <div class = "subrofum-info subforum-column">
                         <b>Posted by $autor</b> 
+                        <br>
                         on <small>$fecha</small>
                     </div>
                 </div>
             </div>
             EOF;
-           
+            
         }
+        $html .= "</table>";
+    
         return $html;
-    }
+        }
+    
+    
+        public static function respuestasForo($ID, $idPlaylist){
+            $app = Aplicacion::getSingleton();
+            $conn = $app->conexionBd();
+            $query = "SELECT * FROM  foro WHERE identificador = '$ID' ORDER BY fecha DESC";
+            $result = $conn->query($query);
+            
+            $html = "";
+        
+            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                $id = $row['ID'];
+                $titulo = $row['titulo'];
+                $autor = $row['autor'];
+                $mensaje = $row['mensaje'];
+                $fecha = $row['fecha'];
+                $comentario = $row['mensaje'];
+                $respuestas = $row['respuestas'];
+                
+                $html .= <<<EOF
+        
+                <div class = "foro">
+                    <div class = "subforum-title">
+                        <h2>$titulo</h2>
+                    </div>
+                    <div class = "subforum-row">
+                        <div class = "subforum-icon subforum-column center">
+                            <i class = "fa fa-podcast"></i>
+                        </div>
+                        <div class = "subforum-description subforum-column">
+                            <p>$comentario</p>
+                        </div>
+                        <div class = "subforum-stats subforum-column center">
+                            <span><a href='respuestasForo.php?ID=$row[ID]&idPlaylist=$idPlaylist&autor=$autor'>Ver $respuestas respuestas</a></span>
+                        </div>
+                        <div class = "subrofum-info subforum-column">
+                            <b>Posted by $autor</b> 
+                            <br>
+                            on <small>$fecha</small>
+                        </div>
+                    </div>
+                </div>
+                EOF;
+               
+            }
+            return $html;
+        }
 
     public static function buscaNombre($idPlaylist, $idPodcast)
     {
