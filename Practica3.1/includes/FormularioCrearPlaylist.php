@@ -66,8 +66,8 @@ class FormularioCrearPlaylist extends Form
             if($imagen){
                 
                 $tmpName = $_FILES['archivo']['tmp_name']; 
-                if(move_uploaded_file($tmpName, './img/pruebas/'.$nombrePlaylist.".png")){
-                    $nombreImg = $nombrePlaylist.".png";
+                if(move_uploaded_file($tmpName, './img/pruebas/'.str_replace(' ','',$nombrePlaylist).".png")){
+                    $nombreImg = str_replace(' ','',$nombrePlaylist).".png";
                 }
             }else{ 
                 $result[] = 'El archivo tiene un nombre o tipo no soportado';

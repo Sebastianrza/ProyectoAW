@@ -215,9 +215,10 @@ class Playlist {
         $html .=  "<div class= \"contenedorplaylist\">";
         $html .= "<h2 class='playlist-subida'> Playlist de $criterio:</h2>";
         while($mostrar=mysqli_fetch_array($datos)){
+            $img = str_replace(' ','',$mostrar['imagen']);
             $html .= <<<EOF
             <div class = "cajaplaylist">
-            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" /></a>
+            <a href=verlista.php?idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$img  width="400" height= "175" /></a>
             <a href=verlista.php?idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a>
             <p class="desc"> $mostrar[Descripcion]</p>
             </div> 
