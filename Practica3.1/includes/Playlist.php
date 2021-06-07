@@ -134,8 +134,9 @@ class Playlist {
     public static function compruebaPodcast($idPodcast,$idLista){
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $query = "select idPodcast from listapodcast where idPodcast = '$idPodcast' and idLista = '$idLista'";
-        if($conn->query($query)){
+        $query = "select * from listapodcast where idPodcast = '$idPodcast' and idLista = '$idLista'";
+        $rs = $conn->query($query);
+        if($rs->num_rows == 1){
             return true;
         }else{
             return false;

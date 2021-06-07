@@ -9,7 +9,7 @@ $idPodcast=$_GET['idPodcast'];
 $idLista=$_GET['idPlaylist'];
 
 $comprobacion=Playlist::compruebaPodcast($idPodcast, $idLista);
-if(!$comprobacion){
+if($comprobacion==false){
     Playlist::añadePodcast($idPodcast, $idLista);
 }
 

@@ -8,6 +8,7 @@ require_once __DIR__.'/includes/config.php';
 if(isset($_GET["idPlaylist"])){
     $playlist = $_GET["idPlaylist"];
 }
+
 //$_SESSION['Titulo'] = $_GET['Titulo'];
 //$playlist = $_SESSION['Titulo'];
 $lista = Playlist::buscaPlaylist($playlist);
@@ -28,11 +29,17 @@ $lista = $lista->muestraPlaylist($_GET["idPlaylist"]);
 $arr = array();
 
 $tituloPagina = 'Lista';
-$contenidoPrincipal = <<<EOS
-$lista
-
-$htmlFormForo
-$muestraForo
+if(isset($_SESSION['login'])){
+    $contenidoPrincipal = <<<EOS
+    $lista
+    $htmlFormForo
+    $muestraForo
 EOS;
+}else{
+    $contenidoPrincipal = <<<EOS
+    $lista
+EOS;    
+}
+
 require __DIR__.'/includes/plantillas/plantilla.php';
 ?>

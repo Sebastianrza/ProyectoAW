@@ -88,12 +88,12 @@ class FormularioRegistro extends Form
                 } else {
                     $_SESSION['login'] = true;
                     $_SESSION['nombre'] = $nombreUsuario;
-                    $_SESSION['esAdmin'] = strcmp($usuario->rol(), 'admin') == 0 ? true : false;
-                    $_SESSION['empresa'] = strcmp($usuario->rol(), 'empresa') == 0 ? true : false;
+                    $_SESSION['esAdmin'] = strcmp($user->rol(), 'admin') == 0 ? true : false;
+                    $_SESSION['empresa'] = strcmp($user->rol(), 'empresa') == 0 ? true : false;
                     $_SESSION['nombreUsuario'] = $nombreUsuario;
-                    $_SESSION['email'] = $usuario->email();
-                    $_SESSION['bio'] = $usuario->bio();
-                    $_SESSION['name'] = $usuario->nombre();
+                    $_SESSION['email'] = $user->email();
+                    $_SESSION['bio'] = $user->bio();
+                    $_SESSION['name'] = $user->nombre();
                     $result = 'index.php';
                 }
             }else{

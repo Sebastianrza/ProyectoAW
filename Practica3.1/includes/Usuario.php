@@ -38,19 +38,17 @@ class Usuario//Que puede pasar?
     public static function compruebaUsuario($nombreUsuario, $email){
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-        $query = sprintf("SELECT * FROM usuario U WHERE U.username = '%s' and U.email = '%s'"
+        $query = sprintf("SELECT * FROM usuario U WHERE U.username = '%s' or U.email = '%s'"
                     ,$conn->real_escape_string($nombreUsuario)
                     ,$conn->real_escape_string($email));
         $rs = $conn->query($query);
-        $result = false;
-        if ($rs) {
+        if ($rs->num_rows == 1) {
             return true;
             $rs->free();
-        } else {
+        }else {
             return false;
-            rs->free();
+            $rs->free();
         }
-        return $result;
     }
     
     public static function crea($nombreUsuario, $nombre, $email, $bio, $password, $rol)
