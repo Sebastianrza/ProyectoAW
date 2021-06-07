@@ -70,7 +70,7 @@ class Podcast
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
         $sql = sprintf(
-            "insert into Podcast(userPodcast, nombrePodcast, Descripcion, genero, fecha, rutaPod)
+            "insert into Podcast(userPodcast, nombrePodcast, Descripcion, genero, fecha, filename)
         Values('%s', '%s','%s', '%s','%s','%s')",
             $conn->real_escape_string($podcast->userPodcast),
             $conn->real_escape_string($podcast->nombrePodcast),
@@ -110,7 +110,7 @@ class Podcast
         if ($rs) {
             if ($rs->num_rows == 1) {
                 $fila = $rs->fetch_assoc();
-                $podcast = new Podcast($fila['nombrePodcast'], $fila['userPodcast'], $fila['Descripcion'], $fila['genero'], $fila['Fecha'], $fila['rutaPod']);
+                $podcast = new Podcast($fila['nombrePodcast'], $fila['userPodcast'], $fila['Descripcion'], $fila['genero'], $fila['Fecha'], $fila['filename']);
                 $podcast->idPodcast = $fila['idPodcast'];
                 $result = $podcast;
             }

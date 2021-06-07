@@ -80,14 +80,26 @@ class FormularioRegistro extends Form
         }
         
         if (count($result) === 0) {
-            $user = Usuario::crea($nombreUsuario, $nombre, $email, $bio, $password, 'user');
-            if ( ! $user ) {
+            $prueba = Usuario::compruebaUsuario($nombreUsuario, $email);
+            if(!prueba){
+                $user = Usuario::crea($nombreUsuario, $nombre, $email, $bio, $password, 'user');
+                if ( ! $user ) {
+                    $result[] = "El usuario ya existe";
+                } else {
+                    $_SESSION['login'] = true;
+                    $_SESSION['nombre'] = $nombreUsuario;
+                    $_SESSION['esAdmin'] = strcmp($usuario->rol(), 'admin') == 0 ? true : false;
+                    $_SESSION['empresa'] = strcmp($usuario->rol(), 'empresa') == 0 ? true : false;
+                    $_SESSION['nombreUsuario'] = $nombreUsuario;
+                    $_SESSION['email'] = $usuario->email();
+                    $_SESSION['bio'] = $usuario->bio();
+                    $_SESSION['name'] = $usuario->nombre();
+                    $result = 'index.php';
+                }
+            }else{
                 $result[] = "El usuario ya existe";
-            } else {
-                $_SESSION['login'] = true;
-                $_SESSION['nombre'] = $nombreUsuario;
-                $result = 'index.php';
             }
+            
         }
         return $result;
     }

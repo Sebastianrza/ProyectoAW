@@ -8,8 +8,6 @@ $tituloPagina = "Lista del Usuario";
 $idPodcast=$_GET['idPodcast'];
 $idLista=$_GET['idPlaylist'];
 Playlist::añadePodcast($idPodcast, $idLista);
-//$sql="INSERT INTO listapodcast (idPodcast, idLista) values ('$idPodcast', '$idLista')";
-//$query=mysqli_query($conn,$sql);
 
 $lista = Playlist::muestraPlaylist($idLista);
 

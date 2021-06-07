@@ -34,6 +34,29 @@ class Usuario//Que puede pasar?
         }
         return $result;
     }
+
+    public static function compruebaUsuario($nombreUsuario, $email){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $query = sprintf("SELECT * FROM usuario U WHERE U.username = '%s' and U.email = '%s'", 
+                    $conn->real_escape_string($nombreUsuario)
+                    ,$conn->real_escape_string($email));
+        $rs = $conn->query($query);
+        $result = false;
+        if ($rs) {
+            if ( $rs->num_rows == 1) {
+                $fila = $rs->fetch_assoc();
+                $user = new Usuario($fila['username'], $fila['nombre'], $fila['email'],$fila['biografia'] ,$fila['pass'], $fila['rol']);
+                //$user->id = $fila['id'];
+                $result = $user;
+            }
+            $rs->free();
+        } else {
+            echo "Error al consultar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
+            exit();
+        }
+        return $result;
+    }
     
     public static function crea($nombreUsuario, $nombre, $email, $bio, $password, $rol)
     {

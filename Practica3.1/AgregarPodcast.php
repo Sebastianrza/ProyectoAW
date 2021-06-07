@@ -17,7 +17,6 @@ $arr = array();
 $tituloPagina = 'Agregar Podcast a Playlist';
 $contenidoPrincipal = <<<EOS
     $lista
-   
 EOS;
 require __DIR__.'/includes/plantillas/plantilla.php';
 ?>

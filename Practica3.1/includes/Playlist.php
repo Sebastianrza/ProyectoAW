@@ -184,7 +184,7 @@ class Playlist {
             $html .= <<<EOF
             <a class ="enlacepod" href=verlista.php?idPlaylist=$mostrar[idPlaylist]>
             <span class = "cajaplaylist">
-            <img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175" />
+            <img class ="img-podcast" src=./img/pruebas/$mostrar[imagen]  width="400" height= "175" />
             <h3> $mostrar[Titulo]</h3>
             <h5> $mostrar[Descripcion]</h5>
             </span> 
