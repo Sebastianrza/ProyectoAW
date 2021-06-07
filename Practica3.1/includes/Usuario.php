@@ -48,6 +48,7 @@ class Usuario//Que puede pasar?
             $rs->free();
         } else {
             return false;
+            rs->free();
         }
         return $result;
     }

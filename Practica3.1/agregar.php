@@ -7,7 +7,11 @@ $conn = $app->conexionBd();
 $tituloPagina = "Lista del Usuario";
 $idPodcast=$_GET['idPodcast'];
 $idLista=$_GET['idPlaylist'];
-Playlist::añadePodcast($idPodcast, $idLista);
+
+$comprobacion=Playlist::compruebaPodcast($idPodcast, $idLista);
+if(!$comprobacion){
+    Playlist::añadePodcast($idPodcast, $idLista);
+}
 
 $lista = Playlist::muestraPlaylist($idLista);
 

@@ -20,11 +20,11 @@ class FormularioCrearPlaylist extends Form
         // Se genera el HTML asociado a los campos del formulario y los mensajes de error.
         $html = <<<EOF
         <fieldset>
-            <legend>Usuario y contraseña</legend>
+            <legend>Nombre Playlist y Imagen</legend>
             $htmlErroresGlobales
             <p><label>Nombre de Playlist:</label> <input type="text" name="nombrePlaylist" placeholder='Introduce el nombre de la Playlist'/>$errorNombrePlaylist</p>
             <p><label>Descripcion:</label> <input type="text" name="descripcion" placeholder='Introduce la Descripción' />$errorDescripcion</p>
-            <p><label for="archivo">Archivo:</label><input type="file" name="archivo" id="archivo" accept=".jpg, .jpeg, .png" />$errorArchivo</p>
+            <p><label for="archivo">Imagen de la PlayList:</label><input type="file" name="archivo" id="archivo" accept=".jpg, .jpeg, .png" />$errorArchivo</p>
             <button type="submit" name="crear">Crear</button>
         </fieldset>
         EOF;

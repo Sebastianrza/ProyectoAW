@@ -37,7 +37,7 @@ class Playlist {
             , $conn->real_escape_string($nombreImg) 
             , $conn->real_escape_string($nombre));
         if ( $conn->query($query) ) {
-         
+        
         } else {
             echo "Error al insertar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
             exit();
@@ -131,6 +131,16 @@ class Playlist {
         $query="INSERT INTO listapodcast (idPodcast, idLista) VALUES('$idPodcast', '$idPlaylist')";
         $conn->query($query);
     }
+    public static function compruebaPodcast($idPodcast,$idLista){
+        $app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $query = "select idPodcast from listapodcast where idPodcast = '$idPodcast' and idLista = '$idLista'";
+        if($conn->query($query)){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public static function muestraPlaylist($idPlaylist){
         
         $app = Aplicacion::getSingleton();
@@ -156,6 +166,7 @@ class Playlist {
         //CONTENEDOR EXTERNO PARA TODA LA PLAYLIST  
         $html .=  "<div class= \"contenedorPlaylist\">";
         while($mostrar=mysqli_fetch_array($datos)){
+            
             //CONTENEDOR INDIVIDUAL PARA LA COLUMNAS INDIVIDUALES
             $html .= <<<EOF
             <span class="infoPlaylist">                         
