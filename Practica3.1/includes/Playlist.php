@@ -226,7 +226,7 @@ class Playlist {
         while($mostrar=mysqli_fetch_array($datos)){
             
             $html .= <<<EOF
-            <div class= "contenedorTitulo">
+            <div class= "contenedorTituloAgregar">
                 <span"><a href= AgregarPodcast.php?idPodcast=$idPodcastIntroducir&idPlaylist=$mostrar[idPlaylist]> <h3> $mostrar[Titulo]</h3></a></span> 
                 <h3> $mostrar[Descripcion]</h3>
                 <span class = "caja"><a href= AgregarPodcast.php?idPodcast=$idPodcastIntroducir&idPlaylist=$mostrar[idPlaylist] ><img class ="img-podcast" src=img/pruebas/$mostrar[imagen]  width="400" height= "175"     /></a></span> 
