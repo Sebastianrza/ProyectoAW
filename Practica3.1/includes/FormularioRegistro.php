@@ -81,7 +81,7 @@ class FormularioRegistro extends Form
         
         if (count($result) === 0) {
             $prueba = Usuario::compruebaUsuario($nombreUsuario, $email);
-            if(!prueba){
+            if($prueba == false){
                 $user = Usuario::crea($nombreUsuario, $nombre, $email, $bio, $password, 'user');
                 if ( ! $user ) {
                     $result[] = "El usuario ya existe";
