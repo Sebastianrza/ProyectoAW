@@ -27,16 +27,6 @@ USE `wavecast`;
 
 --
 -- Estructura de tabla para la tabla `comentarios`
---
-
-DROP TABLE IF EXISTS `comentarios`;
-CREATE TABLE `comentarios` (
-  `idComentario` int(255) NOT NULL,
-  `idPodcast` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `Texto` varchar(10000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- --------------------------------------------------------
 
 --
@@ -208,23 +198,7 @@ INSERT INTO `podcastag` (`podcastID`, `tagID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seguir`
---
-
-DROP TABLE IF EXISTS `seguir`;
-CREATE TABLE `seguir` (
-  `username` varchar(20) NOT NULL,
-  `idpodcast` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `seguir`
---
-
-INSERT INTO `seguir` (`username`, `idpodcast`) VALUES
-('Algonz', 1);
-
--- --------------------------------------------------------
+------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tag`
@@ -278,16 +252,7 @@ INSERT INTO `usuario` (`email`, `nombre`, `username`, `pass`, `biografia`, `rol`
 
 --
 -- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`idComentario`),
-  ADD KEY `idPodcast` (`idPodcast`),
-  ADD KEY `username` (`username`);
-
+-
 --
 -- Indices de la tabla `foro`
 --
@@ -329,12 +294,6 @@ ALTER TABLE `podcastag`
   ADD KEY `tag` (`tagID`);
 
 --
--- Indices de la tabla `seguir`
---
-ALTER TABLE `seguir`
-  ADD PRIMARY KEY (`username`,`idpodcast`),
-  ADD KEY `username` (`username`),
-  ADD KEY `seguir_ibfk_2` (`idpodcast`);
 
 --
 -- Indices de la tabla `tag`
@@ -350,14 +309,6 @@ ALTER TABLE `usuario`
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  MODIFY `idComentario` int(255) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `foro`
 --
@@ -387,13 +338,7 @@ ALTER TABLE `podcast`
 --
 
 --
--- Filtros para la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD CONSTRAINT `idPodcast` FOREIGN KEY (`idPodcast`) REFERENCES `podcast` (`idPodcast`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `username` FOREIGN KEY (`username`) REFERENCES `usuario` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
 -- Filtros para la tabla `listapodcast`
 --
 ALTER TABLE `listapodcast`
@@ -420,15 +365,7 @@ ALTER TABLE `podcast`
 ALTER TABLE `podcastag`
   ADD CONSTRAINT `podcast` FOREIGN KEY (`podcastID`) REFERENCES `podcast` (`idPodcast`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tag` FOREIGN KEY (`tagID`) REFERENCES `tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `seguir`
---
-ALTER TABLE `seguir`
-  ADD CONSTRAINT `seguir_ibfk_1` FOREIGN KEY (`username`) REFERENCES `usuario` (`username`),
-  ADD CONSTRAINT `seguir_ibfk_2` FOREIGN KEY (`idpodcast`) REFERENCES `podcast` (`idPodcast`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
+  COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

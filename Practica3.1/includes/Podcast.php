@@ -136,7 +136,7 @@ class Podcast
                 <div id="audioreproduciendo">
                     <span class = "caja">
                         <span class ="info">$mostrar[Descripcion]</span> 
-                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" />
+                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].jpg  width="175" height= "175" />
                     </span> 
                 </a>
                 </div>
@@ -147,7 +147,7 @@ class Podcast
                 <div id="audioreproduciendo" >
                     <span class = "caja" style="display:none;">
                         <span class ="info">$mostrar[Descripcion]</span> 
-                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" />
+                        <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].jpg  width="175" height= "175" />
                     </span> 
                 </a>
                 </div>
@@ -247,7 +247,7 @@ class Podcast
                     </div>
                 </div>
                 EOF;
-               
+            
             }
             return $html;
         }
@@ -257,7 +257,8 @@ class Podcast
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
 
-        $sql = "SELECT p.nombrePodcast, p.idPodcast, p.userPodcast from podcast P JOIN listapodcast ON listapodcast.idPodcast = p.idPodcast WHERE listapodcast.idLista = $idPlaylist";
+        $sql = "SELECT P.nombrePodcast, P.idPodcast, P.userPodcast from podcast P JOIN listapodcast ON listapodcast.idPodcast = P.idPodcast WHERE listapodcast.idLista = $idPlaylist";
+
         $datos = mysqli_query($conn, $sql);
         $html = "";
         $mostrar = "";
@@ -434,7 +435,7 @@ class Podcast
             while($mostrar=mysqli_fetch_array($datos)){
                 $html .= <<<EOF
                 <span class = "caja"><span class ="info">$mostrar[Descripcion]</span><a href=?idPodcast=$mostrar[idPodcast]>
-                <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].JPG  width="175" height= "175" alt=Los Tejos /></a></span> 
+                <img class ="img-pod" src=img/pruebas/$mostrar[idPodcast].jpg  width="175" height= "175" alt=Los Tejos /></a></span> 
                 <p> $mostrar[Descripcion]<p>
                 EOF;
                 
