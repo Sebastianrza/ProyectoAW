@@ -1,0 +1,917 @@
+body {
+	background-color: #CDCDCD;
+	}
+
+	.contenedorplaylist{
+	margin-top: 60px;
+	}
+	.contenedorUser{
+		display: flex;
+	}
+
+	div#contenedor {
+	width: 1500px;
+	margin: auto;
+	border: 1px solid black;
+	background-color: #03294E;
+	margin-top: 30px;
+	}
+
+	h1{
+	font-size: 60px;
+	font-family: TransformersMovie;
+	}
+	h3{
+		text-align: center;
+		font-size: 25px;
+		font-family: TransformersMovie;
+		color :#ffffff;
+	}
+
+	.bio, .podcast-subidos, .playlist-subida{
+		font-family: TransformersMovie;
+	}
+
+	header {
+	padding: 20px;
+	height: 110px;
+	background-color: #03294E;
+	background-image: url("../img/header.jpg");
+	color: white;
+	margin-inline: 10px;
+	}
+	.navbar{
+	display: flex;
+	align-items: center;
+	color: white;
+	}
+	.navigation{
+	background-color: #03284e00;    
+	padding: 10px;
+	width: 75%;
+	display: inline-block;
+	border-radius: 5px;
+	max-height: 80px;
+	margin-right:10px;
+	}
+
+	.navlist{
+	list-style-type: none;
+	overflow: hidden;
+	}
+
+	.nav-item a{
+	float: left;
+	display:block;
+	text-align: left;
+	margin-inline: 50px;
+	font-size: 26px;
+	padding: 10px;
+	color:#fff;
+	}
+
+	.nav-item a:hover{
+	background-color: rgb(0,0,0,0.1);
+	}
+
+	.close-icon i{
+	font-size:20px;
+	float: left;
+	cursor: pointer;
+	}
+
+	.hide{
+	display: none;
+	}
+
+	.bar-icon{
+	font-size: 50px;
+	display: inline-block;
+	margin-right:10px;
+	color: #fff;
+	cursor: pointer;
+	}
+
+	header a, header a:visited {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	} 
+
+	header a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	} 
+
+
+	nav {
+	padding: 10px;
+	float: left;
+	width: 170px;
+	height: 400px;
+	background-color: #dddddd;
+	}
+
+	nav a, nav a:visited {
+	/*color: black;*/
+	font-weight: bold;
+	text-decoration: none;
+	} 
+
+	nav a:hover {
+	color: black;
+	text-decoration: underline;
+	} 
+
+
+	aside {
+	padding: 10px;
+	float: right;
+	width: 170px;
+	height: 400px;
+	background-color: #dddddd;
+	}
+
+	main {
+	background-image: url("../img/logo_transparent.png");
+	background-repeat: no-repeat;
+	background-position-y: 48%;
+	background-position-x: 50%;
+	background-size: 81%;
+	float: center;
+	padding: 10px;
+	float: left;
+	min-height: 600px;
+	width: 1480px;
+	background-color: white;
+	}
+	.foot {
+	padding: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	clear: both;
+	background-image: url("../img/header.jpg");
+	text-align: center;
+	}
+
+	div.saludo {
+	padding: 0px;
+	width: 100%;
+	text-align: right;
+	}
+
+	fieldset .control {
+	width: 80%;
+	}
+
+	fieldset .grupo-control {
+	margin: 5px;
+	}
+	fieldset .control2{
+	height: 100px;
+	width: 400px;
+	}
+
+
+	fieldset {
+	border: 1px solid black;
+	width: 80%;
+	margin: 0 auto;
+	}
+
+	legend {
+	color: #fff;
+	background: #303030;
+	border: 1px solid black;
+	padding: 2px 6px;
+	} 
+
+	label {
+	/* 	width: 4em; */
+	/*	float: left; */
+	/* 	text-align: right; */
+	margin-right: 0.5em;
+	display: block;
+	}
+	@font-face {
+	font-family:aquire;
+	src:url('aquire.otf');
+	}
+
+	@font-face {
+	font-family:TransformersMovie;
+	src:url('TransformersMovie.ttf');
+	}
+
+	@font-face {
+		font-family:Akira;
+		src:url('Akira.otf');
+		}
+
+	.WaveCast-logo{
+	display: inline-block;
+	font-size: 40px;
+	font-family: aquire;
+	}
+
+	.btn-upload {
+	width: 180px;
+	padding: 4px;
+	border: 1px solid black;
+	border-radius: 5px;
+	display: block;
+	cursor: pointer;
+	}
+	.btn-prueba{
+	text-decoration:none;
+	font-weight: 400;
+	font-size: 15px;
+	color: white;
+	padding-top:10px;
+	padding-bottom:15px;
+	padding-left:40px;
+	padding-right:40px;
+	background-color:#0a0659;
+	border-color: #d8d8d8;
+	border-width: 3px;
+	border-style: solid;
+	border-radius:35px;
+	margin-left: 20%;
+	margin-right: 15%;
+	}
+	.icon{
+	max-width: 100%;
+	font-style: italic;
+	vertical-align: middle;
+	}
+	.p-foot{
+	color: white;
+	}
+	/*Reproductor*/
+
+	.imagenPlaylist{
+		border-radius: 5%;
+		width: 200px;
+		height: 200px;
+		margin-top: 5.5%;
+		margin-left: 12%;
+		margin-right: 12%;
+	}
+
+	.caja {
+	margin-inline: 20px;
+	}
+	.pertenece-User{
+		text-align: center;
+		font-size: 22px;
+	}
+	.user-redirecciona{
+		color: black;
+		font-size: 22px;
+	}
+	.audio_buttons{
+	margin-top: 20px;
+	margin-bottom: 15px;
+	display:inline-block;
+	width: 100%;
+	text-align: center;
+	}
+
+	.buttons{
+	margin-inline: 10px;
+	}
+
+	.progress-bar{
+	width:80%;
+	background:rgb(167, 164, 164);
+	height:25px;
+	border-radius: 8px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	margin-bottom: 15px;
+	}
+	.progressed{
+	width:0;
+	background:#60a3bc;
+	height:25px;
+	width: 50%;
+	border-radius: 8px;
+	}
+
+	.btn-audio {
+	margin-left: 10px;
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #60a3bc;
+	padding: 20px;
+	border-radius: 50px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+	}
+	.btn-audio:hover  {
+	color: #fff !important;
+	font-weight: 700 !important;
+	letter-spacing: 3px;
+	background: #60a3bc;
+	transition: all 0.3s ease 0s;
+	}
+
+	.img-podcast{
+		border-radius: 8px;
+		padding:8px;
+		width: 200px;
+		margin-left: 8.5%;
+		margin-right: 8.5%;
+		margin-top: 5%;
+	}
+	
+	.audio-control{
+		background-color: #03294E;
+		box-shadow:0 0 40px -10px #000;
+		border-radius: 50px;
+		margin: auto;
+		width: 60%;
+		margin-top: 20px;
+		position:sticky;
+		bottom: 5%;
+	}
+
+	.cajaplaylist{
+		display: inline-block;
+		position: relative;
+		margin-right: 1.5%;
+		margin-left: 1.5%;
+		background-color: #60a3bc;
+		padding: 7.5px;
+		border-radius: 5%;
+		width: 20%;
+		margin-top: 3%;
+		margin-bottom: 3%;
+		box-shadow:0 0 40px -10px #000;
+	}
+	.cajauser{
+		background-color: #60a3bc;
+		padding: 7.5px;
+		border-radius: 5%;
+		margin: auto;
+		width: 20%;
+		margin-top: 4%;
+		align-items: center;
+		display: flex;
+		margin-top: 60px;
+
+		}
+
+	.contenedorPlaylist{
+		display: block;
+		margin-top: 60px;
+	}
+
+	.tituloexplora{
+	font-size: 40px;
+	margin-left: 40%;
+	margin-top: 10px;
+	margin-bottom: 40px;
+	}
+
+	.infoPlaylist{
+	transition-duration: .3s;
+	text-decoration: none;
+	background-color: #60a3bc;
+	padding: 7.5px;
+	border-radius: 5%;
+	position: relative;
+	padding: 7.5px;
+	border-radius: 5%;
+	display:inline-block;
+	margin-right: 1.5%;
+	margin-left: 1.5%;
+	width: 20%;
+	margin-top: 3%;
+	}
+
+	.infoPlaylist:hover{
+	box-shadow:5px 7.5px 10px #464c4e;
+	cursor: pointer;
+	transform: scale(1.05);
+	/* transform: translateX(15px); */
+	transition-delay: .1s;
+	transition-duration: .3s;
+	}
+
+	.imagenPlaylistt{
+	border-radius: 5%;
+	width: 200px;
+	height: 200px;
+	margin-top: 8%;
+	margin-left: 16%;
+	}
+
+	.desc{
+	text-align: center;
+	font-size: 18px;
+	font-style: italic;
+	}
+
+	.res-foro{
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	}
+
+	h5{
+		text-align: center;
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-size: 15px;
+		color: black;
+	}
+
+	.caja {
+	position: relative; 
+	}
+
+	.info {
+	border-radius: 8px;
+	left: 2%;
+	position: absolute; 
+	top: 20%;
+	zoom: 1;
+	filter: alpha(opacity=0);
+	opacity: 0; 
+	padding: 5px;
+	color: white;
+	background: black;
+	-moz-transition:all ease .8s; 
+	-webkit-transition:all ease .8s ;
+	transition:all ease .8s;
+	}
+	.caja:hover .info {
+	filter: alpha(opacity=80);
+	opacity: .8; 
+	z-index: +10;
+	}
+
+	.img-pod{
+	border-radius: 8px;
+	padding:8px;
+	width: 94%;
+	height: 94%;
+	transition: transform .6s;
+	box-shadow:0 0 40px -10px #000;
+
+	}
+
+	.img-pod:hover{
+		transform: scale(1.2); 
+		transition: all 0.7s ease 0s;
+		background-color: #60a3bc;
+	}
+
+	.nombre-podcast{
+		color: rgb(255, 255, 255);
+		font-size: 20px;
+		text-align: center;
+	}
+
+	/**perfil*/
+	.img-podcast-perfil{
+		border-radius: 8px;
+		padding:8px;
+		width: 200px;
+		margin-left: 14%;
+		margin-right: 14%;
+		margin-top: 5%;
+	}
+
+	.btn-prueba-cambiaImagen{
+		text-decoration:none;
+		font-weight: 400;
+		font-size: 15px;
+		color: white;
+		padding-top:10px;
+		padding-bottom:15px;
+		padding-left:40px;
+		padding-right:40px;
+		background-color:#0a0659;
+		border-color: #d8d8d8;
+		border-width: 3px;
+		border-style: solid;
+		border-radius:35px;
+		margin-left: 2%;
+	}
+	.nombrePodcastPerfil{
+		font-size: 24px;
+		font-family: TransformersMovie;
+		text-align: center;
+		display: block;
+		margin-bottom: 2%;
+	}
+
+	.img-pod-perfil{
+		border-radius: 8px;
+		padding:8px;
+		width: 15%;
+		height: 15%;
+		transition: transform .6s;
+		box-shadow:0 0 40px -10px #000;
+	
+	}
+	
+	.img-pod-perfil:hover{
+		transform: scale(1.2); 
+		transition: all 0.7s ease 0s;
+		background-color: #60a3bc;
+	}
+
+	.User-bio{
+		font-size: 16px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+
+	.info-perfil{
+		color: black;
+		font-family: Akira;
+		text-align: left;
+	}
+
+	.User-Data{
+	font-family: 'Itim';
+	}
+	.podcast-user{
+	text-align: center;
+	}
+	#playlist-user{
+		display: none;
+	}
+
+	.list-user1{
+	font-size: 22px;
+	display: inline;
+	font-family: 'aquire';
+	margin-left: 3%;
+	color:#000000;
+	}
+	.imagen-user{
+	height: 25%;
+	width: 25%;
+	}
+	.subir-podc{
+	display: none;
+	}
+	.podc-fav{
+	display: none;
+	}
+	.seguidores{
+	display: none;
+	}
+	.siguiendo{
+	display: none;
+	}
+	.edit-perfil{
+	display:none;
+	}
+	.podc-user{
+		color: black;
+		font-size: 30px;
+		text-align: left;
+	}
+	.podcast-list{
+		margin-left: 6%;
+		margin-right: 6%;
+	}
+
+	.boton{
+		position: relative; 
+		bottom: -340px; 
+		right: -1000px; 
+	}
+	.boton-play{
+		width: 420%;
+	}
+	.btn-agregar-perfil{
+		text-decoration:none;
+		font-weight: 400;
+		font-size: 15px;
+		color: white;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		margin-bottom: 20px;
+		padding-left: 5px;
+		padding-right: 5px;
+		background-color:#0a0659;
+	}
+	/*tabla admin*/
+	.btn-admin{
+		text-decoration:none;
+		font-weight: 400;
+		font-size: 15px;
+		color: white;
+		padding-top: 2px;
+		padding-bottom:2px;
+		padding-left:15px;
+		padding-right:15px;
+		background-color:#0a0659;
+		border-color: #d8d8d8;
+		border-width: 3px;
+		border-style: solid;
+		border-radius:35px;
+	}
+	.act-admin{
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+		display: flex;
+		text-align: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border: 3px solid #0a0659;
+	}
+	.input-admin{
+		margin-bottom: 30px;
+		margin-left: 0;
+		float: left;
+		width: 50%;
+	}
+
+	.select-admin{
+		margin-bottom: 30px;
+		margin-left: 0;
+		float: left;
+	}
+
+	.container-home{
+		text-align: center;
+		overflow-x: auto;
+	}
+	.data_table{
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 20px;
+	}
+	.h2-caption{
+		font-weight: bold;
+	}
+	.table-admin{
+		text-align: center;
+	}
+	.encabezado{
+		color: white;
+		background-color: #0a0659;
+	}
+	.datos-admin{
+		text-align: center;
+		font-size: 30px;
+		background: rgba(3,41,78,0.8); 
+	}
+
+	/*Foro*/
+
+	h2{
+		font-size: 30px;
+	}
+
+	.foro{
+		margin:20px;
+		padding: 20px;
+		color:#FEFEFE;
+	}
+
+	b{
+		color:#FF0042;
+		font-weight: bolder;
+		text-decoration: none;
+	}
+	
+	.title-entrada{
+		font-size: 50px;
+	}
+	.foro{
+		margin:20px;
+		padding: 20px;
+	}
+	
+	.subforum{
+		margin-top:20px;
+	}
+	
+	.subforum-title{
+		background-color: #03294E;
+		padding:5px;
+		border-radius:5px;
+		margin: 4px;
+		box-shadow:0 0 40px -10px #000;
+
+	}
+	
+	.subforum-row{
+		display: grid;
+		grid-template-columns: 7% 60% 13% 20%;
+	}
+	
+	.subforum-column{
+		padding: 10px;
+		margin: 4px;
+		border-radius:5px;
+		background-color: #03294E;	}
+	
+	.subforum-icon{
+		font-size: 35px;
+		align-items:center;
+		box-shadow:0 0 40px -10px #000;
+	}
+	
+	.subforum-description{
+		box-shadow:0 0 40px -10px #000;
+	}
+
+	.subforum-stats{
+		box-shadow:0 0 40px -10px #000;
+	}
+
+	.subforum-info{
+		box-shadow:0 0 40px -10px #000;
+	}
+
+	.center{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/*Formulario foro*/
+
+	#campos-formulario{
+		visibility:collapse;
+	}
+
+	#formulario-foro{
+		width:250px;
+		height:200px;
+		background:#e6e6e6;
+		border-radius:8px;
+		box-shadow:0 0 40px -10px #000;
+		margin: auto;
+		padding:20px 30px;
+		box-sizing:border-box;
+		font-family:'Montserrat',sans-serif;
+		position:relative;
+	}
+
+	#bienvenida-formulario{
+		text-align:center;
+		color: #000000;
+	}
+
+	.marco-bienvenida{
+		border-radius:8px;
+		margin: auto;
+		width: 45%;
+		background:#e6e6e6;
+		box-shadow:0 0 40px -10px #000;
+	}
+
+	/*Explora*/
+
+	.cajaUser{
+	width: 25%;
+	}
+
+	.nombreUserBusqueda{
+		text-align: center;
+		color: #000000;
+		font-size: 20px;
+		font-family:Akira;
+
+	}
+
+	.imagenUser{
+		margin-left: 2%;
+		border-radius: 8%;
+		box-shadow:0 0 40px -10px #000;
+		width: 100%;
+		height: 100%;
+
+	}
+
+	#fname{
+		background: #e6e6e6;
+		border: 1px solid #393939;
+		border-radius: 5px 5px 5px 5px;
+		color: #393939;
+		font-size: 15px;
+		padding: 5px;
+		height: 30px;
+		margin-top: 1%;
+	}
+
+	.btn_search{
+		margin-left: 10px;
+		color: #fff !important;
+		text-transform: uppercase;
+		text-decoration: none;
+		background: #60a3bc;
+		padding: 20px;
+		border-radius: 50px;
+		display: inline-block;
+		border: none;
+		transition: all 0.4s ease 0s;
+	}
+
+	.btn-audio:hover{
+		cursor: pointer;
+	}
+	#tipo-busqueda{
+		text-align: center;
+		font-family: aquire;
+	   }
+	.enlacepod{
+		color: #000000;
+	}
+	.podcastreproduciendo-contenedor{
+		width: 30%;
+		height: 30%;
+		margin: auto;
+	}
+	#podcastsubidos:hover{
+        cursor: pointer;
+    }
+
+	
+    #infoperfil:hover{
+        cursor: pointer;
+		
+    }
+    .Podcast-Data{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+
+/*boton agregar*/
+.btn-agregar{
+	text-decoration:none;
+	font-weight: 400;
+	font-size: 15px;
+	color: white;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color:#0a0659;
+	
+}
+
+
+/*Agregar Podcast*/
+
+.contenedorTituloAgregar{
+	width: 21%;
+	margin-left: 10%;
+	margin-top: 5%;
+	background-color: #60a3bc;
+	border-radius: 5%;
+	box-shadow:0 0 40px -10px #000;
+
+}
+
+.img-podcast-agregar{
+	border-radius: 8px;
+	padding:8px;
+	width: 200px;
+	margin-left: 14%;
+	margin-right: 14%;
+	margin-top: 2%;
+}
+
+.img-podcast-busqueda{
+	border-radius: 8px;
+	padding:8px;
+	width: 200px;
+	margin-left: 13%;
+	margin-right: 13%;
+	margin-top: 6%;
+}
+
+.btn-creaPlaylist{
+	text-decoration:none;
+	font-weight: 400;
+	font-size: 15px;
+	color: white;
+	padding-top:10px;
+	padding-bottom:15px;
+	padding-left:40px;
+	padding-right:40px;
+	background-color:#0a0659;
+	border-color: #d8d8d8;
+	border-width: 3px;
+	border-style: solid;
+	border-radius:35px;
+	margin-right: 26%;
+	margin-left: 74%;
+}
